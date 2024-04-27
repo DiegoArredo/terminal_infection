@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.tileset-texture"
+type="PackedDataContainer"
+uid="uid://c8n5bnrjy17yv"
+path="res://.godot/imported/Blood Desert Tileset.aseprite-7c5c267b5c50cdbd761e5949676e78e9.res"
+
+[deps]
+
+source_file="res://Blood ForestDesert/Blood Desert Tileset.aseprite"
+dest_files=["res://.godot/imported/Blood Desert Tileset.aseprite-7c5c267b5c50cdbd761e5949676e78e9.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b8hmoa8b17w0"
+path="res://.godot/imported/Archer.aseprite-094249ec9bf64d1f43a6227ce7945ff2.res"
+
+[deps]
+
+source_file="res://01 Stranded - Starter Pack v1.1/Enemies/Archer/Archer.aseprite"
+dest_files=["res://.godot/imported/Archer.aseprite-094249ec9bf64d1f43a6227ce7945ff2.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://4bc64ctfrbf8"
+path="res://.godot/imported/Hero.aseprite-691bb68527302469706b3a0670e7b772.res"
+
+[deps]
+
+source_file="res://01 Stranded - Starter Pack v1.1/Hero/Hero/Hero.aseprite"
+dest_files=["res://.godot/imported/Hero.aseprite-691bb68527302469706b3a0670e7b772.res"]
+
+[params]
+
