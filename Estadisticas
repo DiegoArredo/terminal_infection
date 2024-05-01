@@ -1,0 +1,76 @@
+extends Node
+
+
+class Melee:
+	var vida_actual : float = 120
+	var vida_maxima : float = 120
+	var experiencia : int = 0
+	var experiencia_maxima : int = 150
+
+	func recibir_danio(danio_recibido: float):
+		vida_actual -= danio_recibido
+		if vida_actual <= 0:
+			vida_actual = 0
+		 
+
+	func ganar_experiencia(cantidad: int):
+		experiencia += cantidad
+		if experiencia >= experiencia_maxima:
+			subir_nivel()
+
+	func subir_nivel():
+		experiencia -= experiencia_maxima
+		experiencia_maxima += 50
+		vida_maxima += 20
+		vida_actual = vida_maxima
+
+	func mostrar_estadisticas():
+		print("Melee:")
+		print("Vida actual:", vida_actual)
+		print("Vida máxima:", vida_maxima)
+		print("Experiencia:", experiencia)
+		print("Experiencia máxima:", experiencia_maxima)
+
+#-------------------------------------------------------------------------------------------------------
+
+
+class Shooter:
+	var vida_actual : float = 80
+	var vida_maxima : float = 80
+	var experiencia : int = 0
+	var experiencia_maxima : int = 200
+
+	func recibir_danio(danio_recibido: float):
+		vida_actual -= danio_recibido
+		if vida_actual <= 0:
+			vida_actual = 0
+		 
+
+	func ganar_experiencia(cantidad: int):
+		experiencia += cantidad
+		if experiencia >= experiencia_maxima:
+			subir_nivel()
+
+	func subir_nivel():
+		experiencia -= experiencia_maxima
+		experiencia_maxima += 70
+		vida_maxima += 10
+		vida_actual = vida_maxima
+
+	func mostrar_estadisticas():
+		print("Shooter:")
+		print("Vida actual:", vida_actual)
+		print("Vida máxima:", vida_maxima)
+		print("Experiencia:", experiencia)
+		print("Experiencia máxima:", experiencia_maxima)
+
+
+func _ready():
+	var melee = Melee.new()
+	var shooter = Shooter.new()
+
+	melee.recibir_danio(30)
+	shooter.ganar_experiencia(100)
+
+	melee.mostrar_estadisticas()
+	shooter.mostrar_estadisticas()
