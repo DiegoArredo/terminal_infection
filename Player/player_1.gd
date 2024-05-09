@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@export var bullet:PackedScene
 
 var speed = 100
 
@@ -34,3 +34,10 @@ func _physics_process(delta):
 	
 	
 	position += velocity * delta
+	if Input.is_action_just_pressed("disparo"):
+		disparar()
+
+func disparar():
+	var newbullet = bullet.instantiate()
+	newbullet.global_position = $spaw_bullet.global_position
+	owner.add_child(newbullet)
