@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://brdcwgf2o1ttn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyma5"]
+size = Vector2(93, 97)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pl0p0"]
+
+[node name="OrbeExperiencia" type="Area2D" groups=["experiencia"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["experiencia"]]
+position = Vector2(48, 48)
+shape = SubResource("RectangleShape2D_gyma5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["experiencia"]]
+modulate = Color(0, 0.491304, 0.491374, 1)
+position = Vector2(48, 48)
+texture = SubResource("CanvasTexture_pl0p0")
+region_enabled = true
+region_rect = Rect2(100, 100, 100, 100)
