@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwk4lkx20owd2"]
+[gd_scene load_steps=10 format=3 uid="uid://bwk4lkx20owd2"]
 
 [ext_resource type="Texture2D" uid="uid://cfpr2kias35l5" path="res://Resources/Blood ForestDesert/Blood Desert Tileset.png" id="1_fmjd3"]
 [ext_resource type="PackedScene" uid="uid://7mp71bjng6bp" path="res://Player/player_1.tscn" id="2_2y51y"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://d38k6op1j4csd" path="res://Enemies/enemy_1.tscn" id="5_c5kkf"]
 [ext_resource type="PackedScene" uid="uid://df0xf0ygmrmlg" path="res://Enemies/enemy_2.tscn" id="6_u82a5"]
 [ext_resource type="PackedScene" uid="uid://c1fmnxygnm50j" path="res://Enemies/monster_1.tscn" id="7_okl0x"]
-[ext_resource type="PackedScene" uid="uid://cto6cevkt1kwo" path="res://SistemaSubidaNivel/main.tscn" id="8_ktqja"]
 [ext_resource type="PackedScene" uid="uid://dij2sbe07klpo" path="res://Enemies/monster_2.tscn" id="8_xcfc1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nqkdi"]
@@ -225,6 +224,3 @@ position = Vector2(146, 88)
 [node name="player_scifi_blue" parent="Player" instance=ExtResource("4_sddi4")]
 visible = false
 position = Vector2(97, 72)
-
-[node name="SistemaSubidaDeNivel" parent="." instance=ExtResource("8_ktqja")]
-position = Vector2(0, -2)
