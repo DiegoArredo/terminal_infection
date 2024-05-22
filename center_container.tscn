@@ -1,8 +1,10 @@
-[gd_scene format=3 uid="uid://68temrys8bf2"]
+[gd_scene load_steps=2 format=3 uid="uid://68temrys8bf2"]
+
+[ext_resource type="PackedScene" uid="uid://del12aevkuvh0" path="res://row.tscn" id="1_10v06"]
 
 [node name="CenterContainer" type="PanelContainer"]
-offset_right = 704.0
-offset_bottom = 176.0
+offset_right = 784.0
+offset_bottom = 232.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(650, 0)
@@ -11,45 +13,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer6" parent="VBoxContainer" instance=ExtResource("1_10v06")]
 layout_mode = 2
 
-[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.0
-
-[node name="Container" type="Container" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.7
-
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Container" type="Container" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="HBoxContainer2" parent="VBoxContainer" instance=ExtResource("1_10v06")]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="HBoxContainer3" parent="VBoxContainer" instance=ExtResource("1_10v06")]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="VBoxContainer"]
+[node name="HBoxContainer4" parent="VBoxContainer" instance=ExtResource("1_10v06")]
 layout_mode = 2
 
-[node name="Label4" type="Label" parent="VBoxContainer"]
+[node name="HBoxContainer5" parent="VBoxContainer" instance=ExtResource("1_10v06")]
 layout_mode = 2

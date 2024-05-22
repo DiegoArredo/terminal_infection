@@ -1,9 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://pwkqiyuqrbui"]
+[gd_scene load_steps=6 format=3 uid="uid://pwkqiyuqrbui"]
 
 [ext_resource type="Script" path="res://treeSistemaSubidaNivel/guiSubidaNivel/levelUpWindow.gd" id="1_tk73u"]
 [ext_resource type="PackedScene" uid="uid://68temrys8bf2" path="res://center_container.tscn" id="2_o58j6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1ltnk"]
+
+[sub_resource type="FontFile" id="FontFile_kw05h"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_tixhv"]
+default_font = SubResource("FontFile_kw05h")
 
 [node name="LevelUpWindow" type="Control"]
 layout_mode = 3
@@ -23,6 +34,7 @@ script = ExtResource("1_tk73u")
 metadata/_edit_group_ = true
 
 [node name="Window" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,7 +50,7 @@ grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="Window"]
 layout_mode = 2
-color = Color(0.357123, 0.0238934, 0.228559, 1)
+color = Color(0.512611, 0.000204315, 0.51855, 1)
 
 [node name="PanelContainer" type="PanelContainer" parent="Window"]
 modulate = Color(0, 0, 0, 0.14902)
@@ -48,9 +60,11 @@ layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = SubResource("Theme_tixhv")
 
 [node name="ColorRect" type="ColorRect" parent="Window/PanelContainer"]
 layout_mode = 2
+color = Color(0.190762, 0.190762, 0.190762, 1)
 
 [node name="HsplitContainer" type="VBoxContainer" parent="Window/PanelContainer"]
 clip_contents = true
@@ -77,5 +91,3 @@ alignment = 1
 
 [node name="Button" type="Button" parent="Window/PanelContainer/HsplitContainer/FlowContainer3"]
 layout_mode = 2
-
-[editable path="Window/PanelContainer/HsplitContainer/CenterContainer"]
