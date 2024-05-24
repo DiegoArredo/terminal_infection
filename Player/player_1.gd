@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var speed = 100
-
+@export var inv: Inv
 @onready var animation = get_node("AnimationPlayer")
 
 func _physics_process(delta):
@@ -20,3 +20,6 @@ func _physics_process(delta):
 		animation.play("walk_side")
 		$AnimatedSprite2D.flip_v = false
 		$AnimatedSprite2D.flip_h = velocity.x > 0
+		
+func collect(item):
+	inv.insert(item)

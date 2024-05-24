@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr3vwbbqswgc8"]
+
+[ext_resource type="Script" path="res://pausa/MenuInfo.gd" id="1_guc8s"]
+[ext_resource type="Texture2D" uid="uid://c2nfoxrf8t5na" path="res://Resources/tableropng.png" id="5_8vj30"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_guc8s")
+
+[node name="Menu" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+visible = false
+offset_left = 474.0
+offset_top = 128.0
+offset_right = 745.0
+offset_bottom = 506.0
+color = Color(0.0156863, 0, 0, 0.262745)
+
+[node name="Label" type="Label" parent="Menu"]
+offset_left = 592.0
+offset_top = 153.0
+offset_right = 649.0
+offset_bottom = 176.0
+text = "PAUSA"
+
+[node name="Reanudar" type="Button" parent="Menu"]
+offset_left = 554.0
+offset_top = 243.0
+offset_right = 685.0
+offset_bottom = 286.0
+text = "REANUDAR
+"
+
+[node name="Salir" type="Button" parent="Menu"]
+offset_left = 580.0
+offset_top = 357.0
+offset_right = 660.0
+offset_bottom = 391.0
+text = "SALIR
+"
+
+[node name="Reiniciar" type="Button" parent="Menu"]
+offset_left = 567.0
+offset_top = 301.0
+offset_right = 673.0
+offset_bottom = 343.0
+text = "REINICIAR"
+
+[node name="tablero" type="Sprite2D" parent="Menu"]
+z_index = -1
+position = Vector2(616, 313)
+scale = Vector2(1.56637, 1.8385)
+texture = ExtResource("5_8vj30")
+
+[connection signal="pressed" from="Menu/Reanudar" to="." method="_on_reanudar_pressed"]
+[connection signal="pressed" from="Menu/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="Menu/Reiniciar" to="." method="_on_reiniciar_pressed"]
