@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://ishjavr87n6j"]
+
+[ext_resource type="Texture2D" uid="uid://cxrayyj4evkds" path="res://Resources/01 Stranded - Starter Pack/Hero/Hero/gun sprite BLUE.png" id="1_0vxp6"]
+[ext_resource type="Script" path="res://Guns/gun.gd" id="1_eeb37"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_irsvh"]
+radius = 53.0094
+
+[node name="Gun" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_eeb37")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_irsvh")
+
+[node name="weaponpivot" type="Marker2D" parent="."]
+
+[node name="pistol" type="Sprite2D" parent="weaponpivot"]
+position = Vector2(13, 0)
+texture = ExtResource("1_0vxp6")
+
+[node name="shootingpoint" type="Marker2D" parent="weaponpivot/pistol"]
+unique_name_in_owner = true
+position = Vector2(8, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

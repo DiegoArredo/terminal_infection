@@ -1,7 +1,8 @@
-[gd_scene load_steps=47 format=3 uid="uid://7mp71bjng6bp"]
+[gd_scene load_steps=48 format=3 uid="uid://7mp71bjng6bp"]
 
 [ext_resource type="Texture2D" uid="uid://o0qls6p0us05" path="res://Resources/01 Stranded - Starter Pack v1.1/Hero/Hero/Hero spritesheet YELLOW with shadow.png" id="1_o7xtk"]
 [ext_resource type="Script" path="res://Player/player_1.gd" id="1_v1ata"]
+[ext_resource type="PackedScene" uid="uid://ishjavr87n6j" path="res://Guns/gun.tscn" id="3_cxu68"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56ltn"]
 radius = 5.0
@@ -450,6 +451,8 @@ _data = {
 
 [node name="Player_1" type="CharacterBody2D"]
 script = ExtResource("1_v1ata")
+
+[node name="Gun" parent="." instance=ExtResource("3_cxu68")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
