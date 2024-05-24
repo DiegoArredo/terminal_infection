@@ -4,31 +4,32 @@
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -133.0
-offset_bottom = -71.0
-grow_horizontal = 2
-grow_vertical = 2
+anchor_right = 1.056
+anchor_bottom = 1.089
+offset_right = 70.3201
+offset_bottom = 15.9199
 scale = Vector2(0.9, 0.9)
+size_flags_horizontal = 8
+size_flags_vertical = 3
 theme = ExtResource("1_tasrj")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 133.333
-offset_top = 80.0
-offset_right = 1413.33
-offset_bottom = 800.0
+offset_left = 142.222
+offset_top = 71.1111
+offset_right = 1422.22
+offset_bottom = 791.111
 scale = Vector2(0.9, 0.9)
 metadata/_edit_group_ = true
 
 [node name="PanelContainer4" type="PanelContainer" parent="."]
 layout_mode = 2
-offset_left = 181.333
-offset_top = 128.0
-offset_right = 1357.33
-offset_bottom = 280.0
+offset_left = 195.556
+offset_top = 133.333
+offset_right = 1371.56
+offset_bottom = 285.333
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.9, 0.9)
 size_flags_vertical = 3
 metadata/_edit_group_ = true
@@ -39,10 +40,12 @@ text = "Level up!!"
 
 [node name="PanelContainer3" type="PanelContainer" parent="."]
 layout_mode = 2
-offset_left = 261.111
-offset_top = 320.0
-offset_right = 1285.11
-offset_bottom = 515.0
+offset_left = 270.0
+offset_top = 311.111
+offset_right = 1294.0
+offset_bottom = 506.111
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.9, 0.9)
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
@@ -154,10 +157,12 @@ text = "a
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 layout_mode = 2
-offset_left = 181.111
-offset_top = 551.111
-offset_right = 1357.11
-offset_bottom = 703.111
+offset_left = 190.0
+offset_top = 542.222
+offset_right = 1366.0
+offset_bottom = 694.222
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.9, 0.9)
 size_flags_vertical = 3
 metadata/_edit_group_ = true
