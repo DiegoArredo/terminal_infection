@@ -1,5 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://c1fmnxygnm50j"]
+[gd_scene load_steps=37 format=3 uid="uid://c1fmnxygnm50j"]
 
+[ext_resource type="Script" path="res://Enemies/monster_1.gd" id="1_t7j0v"]
 [ext_resource type="Texture2D" uid="uid://bjp7xt72dlyv7" path="res://Resources/Top Down monster pack 1/Monster 1/34x15 Monster 1 with shadows.png" id="1_y3n72"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vy46c"]
@@ -352,6 +353,7 @@ _data = {
 [node name="monster_1" type="CharacterBody2D"]
 position = Vector2(1, -2)
 collision_layer = 2
+script = ExtResource("1_t7j0v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)

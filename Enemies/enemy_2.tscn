@@ -1,5 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://df0xf0ygmrmlg"]
+[gd_scene load_steps=41 format=3 uid="uid://df0xf0ygmrmlg"]
 
+[ext_resource type="Script" path="res://Enemies/enemy_2.gd" id="1_3lupw"]
 [ext_resource type="Texture2D" uid="uid://keunl5te023i" path="res://Resources/01 Stranded - Starter Pack v1.1/Enemies/Guard/Guard spritesheet with shadow.png" id="1_eqeyi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v36xc"]
@@ -380,6 +381,7 @@ _data = {
 [node name="enemy_2" type="CharacterBody2D"]
 position = Vector2(3, -3)
 collision_layer = 2
+script = ExtResource("1_3lupw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 3)

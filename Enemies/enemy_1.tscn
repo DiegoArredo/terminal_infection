@@ -1,6 +1,7 @@
-[gd_scene load_steps=44 format=3 uid="uid://d38k6op1j4csd"]
+[gd_scene load_steps=33 format=3 uid="uid://d38k6op1j4csd"]
 
 [ext_resource type="Texture2D" uid="uid://bhs0wrs58xvmk" path="res://Resources/01 Stranded - Starter Pack v1.1/Enemies/Warrior/Warrior spritesheet with shadow.png" id="1_88ssk"]
+[ext_resource type="Script" path="res://Enemies/enemy_1.gd" id="1_q4mxm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xdw63"]
 radius = 5.0
@@ -321,52 +322,10 @@ _data = {
 "walk": SubResource("Animation_j7vyk")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y0w03"]
-animation = &"atack"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lvgyj"]
-animation = &"death"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v0iat"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_shg1h"]
-animation = &"walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_62jij"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_704mt"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ub55i"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j4l2o"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gx1l3"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fb7et"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_axiot"]
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5nf6x"]
-states/atack/node = SubResource("AnimationNodeAnimation_y0w03")
-states/atack/position = Vector2(530, 232)
-states/death/node = SubResource("AnimationNodeAnimation_lvgyj")
-states/death/position = Vector2(790, 93)
-states/idle/node = SubResource("AnimationNodeAnimation_v0iat")
-states/idle/position = Vector2(445, 93)
-states/walk/node = SubResource("AnimationNodeAnimation_shg1h")
-states/walk/position = Vector2(654, 93)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_62jij"), "atack", "idle", SubResource("AnimationNodeStateMachineTransition_704mt"), "atack", "walk", SubResource("AnimationNodeStateMachineTransition_ub55i"), "idle", "atack", SubResource("AnimationNodeStateMachineTransition_j4l2o"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_gx1l3"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fb7et"), "walk", "atack", SubResource("AnimationNodeStateMachineTransition_axiot")]
-graph_offset = Vector2(-47.1318, 0)
-
 [node name="enemy_1" type="CharacterBody2D"]
 position = Vector2(1, -5)
 collision_layer = 2
+script = ExtResource("1_q4mxm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 5)
@@ -375,7 +334,7 @@ shape = SubResource("CapsuleShape2D_xdw63")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_alf3b")
-animation = &"walk"
+animation = &"idle"
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -383,7 +342,3 @@ libraries = {
 "": SubResource("AnimationLibrary_l4med")
 }
 autoplay = "idle"
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_5nf6x")
-anim_player = NodePath("../AnimationPlayer")
