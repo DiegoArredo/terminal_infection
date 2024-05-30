@@ -229,7 +229,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_37fnf"]
 resource_name = "death"
-length = 0.8
+length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -335,9 +335,12 @@ shape = SubResource("CapsuleShape2D_xdw63")
 position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_alf3b")
 animation = &"death"
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_l4med")
 }
 autoplay = "idle"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
