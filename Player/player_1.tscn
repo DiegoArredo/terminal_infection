@@ -461,7 +461,7 @@ shape = SubResource("CapsuleShape2D_56ltn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m5o3m")
-animation = &"walk_side"
+animation = &"idle"
 frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]

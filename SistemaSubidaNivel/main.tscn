@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cto6cevkt1kwo"]
 
 [ext_resource type="Script" path="res://SistemaSubidaNivel/BarraDeExperiencia.gd" id="1_0vr83"]
-[ext_resource type="PackedScene" uid="uid://b7uxqxydktg5d" path="res://levelUpWindow.tscn" id="1_bld37"]
+[ext_resource type="PackedScene" uid="uid://pwkqiyuqrbui" path="res://levelUpWindow.tscn" id="1_bld37"]
 [ext_resource type="Script" path="res://SistemaSubidaNivel/main.gd" id="1_mqajj"]
 [ext_resource type="PackedScene" uid="uid://brdcwgf2o1ttn" path="res://OrbeExperiencia.tscn" id="2_ud8lp"]
 
