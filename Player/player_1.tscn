@@ -1,13 +1,13 @@
-[gd_scene load_steps=49 format=3 uid="uid://7mp71bjng6bp"]
+[gd_scene load_steps=53 format=3 uid="uid://7mp71bjng6bp"]
 
 [ext_resource type="Texture2D" uid="uid://o0qls6p0us05" path="res://Resources/01 Stranded - Starter Pack v1.1/Hero/Hero/Hero spritesheet YELLOW with shadow.png" id="1_o7xtk"]
 [ext_resource type="Script" path="res://Player/player_1.gd" id="1_v1ata"]
 [ext_resource type="PackedScene" uid="uid://ishjavr87n6j" path="res://Guns/gun.tscn" id="3_cxu68"]
+[ext_resource type="Script" path="res://FSM/CharacterStateMachine.gd" id="3_wm7ag"]
 [ext_resource type="PackedScene" uid="uid://bfhdw38bblafs" path="res://inventory/inv_ui.tscn" id="4_4erd1"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56ltn"]
-radius = 5.0
-height = 16.0
+[ext_resource type="Script" path="res://Player/PlayerFSM/Idle.gd" id="6_7a6s0"]
+[ext_resource type="Script" path="res://Player/PlayerFSM/Walking.gd" id="7_gkywn"]
+[ext_resource type="Script" path="res://Player/PlayerFSM/Death.gd" id="8_43amm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mybho"]
 atlas = ExtResource("1_o7xtk")
@@ -282,6 +282,10 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56ltn"]
+radius = 5.0
+height = 16.0
+
 [sub_resource type="Animation" id="Animation_v764p"]
 length = 0.001
 tracks/0/type = "value"
@@ -454,16 +458,14 @@ _data = {
 collision_mask = 2
 script = ExtResource("1_v1ata")
 
-[node name="Gun" parent="." instance=ExtResource("3_cxu68")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m5o3m")
+animation = &"death"
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_56ltn")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_m5o3m")
-animation = &"walk_down"
-frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -478,7 +480,23 @@ libraries = {
 }
 autoplay = "idle"
 
+[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_wm7ag")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("6_7a6s0")
+
+[node name="Walking" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("7_gkywn")
+
+[node name="Death" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("8_43amm")
+
+[node name="Gun" parent="." instance=ExtResource("3_cxu68")]
+
 [node name="Inv_UI" parent="." instance=ExtResource("4_4erd1")]
+visible = false
 offset_left = -39.0
 offset_top = -81.0
 offset_right = 42.0

@@ -1,25 +1,19 @@
+@icon ("res://Resources/01 Stranded - Starter Pack/Hero/Hero/Hero_icon.png")
 extends CharacterBody2D
-var speed = 100
-@export var inv: Inv
-@onready var animation = get_node("AnimationPlayer")
 
+@export var inv: Inv
+@onready var animated_sprite = $AnimatedSprite2D
+@onready var animation = $AnimationPlayer
+
+var speed = 100
+
+
+func _ready():
+	$CharacterStateMachine.init(self, animated_sprite, animation)
 func _physics_process(delta):
+	$CharacterStateMachine._physics_process(delta)
+func _process(delta):
+	$CharacterStateMachine._process(delta)
 	
-	var direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * speed 
-	move_and_slide()
-	
-	if velocity.x == 0 and velocity.y == 0:
-		animation.play("idle")
-	if velocity.x == 0 and velocity.y < 0:
-		animation.play("walk_up")
-	elif velocity.x == 0 and velocity.y > 0:
-		animation.play("walk_down")
-		
-	if velocity.x != 0:
-		animation.play("walk_side")
-		$AnimatedSprite2D.flip_v = false
-		$AnimatedSprite2D.flip_h = velocity.x > 0
-		
 func collect(item):
 	inv.insert(item)
