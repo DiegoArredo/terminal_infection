@@ -283,8 +283,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56ltn"]
-radius = 5.0
-height = 16.0
+radius = 4.0
+height = 10.0
 
 [sub_resource type="Animation" id="Animation_v764p"]
 length = 0.001
@@ -455,16 +455,18 @@ _data = {
 }
 
 [node name="Player_1" type="CharacterBody2D"]
-collision_mask = 2
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_v1ata")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m5o3m")
-animation = &"death"
+animation = &"idle"
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 10)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_56ltn")
 
 [node name="Camera2D" type="Camera2D" parent="."]

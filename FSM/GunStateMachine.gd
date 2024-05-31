@@ -1,19 +1,18 @@
 extends Node
 
-
-@export var initial_state : CharacterState
-@export var current_state : CharacterState
+@export var initial_state : GunState
+@export var current_state : GunState
 var states: Dictionary = {}
 
-
-func init(parent: CharacterBody2D, animated_sprite: AnimatedSprite2D, animation: AnimationPlayer):
+func init(parent: Area2D, shooting_point: Marker2D, sprite: Sprite2D):
 	for child in get_children():
-		if child is CharacterState:
+		if child is GunState:
 			states[child.name.to_lower()] = child
 			child.parent = parent
-			child.animated_sprite = animated_sprite
-			child.animation = animation
+			child.sprite = sprite
+			child.shooting_point = shooting_point
 			child.state_transition.connect(change_state)
+			
 	if initial_state:
 		initial_state.Enter()
 		current_state = initial_state
@@ -27,10 +26,10 @@ func _physics_process(delta):
 		current_state.Update_physics(delta)
 
 
-func change_state(state: CharacterState, new_state_name):
+func change_state(state: GunState, new_state_name):
 	if state != current_state:
 		return
-	
+
 	var new_state = states.get(new_state_name.to_lower())
 	
 	if current_state:

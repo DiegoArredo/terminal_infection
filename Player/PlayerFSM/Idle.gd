@@ -1,4 +1,4 @@
-extends State
+extends CharacterState
 
 #@export var walking : State
 #@export var attacking : State

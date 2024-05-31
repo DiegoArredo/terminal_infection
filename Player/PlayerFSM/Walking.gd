@@ -1,4 +1,4 @@
-extends State
+extends CharacterState
 
 #@export var idle : State
 #@export var attacking : State

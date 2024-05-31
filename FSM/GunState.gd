@@ -1,11 +1,10 @@
 extends Node
-class_name State
+class_name GunState
 
 signal state_transition
-
-@export var animation : AnimationPlayer
-@export var animated_sprite : AnimatedSprite2D 
-var parent : CharacterBody2D
+var parent : Area2D
+var sprite : Sprite2D
+var shooting_point : Marker2D
 
 func Enter():
 	pass
