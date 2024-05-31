@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwwim366rcpdh"]
+
+[ext_resource type="Script" path="res://SpawnEnemy/Area2D.gd" id="1_1jbmh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iklvt"]
+size = Vector2(41, 41)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_1jbmh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_iklvt")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.612
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

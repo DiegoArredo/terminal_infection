@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bwk4lkx20owd2"]
+[gd_scene load_steps=31 format=3 uid="uid://bwk4lkx20owd2"]
 
 [ext_resource type="Texture2D" uid="uid://cfpr2kias35l5" path="res://Resources/Blood ForestDesert/Blood Desert Tileset.png" id="1_fmjd3"]
 [ext_resource type="Texture2D" uid="uid://b1wefbwjerenv" path="res://Resources/Ancient Caves Tileset (3)/Ancient Caves Tileset/Tileset and SpriteSheets/Tileset Add on3.png" id="1_lgp7e"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://db3iqvtnu2vv6" path="res://Resources/Stranded Pack 2/png's/bones 5.png" id="7_ouwig"]
 [ext_resource type="Texture2D" uid="uid://dep5hwopl50t6" path="res://Resources/Stranded Pack 2/png's/bones 4.png" id="8_2oee0"]
 [ext_resource type="Texture2D" uid="uid://du07wfbx8yc3e" path="res://Resources/Blood ForestDesert/Separate Sprites/Skull.png" id="10_fkhcx"]
+[ext_resource type="PackedScene" uid="uid://bwwim366rcpdh" path="res://SpawnEnemy/area_2d.tscn" id="17_4dhuh"]
 [ext_resource type="PackedScene" uid="uid://dr3vwbbqswgc8" path="res://pausa/menuPausa.tscn" id="19_slkc2"]
 [ext_resource type="PackedScene" uid="uid://bdki7ga6erwcs" path="res://Objetos/tarjeta.tscn" id="20_31x06"]
 
@@ -463,21 +464,24 @@ layer_1/tile_data = PackedInt32Array(655401, 327682, 6, 786483, 327682, 6, 19665
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="enemy_1" parent="Enemies" instance=ExtResource("5_c5kkf")]
-position = Vector2(292, 73)
-
-[node name="enemy_2" parent="Enemies" instance=ExtResource("5_c5kkf")]
-position = Vector2(145, 56)
-
-[node name="enemy_3" parent="Enemies" instance=ExtResource("5_c5kkf")]
-position = Vector2(215, 62)
-
-[node name="enemy_4" parent="Enemies" instance=ExtResource("5_c5kkf")]
-position = Vector2(147, 84)
+position = Vector2(141.4, 109.329)
 
 [node name="Player" type="Node2D" parent="."]
 
 [node name="Player_1" parent="Player" instance=ExtResource("2_2y51y")]
-position = Vector2(173, 130)
+position = Vector2(201, 170)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("19_slkc2")]
 visible = false
+
+[node name="Area2D" parent="." instance=ExtResource("17_4dhuh")]
+position = Vector2(186, 714)
+
+[node name="Area2D2" parent="." instance=ExtResource("17_4dhuh")]
+position = Vector2(456, 22)
+
+[node name="Area2D3" parent="." instance=ExtResource("17_4dhuh")]
+position = Vector2(1121, 22)
+
+[node name="Area2D4" parent="." instance=ExtResource("17_4dhuh")]
+position = Vector2(1258, 698)
