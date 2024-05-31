@@ -1,5 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://bwk4lkx20owd2"]
 
+[ext_resource type="Script" path="res://world_1.gd" id="1_8yvpm"]
 [ext_resource type="Texture2D" uid="uid://cfpr2kias35l5" path="res://Resources/Blood ForestDesert/Blood Desert Tileset.png" id="1_fmjd3"]
 [ext_resource type="Texture2D" uid="uid://b1wefbwjerenv" path="res://Resources/Ancient Caves Tileset (3)/Ancient Caves Tileset/Tileset and SpriteSheets/Tileset Add on3.png" id="1_lgp7e"]
 [ext_resource type="PackedScene" uid="uid://7mp71bjng6bp" path="res://Player/player_1.tscn" id="2_2y51y"]
@@ -438,6 +439,12 @@ sources/5 = SubResource("TileSetAtlasSource_o2ej2")
 sources/9 = SubResource("TileSetAtlasSource_n0ryl")
 sources/10 = SubResource("TileSetAtlasSource_nqwl6")
 sources/11 = SubResource("TileSetAtlasSource_wf0cx")
+
+[sub_resource type="Curve2D" id="Curve2D_ho8by"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1298, 3, 0, 0, 0, 0, 1286, 727, 0, 0, 0, 0, 6, 726)
+}
+point_count = 4
 
 [node name="world_1" type="Node2D"]
 
