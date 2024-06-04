@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cto6cevkt1kwo"]
+
+[ext_resource type="Script" path="res://SistemaSubidaNivel/BarraDeExperiencia.gd" id="1_0vr83"]
+[ext_resource type="PackedScene" uid="uid://cqstkuxsnya3c" path="res://guiLevelUp.tscn" id="1_bld37"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BarraDeExperiencia" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 112.0
+offset_top = 16.0
+offset_right = 464.0
+offset_bottom = 44.0
+tooltip_text = "Experiencia
+"
+script = ExtResource("1_0vr83")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="LevelUpWindow" parent="CanvasLayer2" instance=ExtResource("1_bld37")]
+visible = false
+
+[connection signal="level_up" from="CanvasLayer/BarraDeExperiencia" to="CanvasLayer2/LevelUpWindow" method="_from_level_up"]
+[connection signal="value_changed" from="CanvasLayer/BarraDeExperiencia" to="CanvasLayer/BarraDeExperiencia" method="_on_value_changed"]
