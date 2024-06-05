@@ -468,10 +468,9 @@ layer_1/tile_data = PackedInt32Array(655401, 327682, 6, 786483, 327682, 6, 19665
 position = Vector2(201, 170)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("19_slkc2")]
-visible = false
 
 [node name="Area2D" parent="." instance=ExtResource("17_4dhuh")]
-position = Vector2(186, 714)
+position = Vector2(243, 698)
 
 [node name="Area2D2" parent="." instance=ExtResource("17_4dhuh")]
 position = Vector2(456, 22)
