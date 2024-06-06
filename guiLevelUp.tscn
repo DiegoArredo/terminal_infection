@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqstkuxsnya3c"]
+[gd_scene load_steps=8 format=3 uid="uid://cqstkuxsnya3c"]
 
 [ext_resource type="Theme" uid="uid://b8hdf54yi56i7" path="res://new_theme.tres" id="1_tasrj"]
 [ext_resource type="Script" path="res://guiLevelUp.gd" id="2_ncxt8"]
 [ext_resource type="Script" path="res://Label.gd" id="3_e6thh"]
+[ext_resource type="Script" path="res://GridContainer.gd" id="3_uhnon"]
 [ext_resource type="Script" path="res://Button.gd" id="4_y0iyv"]
+
+[sub_resource type="Theme" id="Theme_hl304"]
+Label/styles/normal = null
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lxhtb"]
 
 [node name="GuiLevelUp" type="Control"]
 layout_mode = 3
@@ -38,10 +44,6 @@ scale = Vector2(0.9, 0.9)
 size_flags_vertical = 3
 metadata/_edit_group_ = true
 
-[node name="Label" type="Label" parent="PanelContainer4"]
-layout_mode = 2
-text = "Level up!!"
-
 [node name="PanelContainer3" type="PanelContainer" parent="."]
 layout_mode = 2
 offset_left = 270.0
@@ -57,14 +59,17 @@ metadata/_edit_group_ = true
 
 [node name="GridContainer" type="GridContainer" parent="PanelContainer3"]
 layout_mode = 2
+theme = SubResource("Theme_hl304")
 theme_override_constants/h_separation = 35
 theme_override_constants/v_separation = 10
 columns = 3
+script = ExtResource("3_uhnon")
 
 [node name="Label" type="Label" parent="PanelContainer3/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "a1
 "
 script = ExtResource("3_e6thh")
@@ -162,6 +167,7 @@ text = "a1
 script = ExtResource("3_e6thh")
 
 [node name="Button9" type="Button" parent="PanelContainer3/GridContainer"]
+material = SubResource("CanvasItemMaterial_lxhtb")
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_vertical = 3

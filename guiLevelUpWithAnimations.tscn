@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhbilbli2lgbp"]
+
+[ext_resource type="Script" path="res://guiLevelUpWithAnimations.gd" id="1_u4xwf"]
+[ext_resource type="PackedScene" uid="uid://cqstkuxsnya3c" path="res://guiLevelUp.tscn" id="1_x4ici"]
+[ext_resource type="PackedScene" uid="uid://3irbbvby0cy1" path="res://LevelUpLabel.tscn" id="2_rifjw"]
+[ext_resource type="Script" path="res://gridContainerAnimacion.gd" id="4_jg2li"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axc34"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlsl1"]
+bg_color = Color(0.912673, 0.378637, 0.660677, 1)
+
+[sub_resource type="Theme" id="Theme_nmilh"]
+/styles/a = SubResource("StyleBoxEmpty_axc34")
+/styles/c = SubResource("StyleBoxFlat_dlsl1")
+
+[sub_resource type="Animation" id="Animation_w7wsp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GuiLevelUp/PanelContainer3:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_wne7w"]
+resource_name = "new_animation"
+length = 3.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GuiLevelUp/PanelContainer3:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.6, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("levelUpAnimacion/CanvasLayer/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("LevelUpAnimation"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_81mk5"]
+_data = {
+"RESET": SubResource("Animation_w7wsp"),
+"new_animation": SubResource("Animation_wne7w")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u4xwf")
+
+[node name="GuiLevelUp" parent="." instance=ExtResource("1_x4ici")]
+layout_mode = 1
+
+[node name="PanelContainer3" parent="GuiLevelUp" index="2"]
+offset_left = 214.444
+offset_right = 1238.44
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(512, 97)
+
+[node name="GridContainer" parent="GuiLevelUp/PanelContainer3" index="0"]
+theme = SubResource("Theme_nmilh")
+
+[node name="levelUpAnimacion" parent="." instance=ExtResource("2_rifjw")]
+visibility_layer = 2
+scale = Vector2(0.9, 0.9)
+
+[node name="animacionEaseOut" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_81mk5")
+}
+
+[node name="gridContainerAnimacion" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_jg2li")
+
+[editable path="GuiLevelUp"]
+[editable path="levelUpAnimacion"]
