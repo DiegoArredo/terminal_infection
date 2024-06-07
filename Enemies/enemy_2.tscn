@@ -1,7 +1,12 @@
-[gd_scene load_steps=36 format=3 uid="uid://df0xf0ygmrmlg"]
+[gd_scene load_steps=41 format=3 uid="uid://df0xf0ygmrmlg"]
 
 [ext_resource type="Script" path="res://Enemies/enemy_2.gd" id="1_3lupw"]
 [ext_resource type="Texture2D" uid="uid://rwn7cqtqmy5s" path="res://Resources/01 Stranded - Starter Pack/Enemies/Guard/Guard spritesheet without shadow.png" id="2_mhux4"]
+[ext_resource type="Script" path="res://FSM/EnemyStateMachine.gd" id="3_ry8nc"]
+[ext_resource type="Script" path="res://Enemies/EnemyFSM/Idle.gd" id="4_k7vd2"]
+[ext_resource type="Script" path="res://Enemies/EnemyFSM/Chasing.gd" id="5_7iqx1"]
+[ext_resource type="Script" path="res://Enemies/EnemyFSM/Death.gd" id="6_bme3y"]
+[ext_resource type="Script" path="res://Enemies/EnemyFSM/Attacking.gd" id="7_x4jno"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v36xc"]
 radius = 6.0
@@ -220,34 +225,6 @@ tracks/0/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_okl2f"]
-resource_name = "atack"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"atack"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-
 [sub_resource type="Animation" id="Animation_fwddc"]
 resource_name = "death"
 length = 0.9
@@ -274,6 +251,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_n0ijb"]
@@ -334,33 +323,86 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_okl2f"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"atack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5la2y"]
 _data = {
 "RESET": SubResource("Animation_n53v4"),
-"atack": SubResource("Animation_okl2f"),
+"attack": SubResource("Animation_okl2f"),
 "death": SubResource("Animation_fwddc"),
 "idle": SubResource("Animation_n0ijb"),
 "walk": SubResource("Animation_6stmc")
 }
 
 [node name="enemy_2" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(3, -3)
 collision_layer = 8
 collision_mask = 11
 script = ExtResource("1_3lupw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-3, 3)
 shape = SubResource("CapsuleShape2D_v36xc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 9)
 sprite_frames = SubResource("SpriteFrames_55uvi")
-animation = &"atack"
+animation = &"idle"
 frame = 1
-metadata/_edit_lock_ = true
+offset = Vector2(3, -9)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_5la2y")
 }
 autoplay = "idle"
+
+[node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_ry8nc")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("4_k7vd2")
+
+[node name="Chasing" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("5_7iqx1")
+
+[node name="Death" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_bme3y")
+
+[node name="Timer" type="Timer" parent="EnemyStateMachine/Death"]
+
+[node name="Attacking" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("7_x4jno")
+
+[connection signal="timeout" from="EnemyStateMachine/Death/Timer" to="EnemyStateMachine/Death" method="_on_timer_timeout"]

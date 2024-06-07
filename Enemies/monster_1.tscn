@@ -1,7 +1,12 @@
-[gd_scene load_steps=38 format=3 uid="uid://c1fmnxygnm50j"]
+[gd_scene load_steps=43 format=3 uid="uid://c1fmnxygnm50j"]
 
 [ext_resource type="Script" path="res://Enemies/monster_1.gd" id="1_t7j0v"]
 [ext_resource type="Texture2D" uid="uid://dlypviljgu5qj" path="res://Resources/Top Down monster pack 1/Monster 1/34x15 Monster 1 without shadows.png" id="2_7h0td"]
+[ext_resource type="Script" path="res://FSM/EnemyStateMachine.gd" id="3_m0akq"]
+[ext_resource type="Script" path="res://Enemies/EnemyFSM/Idle.gd" id="4_w0sk0"]
+[ext_resource type="Script" path="res://Enemies/EnemyFSM/Chasing.gd" id="5_1yf5c"]
+[ext_resource type="Script" path="res://Enemies/EnemyFSM/Death.gd" id="6_0rnra"]
+[ext_resource type="Script" path="res://Enemies/EnemyFSM/Attacking.gd" id="7_gm8xh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vy46c"]
 radius = 5.0
@@ -260,6 +265,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_xkrei"]
 resource_name = "idle"
@@ -358,6 +375,8 @@ _data = {
 }
 
 [node name="monster_1" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(1, -2)
 collision_layer = 8
 collision_mask = 11
@@ -368,12 +387,34 @@ position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_vy46c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 3)
 sprite_frames = SubResource("SpriteFrames_auu4l")
-animation = &"walk"
+animation = &"idle"
 frame = 1
+offset = Vector2(1, -3)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ukmcw")
 }
 autoplay = "idle"
+
+[node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_m0akq")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("4_w0sk0")
+
+[node name="Chasing" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("5_1yf5c")
+
+[node name="Death" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_0rnra")
+
+[node name="Timer" type="Timer" parent="EnemyStateMachine/Death"]
+
+[node name="Attacking" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("7_gm8xh")
+
+[connection signal="timeout" from="EnemyStateMachine/Death/Timer" to="EnemyStateMachine/Death" method="_on_timer_timeout"]
