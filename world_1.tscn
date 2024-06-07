@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bwk4lkx20owd2"]
+[gd_scene load_steps=31 format=3 uid="uid://bwk4lkx20owd2"]
 
 [ext_resource type="Texture2D" uid="uid://cfpr2kias35l5" path="res://Resources/Blood ForestDesert/Blood Desert Tileset.png" id="1_fmjd3"]
 [ext_resource type="Texture2D" uid="uid://b1wefbwjerenv" path="res://Resources/Ancient Caves Tileset (3)/Ancient Caves Tileset/Tileset and SpriteSheets/Tileset Add on3.png" id="1_lgp7e"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://db3iqvtnu2vv6" path="res://Resources/Stranded Pack 2/png's/bones 5.png" id="7_ouwig"]
 [ext_resource type="Texture2D" uid="uid://dep5hwopl50t6" path="res://Resources/Stranded Pack 2/png's/bones 4.png" id="8_2oee0"]
 [ext_resource type="Texture2D" uid="uid://du07wfbx8yc3e" path="res://Resources/Blood ForestDesert/Separate Sprites/Skull.png" id="10_fkhcx"]
-[ext_resource type="PackedScene" uid="uid://bwwim366rcpdh" path="res://SpawnEnemy/area_2d.tscn" id="17_4dhuh"]
+[ext_resource type="Script" path="res://SpawnEnemy/Area2D.gd" id="14_gcw1i"]
 [ext_resource type="PackedScene" uid="uid://dr3vwbbqswgc8" path="res://pausa/menuPausa.tscn" id="19_slkc2"]
 [ext_resource type="PackedScene" uid="uid://bdki7ga6erwcs" path="res://Objetos/tarjeta.tscn" id="20_31x06"]
 
@@ -448,6 +448,12 @@ sources/9 = SubResource("TileSetAtlasSource_n0ryl")
 sources/10 = SubResource("TileSetAtlasSource_nqwl6")
 sources/11 = SubResource("TileSetAtlasSource_wf0cx")
 
+[sub_resource type="Curve2D" id="Curve2D_fx3a2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -12, -10, 0, 0, 0, 0, 1301, -13, 0, 0, 0, 0, 1306, 746, 0, 0, 0, 0, -10, 752, 0, 0, 0, 0, -12, -10)
+}
+point_count = 5
+
 [node name="world_1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -471,6 +477,20 @@ position = Vector2(236, 172)
 [node name="Enemies" type="Node2D" parent="TileMap"]
 y_sort_enabled = true
 position = Vector2(1, 0)
+script = ExtResource("14_gcw1i")
+
+[node name="Path2D" type="Path2D" parent="TileMap/Enemies"]
+position = Vector2(34.2534, 28.5725)
+scale = Vector2(0.937785, 0.890196)
+curve = SubResource("Curve2D_fx3a2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TileMap/Enemies/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-12, -10)
+rotation = -0.00228484
+
+[node name="Timer" type="Timer" parent="TileMap/Enemies"]
+wait_time = 4.01
 
 [node name="Items" type="Node2D" parent="TileMap"]
 
@@ -485,14 +505,4 @@ position = Vector2(54, 182)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("19_slkc2")]
 
-[node name="Area2D" parent="." instance=ExtResource("17_4dhuh")]
-position = Vector2(243, 698)
-
-[node name="Area2D2" parent="." instance=ExtResource("17_4dhuh")]
-position = Vector2(456, 22)
-
-[node name="Area2D3" parent="." instance=ExtResource("17_4dhuh")]
-position = Vector2(1121, 22)
-
-[node name="Area2D4" parent="." instance=ExtResource("17_4dhuh")]
-position = Vector2(1258, 698)
+[connection signal="timeout" from="TileMap/Enemies/Timer" to="TileMap/Enemies" method="_on_timer_timeout"]
