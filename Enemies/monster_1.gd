@@ -2,7 +2,9 @@ extends CharacterBody2D
 @onready var player= get_node("/root/world_1/TileMap/Player/Player_1")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animation = $AnimationPlayer
-var heal = 10
+
+@export var max_health = 10
+@export var current_health = max_health
 
 func _ready():
 	$EnemyStateMachine.init(self, animated_sprite, animation,player)
@@ -13,4 +15,4 @@ func _process(delta):
 
 	
 func take_damage():
-	heal-=1
+	current_health-=1

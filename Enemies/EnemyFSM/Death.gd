@@ -3,6 +3,8 @@ extends EnemyState
 
 func Enter():
 	animation.play("death")
+	player.current_experience += 1
+	player.experience_changed.emit()
 	$Timer.wait_time = 10
 	$Timer.start()
 	

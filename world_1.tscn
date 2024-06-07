@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bwk4lkx20owd2"]
+[gd_scene load_steps=33 format=3 uid="uid://bwk4lkx20owd2"]
 
 [ext_resource type="Texture2D" uid="uid://cfpr2kias35l5" path="res://Resources/Blood ForestDesert/Blood Desert Tileset.png" id="1_fmjd3"]
 [ext_resource type="Texture2D" uid="uid://b1wefbwjerenv" path="res://Resources/Ancient Caves Tileset (3)/Ancient Caves Tileset/Tileset and SpriteSheets/Tileset Add on3.png" id="1_lgp7e"]
@@ -13,7 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://db3iqvtnu2vv6" path="res://Resources/Stranded Pack 2/png's/bones 5.png" id="7_ouwig"]
 [ext_resource type="Texture2D" uid="uid://dep5hwopl50t6" path="res://Resources/Stranded Pack 2/png's/bones 4.png" id="8_2oee0"]
 [ext_resource type="Texture2D" uid="uid://du07wfbx8yc3e" path="res://Resources/Blood ForestDesert/Separate Sprites/Skull.png" id="10_fkhcx"]
+[ext_resource type="Script" path="res://Experience_bar.gd" id="13_liuyl"]
 [ext_resource type="Script" path="res://SpawnEnemy/Area2D.gd" id="14_gcw1i"]
+[ext_resource type="Script" path="res://Label.gd" id="15_dx8th"]
 [ext_resource type="PackedScene" uid="uid://dr3vwbbqswgc8" path="res://pausa/menuPausa.tscn" id="19_slkc2"]
 [ext_resource type="PackedScene" uid="uid://bdki7ga6erwcs" path="res://Objetos/tarjeta.tscn" id="20_31x06"]
 
@@ -398,6 +400,7 @@ texture = ExtResource("6_k6ucu")
 texture_region_size = Vector2i(17, 71)
 0:0/size_in_atlas = Vector2i(6, 1)
 0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 27)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, 34, 9.5, 34.5, 4.5, 28.5, 5, 23, 0, 22, 0.5, 29)
@@ -474,6 +477,32 @@ y_sort_enabled = true
 [node name="Player_1" parent="TileMap/Player" instance=ExtResource("2_2y51y")]
 position = Vector2(236, 172)
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="TileMap/Player"]
+
+[node name="ProgressBar" type="ProgressBar" parent="TileMap/Player/CanvasLayer2"]
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.076
+anchor_right = 0.019
+anchor_bottom = 0.076
+offset_left = -0.320002
+offset_top = -9.72001
+offset_right = 107.68
+offset_bottom = 17.28
+script = ExtResource("13_liuyl")
+
+[node name="Label" type="Label" parent="TileMap/Player/CanvasLayer2"]
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.079
+anchor_right = 0.02
+anchor_bottom = 0.079
+offset_left = 2.4
+offset_top = 14.12
+offset_right = 42.4
+offset_bottom = 37.12
+script = ExtResource("15_dx8th")
+
 [node name="Enemies" type="Node2D" parent="TileMap"]
 y_sort_enabled = true
 position = Vector2(1, 0)
@@ -493,6 +522,7 @@ rotation = -0.00228484
 wait_time = 4.01
 
 [node name="Items" type="Node2D" parent="TileMap"]
+visible = false
 
 [node name="Tarjeta" parent="TileMap/Items" instance=ExtResource("20_31x06")]
 position = Vector2(196, 189)
