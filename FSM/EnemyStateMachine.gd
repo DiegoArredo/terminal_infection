@@ -39,4 +39,5 @@ func change_state(state: EnemyState, new_state_name):
 		
 	new_state.Enter()
 	current_state = new_state
-	print("Cambio de estado a: ",new_state_name)
+	#print("Cambio de estado a: ",new_state_name)
+
