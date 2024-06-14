@@ -10,9 +10,16 @@ extends CharacterBody2D
 @onready var current_experience = 0
 
 signal experience_changed
-
+var magia=preload("res://Habilidades/magia.tscn")
 var speed = 100
 
+@onready var tiempomagia = get_node("%TiempoAtaque")
+@onready var ataqueMagia= get_node("%AtaqueMagia")
+
+var magiaCantidad=0
+var magiaBase=1
+var magiaVelocidad=1.5
+var magiaNivel = 1
 
 func _ready():
 	$CharacterStateMachine.init(self, animated_sprite, animation)
@@ -28,3 +35,29 @@ func _process(delta):
 	
 func collect(item):
 	inv.insert(item)
+	
+func ataqueHailidad():
+	if magiaNivel>0:
+		tiempomagia.wait_time=magiaVelocidad
+		if tiempomagia.is_stopped():
+			tiempomagia.start()
+
+
+func _on_tiempo_ataque_timeout():
+	magiaCantidad+=magiaBase
+	tiempomagia.start()
+	
+func _on_ataque_magia_timeout():
+	if magiaCantidad>0:
+		var magia_ataque = magia.instantiate()
+		magia_ataque.position=position
+		magia_ataque.ultimo_movimiento=Input.get_vector("left", "right", "up", "down")
+		magia_ataque.level=magiaNivel
+		add_child(magia_ataque)
+		
+		if magiaCantidad>0:
+			ataqueMagia.start()
+		else:
+			ataqueMagia.stop()
+		
+		

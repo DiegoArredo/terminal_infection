@@ -7,9 +7,10 @@ var damage=5
 var atack=1
 
 var ultimo_movimiento = Vector2.ZERO
-var angulo = Vector2.ZERO
-var angulo2=Vector2.ZERO
-var angulo3=Vector2.ZERO
+var angulo= Vector2.ZERO
+var angulo2= Vector2.ZERO
+var angulo3= Vector2.ZERO
+
 @onready var Player= get_tree().get_first_node_in_group("player_1")
 
 func _ready():

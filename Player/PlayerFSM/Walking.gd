@@ -3,7 +3,6 @@ extends CharacterState
 #@export var idle : State
 #@export var attacking : State
 var speed = 60
-var Ultimo_movimiento=Vector2.ZERO
 
 func Enter():
 	pass
@@ -18,7 +17,6 @@ func Update_physics(_delta):
 	
 	if parent.velocity.x == 0 and parent.velocity.y == 0:
 		state_transition.emit(self,"Idle")
-		Ultimo_movimiento=direction
 	if parent.velocity.x == 0 and parent.velocity.y < 0:
 		animation.play("walk_up")
 	elif parent.velocity.x == 0 and parent.velocity.y > 0:

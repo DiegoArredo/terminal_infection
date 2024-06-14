@@ -507,3 +507,16 @@ offset_left = -39.0
 offset_top = -81.0
 offset_right = 42.0
 offset_bottom = -18.0
+
+[node name="TiempoAtaque" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+autostart = true
+
+[node name="AtaqueMagia" type="Timer" parent="TiempoAtaque"]
+unique_name_in_owner = true
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="TiempoAtaque" to="." method="_on_tiempo_ataque_timeout"]
+[connection signal="timeout" from="TiempoAtaque/AtaqueMagia" to="." method="_on_ataque_magia_timeout"]
