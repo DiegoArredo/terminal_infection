@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://heaqmdx383wx"]
+
+[ext_resource type="Script" path="res://Habilidades/magia.gd" id="1_bwofr"]
+[ext_resource type="Texture2D" uid="uid://cjrwpdluhf0hn" path="res://Resources/DARK Top Down hero HUNTER/Bullet14x14.png" id="1_d6ii0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rexo0"]
+radius = 5.0
+
+[node name="Magia" type="Area2D"]
+top_level = true
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_bwofr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_d6ii0")
+offset = Vector2(0.5, -0.5)
+hframes = 8
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rexo0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
