@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://disl5jvqlkq88"]
+[gd_scene load_steps=39 format=3 uid="uid://disl5jvqlkq88"]
 
 [ext_resource type="Script" path="res://Enemies/enemy_1.gd" id="1_q4mxm"]
 [ext_resource type="Texture2D" uid="uid://dgdinn8prqcf5" path="res://Resources/01 Stranded - Starter Pack/Enemies/Warrior/Warrior spritesheet without shadow.png" id="2_pk2f4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Chasing.gd" id="5_v54oi"]
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Death.gd" id="6_8s4bs"]
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Attacking.gd" id="7_3qpjm"]
+[ext_resource type="PackedScene" uid="uid://6gn8se34ekcv" path="res://BarraVida/BarraVida.tscn" id="8_54i2s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3nbxq"]
 atlas = ExtResource("2_pk2f4")
@@ -347,14 +348,13 @@ collision_mask = 11
 script = ExtResource("1_q4mxm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, 7)
+position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_alf3b")
 animation = &"idle"
 frame = 1
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 7)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xdw63")
 
@@ -381,5 +381,11 @@ script = ExtResource("6_8s4bs")
 
 [node name="Attacking" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("7_3qpjm")
+
+[node name="BarraVida" parent="." instance=ExtResource("8_54i2s")]
+offset_left = -6.0
+offset_top = -12.0
+offset_right = 6.0
+offset_bottom = -10.0
 
 [connection signal="timeout" from="EnemyStateMachine/Death/Timer" to="EnemyStateMachine/Death" method="_on_timer_timeout"]

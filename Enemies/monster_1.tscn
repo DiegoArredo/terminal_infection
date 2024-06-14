@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c1fmnxygnm50j"]
+[gd_scene load_steps=45 format=3 uid="uid://c1fmnxygnm50j"]
 
 [ext_resource type="Script" path="res://Enemies/monster_1.gd" id="1_t7j0v"]
 [ext_resource type="Texture2D" uid="uid://dlypviljgu5qj" path="res://Resources/Top Down monster pack 1/Monster 1/34x15 Monster 1 without shadows.png" id="2_7h0td"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Chasing.gd" id="5_1yf5c"]
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Death.gd" id="6_0rnra"]
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Attacking.gd" id="7_gm8xh"]
+[ext_resource type="PackedScene" uid="uid://6gn8se34ekcv" path="res://BarraVida/BarraVida.tscn" id="8_qh6j1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vy46c"]
 radius = 5.0
@@ -428,7 +429,7 @@ position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_vy46c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, 3)
+position = Vector2(-1, 4)
 sprite_frames = SubResource("SpriteFrames_auu4l")
 animation = &"idle"
 frame = 1
@@ -457,5 +458,11 @@ script = ExtResource("6_0rnra")
 
 [node name="Attacking" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("7_gm8xh")
+
+[node name="BarraVida" parent="." instance=ExtResource("8_qh6j1")]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 4.0
+offset_bottom = -4.0
 
 [connection signal="timeout" from="EnemyStateMachine/Death/Timer" to="EnemyStateMachine/Death" method="_on_timer_timeout"]
