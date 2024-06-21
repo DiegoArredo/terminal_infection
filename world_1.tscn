@@ -518,7 +518,6 @@ rotation = -0.00228484
 wait_time = 4.01
 
 [node name="Items" type="Node2D" parent="TileMap"]
-visible = false
 
 [node name="Tarjeta" parent="TileMap/Items" instance=ExtResource("20_31x06")]
 position = Vector2(196, 189)
@@ -530,6 +529,5 @@ position = Vector2(380, 186)
 position = Vector2(54, 182)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("19_slkc2")]
-visible = false
 
 [connection signal="timeout" from="TileMap/Enemies/Timer" to="TileMap/Enemies" method="_on_timer_timeout"]
