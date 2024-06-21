@@ -13,5 +13,6 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.has_method("take_damage"):
-		body.take_damage(damage)
+		if body.current_health>0:
+			body.take_damage(damage)
 	queue_free()

@@ -19,4 +19,5 @@ func _process(delta):
 func take_damage(damage:int):
 	current_health-=damage
 	healthBar.health = current_health
+	
 
