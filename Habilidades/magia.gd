@@ -3,7 +3,7 @@ extends Area2D
 var level =1
 var hp=999
 var speed=100.0
-var damage=5
+var damage=2
 var atack=1
 
 var ultimo_movimiento = Vector2.ZERO
@@ -62,4 +62,4 @@ func _on_timer_timeout():
 
 func _on_body_entered(body):
 	if body.has_method("take_damage"):
-		body.take_damage()
+		body.take_damage(damage)

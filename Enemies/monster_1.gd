@@ -16,7 +16,7 @@ func _process(delta):
 	$EnemyStateMachine._process(delta)
 
 	
-func take_damage():
-	current_health-=1
+func take_damage(damage:int):
+	current_health-=damage
 	healthBar.health = current_health
 	
