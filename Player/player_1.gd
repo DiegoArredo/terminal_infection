@@ -1,6 +1,7 @@
 @icon ("res://Resources/01 Stranded - Starter Pack/Hero/Hero/Hero_icon.png")
 extends CharacterBody2D
 
+
 @export var inv: Inv
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animation = $AnimationPlayer
@@ -23,6 +24,7 @@ var magiaNivel = 1
 
 func _ready():
 	$CharacterStateMachine.init(self, animated_sprite, animation)
+	
 func _physics_process(delta):
 	$CharacterStateMachine._physics_process(delta)
 func _process(delta):
@@ -32,7 +34,6 @@ func _process(delta):
 		max_experience = max_experience *2
 		current_experience = 0
 		experience_changed.emit()
-	
 func collect(item):
 	inv.insert(item)
 	

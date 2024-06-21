@@ -57,6 +57,9 @@ func _ready():
 func _physics_process(delta):
 	position+=angulo*speed*delta
 
-
 func _on_timer_timeout():
 	queue_free()
+
+func _on_body_entered(body):
+	if body.has_method("take_damage"):
+		body.take_damage()
