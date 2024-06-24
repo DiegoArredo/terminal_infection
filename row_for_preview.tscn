@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0dcx8pdyfknj"]
+
+[ext_resource type="Script" path="res://row_for_preview.gd" id="1_qyrhi"]
+[ext_resource type="Texture2D" uid="uid://cfakn7rlr40ba" path="res://Resources/armas/image21.png" id="1_r0nio"]
+[ext_resource type="Texture2D" uid="uid://bws578h2j05lt" path="res://Resources/downgrade.png" id="2_weo1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt2sa"]
+size = Vector2(1378, 10)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 80.0
+offset_right = -470.0
+offset_bottom = -805.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.47629, 0.585669)
+script = ExtResource("1_qyrhi")
+
+[node name="limite_superior" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limite_superior"]
+position = Vector2(679, -5)
+shape = SubResource("RectangleShape2D_lt2sa")
+
+[node name="GridContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+color = Color(0.219501, 0.219501, 0.219501, 1)
+
+[node name="Image21" type="Sprite2D" parent="GridContainer/ColorRect"]
+position = Vector2(312, 104)
+scale = Vector2(0.667665, 0.595808)
+texture = ExtResource("1_r0nio")
+
+[node name="ColorRect2" type="ColorRect" parent="GridContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GridContainer/ColorRect2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "AAAAAAAAAA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="GridContainer/ColorRect2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "BBBBBBB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="GridContainer/ColorRect2/VBoxContainer"]
+modulate = Color(0.147672, 0.147672, 0.147672, 1)
+layout_mode = 2
+size_flags_vertical = 6
+text = "CCCCCCCC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Downgrade" type="Sprite2D" parent="GridContainer/ColorRect2"]
+visible = false
+modulate = Color(0.449852, 0.0691233, 0.178753, 1)
+position = Vector2(582.013, 103.947)
+rotation = 3.14159
+scale = Vector2(0.036128, 0.0358241)
+texture = ExtResource("2_weo1l")
+
+[node name="upgrade" type="Sprite2D" parent="GridContainer/ColorRect2"]
+visible = false
+modulate = Color(0.0350589, 0.301435, 0, 1)
+position = Vector2(582, 104)
+scale = Vector2(0.0360466, 0.0360466)
+texture = ExtResource("2_weo1l")
+
+[node name="limite_inferior" type="Area2D" parent="."]
+position = Vector2(8, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limite_inferior"]
+position = Vector2(679, -5)
+shape = SubResource("RectangleShape2D_lt2sa")
+
+[connection signal="area_entered" from="limite_superior" to="." method="_on_limite_superior_area_entered"]
+[connection signal="area_exited" from="limite_superior" to="." method="_on_limite_superior_area_exited"]
+[connection signal="area_entered" from="limite_inferior" to="." method="_on_limite_inferior_area_entered"]
+[connection signal="area_exited" from="limite_inferior" to="." method="_on_limite_inferior_area_exited"]

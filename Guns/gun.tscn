@@ -1,44 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://ishjavr87n6j"]
+[gd_scene load_steps=4 format=3 uid="uid://ishjavr87n6j"]
 
 [ext_resource type="Texture2D" uid="uid://cxrayyj4evkds" path="res://Resources/01 Stranded - Starter Pack/Hero/Hero/gun sprite BLUE.png" id="1_0vxp6"]
 [ext_resource type="Script" path="res://Guns/gun.gd" id="1_eeb37"]
-[ext_resource type="Script" path="res://FSM/GunStateMachine.gd" id="2_xoglp"]
-[ext_resource type="Script" path="res://Guns/GunFSM/Idle.gd" id="3_hlpjx"]
-[ext_resource type="Script" path="res://Guns/GunFSM/Shooting.gd" id="4_cceog"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_irsvh"]
 radius = 53.0094
 
 [node name="Gun" type="Area2D"]
-collision_layer = 4
-collision_mask = 8
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_eeb37")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_irsvh")
-
-[node name="pistol" type="Sprite2D" parent="."]
-position = Vector2(10, 0)
-texture = ExtResource("1_0vxp6")
 
 [node name="weaponpivot" type="Marker2D" parent="."]
 
-[node name="shootingpoint" type="Marker2D" parent="weaponpivot"]
-position = Vector2(18, 0)
+[node name="pistol" type="Sprite2D" parent="weaponpivot"]
+position = Vector2(13, 0)
+texture = ExtResource("1_0vxp6")
 
-[node name="GunStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("2_xoglp")
-initial_state = NodePath("Idle")
+[node name="shootingpoint" type="Marker2D" parent="weaponpivot/pistol"]
+unique_name_in_owner = true
+position = Vector2(8, 0)
 
-[node name="Idle" type="Node" parent="GunStateMachine"]
-script = ExtResource("3_hlpjx")
-
-[node name="Shooting" type="Node" parent="GunStateMachine"]
-script = ExtResource("4_cceog")
-
-[node name="Timer" type="Timer" parent="GunStateMachine/Shooting"]
+[node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
+autostart = true
 
-[connection signal="body_entered" from="." to="GunStateMachine/Idle" method="_on_gun_body_entered"]
-[connection signal="timeout" from="GunStateMachine/Shooting/Timer" to="GunStateMachine/Shooting" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

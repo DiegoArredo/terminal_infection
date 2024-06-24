@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://lagxdlj8unbq"]
+
+[ext_resource type="Script" path="res://previewBoton.gd" id="1_3fhxd"]
+[ext_resource type="Script" path="res://OptionButton.gd" id="2_gdb7s"]
+[ext_resource type="Script" path="res://Panel.gd" id="2_r2x41"]
+[ext_resource type="PackedScene" uid="uid://b0dcx8pdyfknj" path="res://row_for_preview.tscn" id="3_ohfk3"]
+[ext_resource type="Script" path="res://CanvasLayer.gd" id="4_suxyn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmj5l"]
+size = Vector2(480, 930.434)
+
+[node name="Control" type="CanvasLayer"]
+layer = 0
+visible = false
+script = ExtResource("1_3fhxd")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 678.0
+offset_top = 375.0
+offset_right = 1126.0
+offset_bottom = 503.0
+script = ExtResource("2_r2x41")
+
+[node name="GridContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 1.125
+anchor_right = 0.504
+anchor_bottom = 1.125
+offset_left = -185.792
+offset_top = -1439.0
+offset_right = 190.208
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.2, 1.08)
+pivot_offset = Vector2(186.273, 607.97)
+alignment = 2
+metadata/_edit_group_ = true
+
+[node name="Control" parent="Panel/GridContainer" instance=ExtResource("3_ohfk3")]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Image21" parent="Panel/GridContainer/Control/GridContainer/ColorRect" index="0"]
+position = Vector2(82.6665, 89.7778)
+scale = Vector2(0.359929, 0.540308)
+
+[node name="Downgrade" parent="Panel/GridContainer/Control/GridContainer/ColorRect2" index="1"]
+position = Vector2(161.535, 98.5012)
+
+[node name="upgrade" parent="Panel/GridContainer/Control/GridContainer/ColorRect2" index="2"]
+position = Vector2(161.535, 98.5012)
+
+[node name="Control2" parent="Panel/GridContainer" instance=ExtResource("3_ohfk3")]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Image21" parent="Panel/GridContainer/Control2/GridContainer/ColorRect" index="0"]
+position = Vector2(82.6665, 89.7778)
+scale = Vector2(0.359929, 0.540308)
+
+[node name="Downgrade" parent="Panel/GridContainer/Control2/GridContainer/ColorRect2" index="1"]
+position = Vector2(161.535, 98.5012)
+
+[node name="upgrade" parent="Panel/GridContainer/Control2/GridContainer/ColorRect2" index="2"]
+position = Vector2(161.535, 98.5012)
+
+[node name="Control4" parent="Panel/GridContainer" instance=ExtResource("3_ohfk3")]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Image21" parent="Panel/GridContainer/Control4/GridContainer/ColorRect" index="0"]
+position = Vector2(82.6665, 89.7778)
+scale = Vector2(0.359929, 0.540308)
+
+[node name="Downgrade" parent="Panel/GridContainer/Control4/GridContainer/ColorRect2" index="1"]
+position = Vector2(161.535, 98.5012)
+
+[node name="upgrade" parent="Panel/GridContainer/Control4/GridContainer/ColorRect2" index="2"]
+position = Vector2(161.535, 98.5012)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(710, 499)
+scale = Vector2(1, 0.920001)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(192, 213.043)
+shape = SubResource("RectangleShape2D_hmj5l")
+debug_color = Color(0.930431, 0.0682671, 0.625804, 0.42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+visible = false
+script = ExtResource("4_suxyn")
+
+[node name="OptionButton" type="Button" parent="CanvasLayer"]
+offset_left = 862.0
+offset_top = 503.0
+offset_right = 942.0
+offset_bottom = 523.0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_gdb7s")
+y_for_limit = 600
+
+[connection signal="boton_visible" from="." to="CanvasLayer" method="_from_root_visible_on"]
+[connection signal="visible_off" from="." to="CanvasLayer" method="comeFrom_closeBoton_visibleOff"]
+[connection signal="button_down" from="CanvasLayer/OptionButton" to="CanvasLayer/OptionButton" method="_on_button_down"]
+[connection signal="button_up" from="CanvasLayer/OptionButton" to="CanvasLayer/OptionButton" method="_on_button_up"]
+[connection signal="moved" from="CanvasLayer/OptionButton" to="Panel" method="_on_option_button_moved"]
+
+[editable path="Panel/GridContainer/Control"]
+[editable path="Panel/GridContainer/Control2"]
+[editable path="Panel/GridContainer/Control4"]

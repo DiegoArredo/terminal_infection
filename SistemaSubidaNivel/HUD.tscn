@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cto6cevkt1kwo"]
+
+[ext_resource type="Script" path="res://SistemaSubidaNivel/BarraDeExperiencia.gd" id="1_0vr83"]
+[ext_resource type="PackedScene" uid="uid://bhbilbli2lgbp" path="res://guiLevelUpWithAnimations.tscn" id="2_dnuyf"]
+[ext_resource type="PackedScene" uid="uid://lagxdlj8unbq" path="res://previewBoton.tscn" id="3_q67mj"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BarraDeExperiencia" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 112.0
+offset_top = 16.0
+offset_right = 464.0
+offset_bottom = 44.0
+tooltip_text = "Experiencia
+"
+script = ExtResource("1_0vr83")
+
+[node name="Control" parent="." instance=ExtResource("3_q67mj")]
+
+[node name="guiLevelUpWithAnimations" parent="." instance=ExtResource("2_dnuyf")]
+layout_mode = 1
+
+[connection signal="level_up" from="CanvasLayer/BarraDeExperiencia" to="guiLevelUpWithAnimations" method="from_level_up"]
+[connection signal="value_changed" from="CanvasLayer/BarraDeExperiencia" to="CanvasLayer/BarraDeExperiencia" method="_on_value_changed"]
+[connection signal="close_boton" from="guiLevelUpWithAnimations" to="Control" method="comeFrom_CloseBoton_visibleOff"]
+[connection signal="level_up_activation_gui" from="guiLevelUpWithAnimations" to="Control" method="visibility_on_from_control"]
+[connection signal="pressed" from="guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer/MarginContainer/Button" to="Control" method="from_closeBotton_visibleOff"]
+[connection signal="pressed" from="guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer/MarginContainer/Button" to="guiLevelUpWithAnimations/CanvasLayer" method="_from_closeBotton_visibleOff"]
+
+[editable path="Control"]
+[editable path="Control/Panel/GridContainer/Control"]
+[editable path="Control/Panel/GridContainer/Control2"]
+[editable path="Control/Panel/GridContainer/Control4"]
+[editable path="guiLevelUpWithAnimations"]
+[editable path="guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp"]
+[editable path="guiLevelUpWithAnimations/CanvasLayer/levelUpAnimacion"]
