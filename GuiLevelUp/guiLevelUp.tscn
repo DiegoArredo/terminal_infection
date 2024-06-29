@@ -38,7 +38,6 @@ offset_top = 71.1111
 offset_right = 1422.22
 offset_bottom = 791.111
 scale = Vector2(0.9, 0.9)
-metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2

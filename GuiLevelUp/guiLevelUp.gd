@@ -62,6 +62,15 @@ func ingresar_en_labels(labels):
 func _process(delta):
 	pass
 
+func reset_values():
+	var gridContainer = getGridContainer()
+	var labels = extraerLabels(gridContainer)
+	for label in labels:
+		label.reset()
+	
 
 func _on_button_pressed():
 	close_boton.emit()
+	reset_values()
+	
+	

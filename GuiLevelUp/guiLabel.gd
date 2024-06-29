@@ -20,6 +20,8 @@ func actualizar():
 func _process(delta):
 	pass
 
+func reset():
+	changes = 0
 
 func _on_button_preseed_with_value(valor):
 	var changeCache = changes + valor
