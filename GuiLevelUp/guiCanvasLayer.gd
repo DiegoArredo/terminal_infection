@@ -1,6 +1,5 @@
-extends Node2D
+extends CanvasLayer
 
-var orbe_point = 50
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,7 +11,11 @@ func _process(delta):
 
 
 
+func _from_root_visible_on():
+	visible = true
+	
 
-func _on_orbe_experiencia_body_entered(body):
-	if (body.is_in_group("player")):
-		$BarraDeExperiencia.value += orbe_point
+func comeFrom_closeBoton_visibleOff():
+	visible = false
+	
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bwk4lkx20owd2"]
+[gd_scene load_steps=34 format=3 uid="uid://bwk4lkx20owd2"]
 
 [ext_resource type="Texture2D" uid="uid://cfpr2kias35l5" path="res://Resources/Blood ForestDesert/Blood Desert Tileset.png" id="1_fmjd3"]
 [ext_resource type="Texture2D" uid="uid://b1wefbwjerenv" path="res://Resources/Ancient Caves Tileset (3)/Ancient Caves Tileset/Tileset and SpriteSheets/Tileset Add on3.png" id="1_lgp7e"]
@@ -15,7 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://du07wfbx8yc3e" path="res://Resources/Blood ForestDesert/Separate Sprites/Skull.png" id="10_fkhcx"]
 [ext_resource type="Script" path="res://Experience_bar.gd" id="13_liuyl"]
 [ext_resource type="Script" path="res://SpawnEnemy/Area2D.gd" id="14_gcw1i"]
-[ext_resource type="Script" path="res://Label.gd" id="15_dx8th"]
+[ext_resource type="Script" path="res://LabelLevelUp2.gd" id="15_dx8th"]
+[ext_resource type="PackedScene" uid="uid://cto6cevkt1kwo" path="res://SistemaSubidaNivel (copia)/HUD.tscn" id="16_dkwuf"]
 [ext_resource type="PackedScene" uid="uid://dr3vwbbqswgc8" path="res://pausa/menuPausa.tscn" id="19_slkc2"]
 [ext_resource type="PackedScene" uid="uid://bdki7ga6erwcs" path="res://Objetos/tarjeta.tscn" id="20_31x06"]
 
@@ -499,6 +500,8 @@ offset_right = 42.4
 offset_bottom = 37.12
 script = ExtResource("15_dx8th")
 
+[node name="HUD" parent="TileMap/Player" instance=ExtResource("16_dkwuf")]
+
 [node name="Enemies" type="Node2D" parent="TileMap"]
 y_sort_enabled = true
 position = Vector2(1, 0)
@@ -530,4 +533,5 @@ position = Vector2(54, 182)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("19_slkc2")]
 
+[connection signal="levelUp" from="TileMap/Player/CanvasLayer2/ProgressBar" to="TileMap/Player/HUD" method="from_level_up"]
 [connection signal="timeout" from="TileMap/Enemies/Timer" to="TileMap/Enemies" method="_on_timer_timeout"]

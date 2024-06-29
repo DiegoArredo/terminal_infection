@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://68temrys8bf2"]
+
+[ext_resource type="PackedScene" uid="uid://del12aevkuvh0" path="res://GuiLevelUp/guirow.tscn" id="1_2oipl"]
+
+[node name="CenterContainer" type="PanelContainer"]
+offset_right = 784.0
+offset_bottom = 232.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+
+[node name="HBoxContainer6" parent="VBoxContainer" instance=ExtResource("1_2oipl")]
+layout_mode = 2
+
+[node name="HBoxContainer2" parent="VBoxContainer" instance=ExtResource("1_2oipl")]
+layout_mode = 2
+
+[node name="HBoxContainer3" parent="VBoxContainer" instance=ExtResource("1_2oipl")]
+layout_mode = 2
+
+[node name="HBoxContainer4" parent="VBoxContainer" instance=ExtResource("1_2oipl")]
+layout_mode = 2
+
+[node name="HBoxContainer5" parent="VBoxContainer" instance=ExtResource("1_2oipl")]
+layout_mode = 2

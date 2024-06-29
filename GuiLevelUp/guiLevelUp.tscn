@@ -1,0 +1,244 @@
+[gd_scene load_steps=11 format=3 uid="uid://cqstkuxsnya3c"]
+
+[ext_resource type="Theme" uid="uid://b8hdf54yi56i7" path="res://new_theme.tres" id="1_tasrj"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiLevelUp.gd" id="2_ncxt8"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiButtonCerrado.gd" id="3_82ral"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiLabel.gd" id="3_e6thh"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiBoton.gd" id="4_y0iyv"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vv5l5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_444uv"]
+bg_color = Color(0.358988, 3.00817e-07, 9.62615e-08, 1)
+
+[sub_resource type="Theme" id="Theme_iu1fg"]
+Button/styles/normal = SubResource("StyleBoxFlat_444uv")
+
+[sub_resource type="Theme" id="Theme_hl304"]
+Label/styles/normal = null
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lxhtb"]
+
+[node name="GuiLevelUp" type="Control"]
+layout_mode = 3
+anchor_right = 1.056
+anchor_bottom = 1.089
+offset_right = 70.3201
+offset_bottom = 15.9199
+scale = Vector2(0.9, 0.9)
+size_flags_horizontal = 8
+size_flags_vertical = 3
+theme = ExtResource("1_tasrj")
+script = ExtResource("2_ncxt8")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 142.222
+offset_top = 71.1111
+offset_right = 1422.22
+offset_bottom = 791.111
+scale = Vector2(0.9, 0.9)
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer"]
+material = SubResource("CanvasItemMaterial_vv5l5")
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = SubResource("Theme_iu1fg")
+script = ExtResource("3_82ral")
+
+[node name="PanelContainer4" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 195.556
+offset_top = 133.333
+offset_right = 1371.56
+offset_bottom = 285.333
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+size_flags_vertical = 3
+metadata/_edit_group_ = true
+
+[node name="PanelContainer3" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 270.0
+offset_top = 311.111
+offset_right = 1294.0
+offset_bottom = 506.111
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+metadata/_edit_group_ = true
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer3"]
+layout_mode = 2
+theme = SubResource("Theme_hl304")
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Label" type="Label" parent="PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("3_e6thh")
+
+[node name="Button2" type="Button" parent="PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("4_y0iyv")
+
+[node name="Button" type="Button" parent="PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("4_y0iyv")
+
+[node name="Label2" type="Label" parent="PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("3_e6thh")
+
+[node name="Button3" type="Button" parent="PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("4_y0iyv")
+
+[node name="Button4" type="Button" parent="PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("4_y0iyv")
+
+[node name="Label3" type="Label" parent="PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("3_e6thh")
+
+[node name="Button5" type="Button" parent="PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("4_y0iyv")
+
+[node name="Button6" type="Button" parent="PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("4_y0iyv")
+
+[node name="Label4" type="Label" parent="PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("3_e6thh")
+
+[node name="Button7" type="Button" parent="PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("4_y0iyv")
+
+[node name="Button8" type="Button" parent="PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("4_y0iyv")
+
+[node name="Label5" type="Label" parent="PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("3_e6thh")
+
+[node name="Button9" type="Button" parent="PanelContainer3/GridContainer"]
+material = SubResource("CanvasItemMaterial_lxhtb")
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("4_y0iyv")
+
+[node name="Button10" type="Button" parent="PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("4_y0iyv")
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 190.0
+offset_top = 542.222
+offset_right = 1366.0
+offset_bottom = 694.222
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+size_flags_vertical = 3
+metadata/_edit_group_ = true
+
+[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer2"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer2"]
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="preseedWithValue" from="PanelContainer3/GridContainer/Button2" to="PanelContainer3/GridContainer/Label" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="PanelContainer3/GridContainer/Button2" to="PanelContainer3/GridContainer/Button2" method="_on_pressed"]
+[connection signal="preseedWithValue" from="PanelContainer3/GridContainer/Button" to="PanelContainer3/GridContainer/Label" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="PanelContainer3/GridContainer/Button" to="PanelContainer3/GridContainer/Button" method="_on_pressed"]
+[connection signal="preseedWithValue" from="PanelContainer3/GridContainer/Button3" to="PanelContainer3/GridContainer/Label2" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="PanelContainer3/GridContainer/Button3" to="PanelContainer3/GridContainer/Button3" method="_on_pressed"]
+[connection signal="preseedWithValue" from="PanelContainer3/GridContainer/Button4" to="PanelContainer3/GridContainer/Label2" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="PanelContainer3/GridContainer/Button4" to="PanelContainer3/GridContainer/Button4" method="_on_pressed"]
+[connection signal="preseedWithValue" from="PanelContainer3/GridContainer/Button5" to="PanelContainer3/GridContainer/Label3" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="PanelContainer3/GridContainer/Button5" to="PanelContainer3/GridContainer/Button5" method="_on_pressed"]
+[connection signal="preseedWithValue" from="PanelContainer3/GridContainer/Button6" to="PanelContainer3/GridContainer/Label3" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="PanelContainer3/GridContainer/Button6" to="PanelContainer3/GridContainer/Button6" method="_on_pressed"]
+[connection signal="preseedWithValue" from="PanelContainer3/GridContainer/Button7" to="PanelContainer3/GridContainer/Label4" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="PanelContainer3/GridContainer/Button7" to="PanelContainer3/GridContainer/Button7" method="_on_pressed"]
+[connection signal="preseedWithValue" from="PanelContainer3/GridContainer/Button8" to="PanelContainer3/GridContainer/Label4" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="PanelContainer3/GridContainer/Button8" to="PanelContainer3/GridContainer/Button8" method="_on_pressed"]
+[connection signal="preseedWithValue" from="PanelContainer3/GridContainer/Button9" to="PanelContainer3/GridContainer/Label5" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="PanelContainer3/GridContainer/Button9" to="PanelContainer3/GridContainer/Button9" method="_on_pressed"]
+[connection signal="preseedWithValue" from="PanelContainer3/GridContainer/Button10" to="PanelContainer3/GridContainer/Label5" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="PanelContainer3/GridContainer/Button10" to="PanelContainer3/GridContainer/Button10" method="_on_pressed"]
