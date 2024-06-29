@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://f0b7nncooaox"]
+
+[ext_resource type="Script" path="res://Habilidades2/habilidadComand.gd" id="1_ax7lu"]
+
+[node name="habilidadComand" type="Node2D"]
+script = ExtResource("1_ax7lu")
