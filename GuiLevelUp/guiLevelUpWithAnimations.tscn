@@ -1,48 +1,28 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhbilbli2lgbp"]
+[gd_scene load_steps=18 format=3 uid="uid://bhbilbli2lgbp"]
 
 [ext_resource type="Script" path="res://GuiLevelUp/guiLevelUpWithAnimations.gd" id="1_u4xwf"]
-[ext_resource type="PackedScene" uid="uid://cqstkuxsnya3c" path="res://GuiLevelUp/guiLevelUp.tscn" id="1_x4ici"]
 [ext_resource type="PackedScene" uid="uid://3irbbvby0cy1" path="res://GuiLevelUp/LevelUpLabel.tscn" id="2_rifjw"]
 [ext_resource type="Script" path="res://GuiLevelUp/guiCanvasLayer.gd" id="3_bsoba"]
 [ext_resource type="Script" path="res://GuiLevelUp/Animaciones/animacionContent.gd" id="3_ibwyk"]
+[ext_resource type="Theme" uid="uid://b8hdf54yi56i7" path="res://new_theme.tres" id="5_f63s8"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiLevelUp.gd" id="6_0xn44"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiButtonCerrado.gd" id="7_qd8km"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiLabel.gd" id="8_an038"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiBoton.gd" id="9_oxsoi"]
 
 [sub_resource type="Animation" id="Animation_w7wsp"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/GuiLevelUp/PanelContainer3:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05)]
-}
 
 [sub_resource type="Animation" id="Animation_wne7w"]
 resource_name = "new_animation"
 length = 6.1
-tracks/0/type = "value"
+tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/GuiLevelUp/PanelContainer3:scale")
+tracks/0/path = NodePath("CanvasLayer/levelUpAnimacion/CanvasLayer/AnimationPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.6, 3.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1, 1)]
-}
-tracks/1/type = "animation"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/levelUpAnimacion/CanvasLayer/AnimationPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "clips": PackedStringArray("LevelUpAnimation"),
 "times": PackedFloat32Array(0)
 }
@@ -53,17 +33,18 @@ _data = {
 "new_animation": SubResource("Animation_wne7w")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksg5u"]
-bg_color = Color(0.2484, 0.2484, 0.2484, 1)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vv5l5"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axc34"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_444uv"]
+bg_color = Color(0.358988, 3.00817e-07, 9.62615e-08, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlsl1"]
-bg_color = Color(0.912673, 0.378637, 0.660677, 1)
+[sub_resource type="Theme" id="Theme_iu1fg"]
+Button/styles/normal = SubResource("StyleBoxFlat_444uv")
 
-[sub_resource type="Theme" id="Theme_nmilh"]
-/styles/a = SubResource("StyleBoxEmpty_axc34")
-/styles/c = SubResource("StyleBoxFlat_dlsl1")
+[sub_resource type="Theme" id="Theme_hl304"]
+Label/styles/normal = null
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lxhtb"]
 
 [node name="guiLevelUpWithAnimations" type="Control"]
 layout_mode = 3
@@ -89,41 +70,240 @@ offset_right = 320.0
 offset_bottom = 56.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("3_bsoba")
-
-[node name="GuiLevelUp" parent="CanvasLayer" instance=ExtResource("1_x4ici")]
-top_level = true
-offset_left = 384.0
-offset_top = 32.0
-offset_right = -230.52
-offset_bottom = -425.12
-scale = Vector2(0.74, 0.66)
-
-[node name="PanelContainer" parent="CanvasLayer/GuiLevelUp" index="0"]
-theme_override_styles/panel = SubResource("StyleBoxFlat_ksg5u")
-
-[node name="PanelContainer3" parent="CanvasLayer/GuiLevelUp" index="2"]
-offset_left = 214.444
-offset_right = 1238.44
-scale = Vector2(1e-05, 1e-05)
-pivot_offset = Vector2(512, 97)
-
-[node name="GridContainer" parent="CanvasLayer/GuiLevelUp/PanelContainer3" index="0"]
-theme = SubResource("Theme_nmilh")
 
 [node name="levelUpAnimacion" parent="CanvasLayer" instance=ExtResource("2_rifjw")]
 visible = true
 visibility_layer = 2
-position = Vector2(280, 16)
+position = Vector2(350, 161)
 scale = Vector2(0.9, 0.9)
+
+[node name="GuiLevelUp" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_right = 1.056
+anchor_bottom = 1.089
+offset_left = 254.0
+offset_right = 324.32
+offset_bottom = 15.9199
+scale = Vector2(0.9, 0.9)
+size_flags_horizontal = 8
+size_flags_vertical = 3
+theme = ExtResource("5_f63s8")
+script = ExtResource("6_0xn44")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/GuiLevelUp"]
+layout_mode = 0
+offset_left = 142.222
+offset_top = 71.1111
+offset_right = 1422.22
+offset_bottom = 791.111
+scale = Vector2(0.9, 0.9)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GuiLevelUp/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="Button" type="Button" parent="CanvasLayer/GuiLevelUp/PanelContainer/MarginContainer"]
+material = SubResource("CanvasItemMaterial_vv5l5")
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = SubResource("Theme_iu1fg")
+script = ExtResource("7_qd8km")
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/GuiLevelUp"]
+layout_mode = 2
+offset_left = 195.556
+offset_top = 133.333
+offset_right = 1371.56
+offset_bottom = 285.333
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+size_flags_vertical = 3
+metadata/_edit_group_ = true
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/GuiLevelUp"]
+layout_mode = 2
+offset_left = 270.0
+offset_top = 311.111
+offset_right = 1294.0
+offset_bottom = 506.111
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+metadata/_edit_group_ = true
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/GuiLevelUp/PanelContainer3"]
+layout_mode = 2
+theme = SubResource("Theme_hl304")
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("8_an038")
+
+[node name="Button2" type="Button" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("9_oxsoi")
+
+[node name="Button" type="Button" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("9_oxsoi")
+
+[node name="Label2" type="Label" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("8_an038")
+
+[node name="Button3" type="Button" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("9_oxsoi")
+
+[node name="Button4" type="Button" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("9_oxsoi")
+
+[node name="Label3" type="Label" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("8_an038")
+
+[node name="Button5" type="Button" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("9_oxsoi")
+
+[node name="Button6" type="Button" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("9_oxsoi")
+
+[node name="Label4" type="Label" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("8_an038")
+
+[node name="Button7" type="Button" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("9_oxsoi")
+
+[node name="Button8" type="Button" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("9_oxsoi")
+
+[node name="Label5" type="Label" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("8_an038")
+
+[node name="Button9" type="Button" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+material = SubResource("CanvasItemMaterial_lxhtb")
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("9_oxsoi")
+
+[node name="Button10" type="Button" parent="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("9_oxsoi")
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/GuiLevelUp"]
+layout_mode = 2
+offset_left = 190.0
+offset_top = 542.222
+offset_right = 1366.0
+offset_bottom = 694.222
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+size_flags_vertical = 3
+metadata/_edit_group_ = true
+
+[node name="VSplitContainer" type="VSplitContainer" parent="CanvasLayer/GuiLevelUp/PanelContainer2"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/GuiLevelUp/PanelContainer2"]
 
 [connection signal="close_boton" from="." to="CanvasLayer" method="comeFrom_closeBoton_visibleOff"]
 [connection signal="close_boton" from="." to="CanvasLayer/levelUpAnimacion" method="passFrom_closeBoton_visibleOffLabel"]
 [connection signal="level_up_activation_gui" from="." to="animacionContent" method="animationContent_on_from_control"]
 [connection signal="level_up_activation_gui" from="." to="CanvasLayer" method="_from_root_visible_on"]
 [connection signal="level_up_activation_gui" from="." to="CanvasLayer/levelUpAnimacion" method="_request_from_guiLevelUpAnimations"]
-[connection signal="close_boton" from="CanvasLayer/GuiLevelUp" to="." method="_on_gui_level_up_close_boton"]
 [connection signal="request_on" from="CanvasLayer/levelUpAnimacion" to="CanvasLayer/levelUpAnimacion/CanvasLayer" method="from_root_visiblity_on"]
-
-[editable path="CanvasLayer/GuiLevelUp"]
+[connection signal="pressed" from="CanvasLayer/GuiLevelUp/PanelContainer/MarginContainer/Button" to="CanvasLayer/GuiLevelUp" method="_on_button_pressed"]
+[connection signal="preseedWithValue" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button2" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button2" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button2" method="_on_pressed"]
+[connection signal="preseedWithValue" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button" method="_on_pressed"]
+[connection signal="preseedWithValue" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button3" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label2" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button3" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button3" method="_on_pressed"]
+[connection signal="preseedWithValue" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button4" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label2" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button4" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button4" method="_on_pressed"]
+[connection signal="preseedWithValue" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button5" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label3" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button5" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button5" method="_on_pressed"]
+[connection signal="preseedWithValue" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button6" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label3" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button6" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button6" method="_on_pressed"]
+[connection signal="preseedWithValue" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button7" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label4" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button7" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button7" method="_on_pressed"]
+[connection signal="preseedWithValue" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button8" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label4" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button8" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button8" method="_on_pressed"]
+[connection signal="preseedWithValue" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button9" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label5" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button9" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button9" method="_on_pressed"]
+[connection signal="preseedWithValue" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button10" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label5" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button10" to="CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button10" method="_on_pressed"]

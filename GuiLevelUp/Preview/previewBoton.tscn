@@ -11,14 +11,13 @@ size = Vector2(480, 930.434)
 
 [node name="Control" type="CanvasLayer"]
 layer = 0
-visible = false
 script = ExtResource("1_u50gr")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 678.0
-offset_top = 375.0
+offset_top = 505.0
 offset_right = 1126.0
-offset_bottom = 503.0
+offset_bottom = 633.0
 script = ExtResource("2_6rdf6")
 
 [node name="GridContainer" type="VBoxContainer" parent="Panel"]
@@ -82,7 +81,7 @@ position = Vector2(161.535, 98.5012)
 position = Vector2(161.535, 98.5012)
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(710, 499)
+position = Vector2(710, 629)
 scale = Vector2(1, 0.920001)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -92,14 +91,13 @@ debug_color = Color(0.930431, 0.0682671, 0.625804, 0.42)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
-visible = false
 script = ExtResource("4_s2ay7")
 
 [node name="OptionButton" type="Button" parent="CanvasLayer"]
 offset_left = 862.0
-offset_top = 503.0
+offset_top = 650.0
 offset_right = 942.0
-offset_bottom = 523.0
+offset_bottom = 670.0
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("5_p6x3q")

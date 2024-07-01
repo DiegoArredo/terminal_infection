@@ -9,6 +9,7 @@ func _init():
 	
 static func from_adapter_old_and_new(adapterOld: HabilidadAdapterPreview, adapterNew: HabilidadAdapterPreview):
 	var object = HabilidadAdapterOverwriting.new()
+	
 	object.imagen = adapterNew.imagen
 	object.dps = adapterNew.dps
 	object.tecla = adapterNew.tecla

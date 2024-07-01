@@ -1,5 +1,6 @@
 extends "res://Habilidades2/habilidadComand.gd"
 
+class_name  HabilidadComandNull
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

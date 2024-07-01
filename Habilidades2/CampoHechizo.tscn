@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://by5c6vmn0fyp"]
+
+[ext_resource type="Script" path="res://Habilidades2/CampoHechizo.gd" id="1_5vptq"]
+[ext_resource type="Script" path="res://Habilidades2/circleMagic.gd" id="2_pcxe6"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(637, 375)
+script = ExtResource("1_5vptq")
+
+[node name="circleMagic" type="Control" parent="."]
+modulate = Color(0.105882, 1, 1, 0)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_pcxe6")
+
+[node name="ColorRect" type="ColorRect" parent="circleMagic"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.227451, 1, 1, 0.47451)

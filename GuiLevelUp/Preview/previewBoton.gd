@@ -1,8 +1,4 @@
 extends CanvasLayer
-
-signal boton_visible
-signal visible_off
-
 var data_process
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,16 +30,3 @@ func get_data_process_dummy():
 func _process(delta):
 	pass
 
-func visibility_on_from_control():
-	visible = true
-	boton_visible.emit()
-	
-
-
-func from_closeBotton_visibleOff():
-	visible = false
-
-
-func comeFrom_CloseBoton_visibleOff():
-	visible_off.emit()
-	visible = false

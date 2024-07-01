@@ -1,12 +1,18 @@
 extends Control
+
 signal pedir_datos_a_player(localData)
 signal close_boton
 var datos_from_player
 var number_of_labels_in_container = 5
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	start()
+	
+func start():
 	mock_datos_conseguidos_de_player()
 	insertar_datos()
+	
 	
 func test():
 	visible = true

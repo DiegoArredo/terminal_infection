@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0dcx8pdyfknj"]
+[gd_scene load_steps=3 format=3 uid="uid://b0dcx8pdyfknj"]
 
 [ext_resource type="Script" path="res://GuiLevelUp/Preview/row_for_preview.gd" id="1_oxdd4"]
-[ext_resource type="Texture2D" uid="uid://cfakn7rlr40ba" path="res://Resources/armas/image21.png" id="2_kqvxj"]
-[ext_resource type="Texture2D" uid="uid://bws578h2j05lt" path="res://Resources/downgrade.png" id="3_ubs86"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt2sa"]
 size = Vector2(1378, 10)
@@ -13,9 +11,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 56.0
-offset_top = 80.0
+offset_top = 28.5
 offset_right = -470.0
-offset_bottom = -805.0
+offset_bottom = -691.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.47629, 0.585669)
@@ -46,7 +44,6 @@ color = Color(0.219501, 0.219501, 0.219501, 1)
 [node name="Image21" type="Sprite2D" parent="GridContainer/ColorRect"]
 position = Vector2(312, 104)
 scale = Vector2(0.667665, 0.595808)
-texture = ExtResource("2_kqvxj")
 
 [node name="ColorRect2" type="ColorRect" parent="GridContainer"]
 custom_minimum_size = Vector2(0, 200)
@@ -91,14 +88,12 @@ modulate = Color(0.449852, 0.0691233, 0.178753, 1)
 position = Vector2(582.013, 103.947)
 rotation = 3.14159
 scale = Vector2(0.036128, 0.0358241)
-texture = ExtResource("3_ubs86")
 
 [node name="upgrade" type="Sprite2D" parent="GridContainer/ColorRect2"]
 visible = false
 modulate = Color(0.0350589, 0.301435, 0, 1)
 position = Vector2(582, 104)
 scale = Vector2(0.0360466, 0.0360466)
-texture = ExtResource("3_ubs86")
 
 [node name="limite_inferior" type="Area2D" parent="."]
 position = Vector2(8, 200)

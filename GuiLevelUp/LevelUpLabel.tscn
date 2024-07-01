@@ -142,7 +142,6 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
-visible = false
 script = ExtResource("1_es02a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -150,7 +149,6 @@ layer = 2
 script = ExtResource("2_ikawu")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-visible = false
 modulate = Color(0, 1, 1, 1)
 anchors_preset = 8
 anchor_left = 0.5
@@ -176,8 +174,3 @@ libraries = {
 "": SubResource("AnimationLibrary_32fa8")
 }
 script = ExtResource("4_svnfq")
-
-[connection signal="request_on" from="." to="CanvasLayer" method="_from_root_visible_on"]
-[connection signal="request_on" from="." to="CanvasLayer/Label" method="from_root_visible_on"]
-[connection signal="request_on" from="." to="CanvasLayer/AnimationPlayer" method="from_root_play"]
-[connection signal="visible_off" from="." to="CanvasLayer/Label" method="comeFrom_closeButton_visibleOff"]

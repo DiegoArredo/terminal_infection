@@ -1,17 +1,15 @@
 extends Control
 
-class_name HabilidadAdapterPreview
+class_name HabilidadMetaData
 
-var dps
-var tecla
+var nombreHabilidad
+var sceneFile
 var imagen
+var onLevel
 
-static func from_comand(comand: HabilidadComand, imagen: Image):
-	var object = HabilidadAdapterPreview.new()
-	object.dps = comand.dps
-	object.tecla = comand.tecla_designada
-	object.imagen = imagen
-	
+func _init(sceneFile, onLevel):
+	self.sceneFile = sceneFile
+	self.onLevel = onLevel
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
