@@ -17,7 +17,7 @@ var speed = 100
 @onready var tiempomagia = get_node("%TiempoAtaque")
 @onready var ataqueMagia= get_node("%AtaqueMagia")
 
-var magiaCantidad=0
+var magiaCantidad=VariablesGlobales.magiaCantidad
 var magiaBase=1
 var magiaVelocidad=1.5
 var magiaNivel = 1
