@@ -1,7 +1,9 @@
-[gd_scene load_steps=53 format=3 uid="uid://7mp71bjng6bp"]
+[gd_scene load_steps=55 format=3 uid="uid://7mp71bjng6bp"]
 
 [ext_resource type="Texture2D" uid="uid://o0qls6p0us05" path="res://Resources/01 Stranded - Starter Pack v1.1/Hero/Hero/Hero spritesheet YELLOW with shadow.png" id="1_o7xtk"]
 [ext_resource type="Script" path="res://Player/player_1.gd" id="1_v1ata"]
+[ext_resource type="PackedScene" uid="uid://4twk31rv43cx" path="res://Vida Jugador/vida.tscn" id="2_8gxje"]
+[ext_resource type="PackedScene" uid="uid://m6lt8yi7ro5t" path="res://Vida Jugador/health_component.tscn" id="3_4rffl"]
 [ext_resource type="PackedScene" uid="uid://ishjavr87n6j" path="res://Guns/gun.tscn" id="3_cxu68"]
 [ext_resource type="Script" path="res://FSM/CharacterStateMachine.gd" id="3_wm7ag"]
 [ext_resource type="PackedScene" uid="uid://bfhdw38bblafs" path="res://inventory/inv_ui.tscn" id="4_4erd1"]
@@ -283,8 +285,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56ltn"]
-radius = 4.0
-height = 10.0
+radius = 7.0
+height = 14.0
 
 [sub_resource type="Animation" id="Animation_v764p"]
 length = 0.001
@@ -469,9 +471,21 @@ frame = 1
 offset = Vector2(0, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
-rotation = 1.5708
+position = Vector2(0, 1)
+rotation = -6.28319
 shape = SubResource("CapsuleShape2D_56ltn")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_4rffl")]
+position = Vector2(0, 1)
+collision_layer = 2
+collision_mask = 0
+maxHealth = 20
+
+[node name="vida" parent="HealthComponent" instance=ExtResource("2_8gxje")]
+offset_left = -11.0
+offset_top = -18.0
+offset_right = 11.0
+offset_bottom = -14.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

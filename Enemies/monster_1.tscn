@@ -1,6 +1,7 @@
-[gd_scene load_steps=45 format=3 uid="uid://c1fmnxygnm50j"]
+[gd_scene load_steps=46 format=3 uid="uid://c1fmnxygnm50j"]
 
 [ext_resource type="Script" path="res://Enemies/monster_1.gd" id="1_t7j0v"]
+[ext_resource type="PackedScene" uid="uid://cevscrrvueiwr" path="res://Vida Jugador/hitbox_component.tscn" id="2_0s8b0"]
 [ext_resource type="Texture2D" uid="uid://dlypviljgu5qj" path="res://Resources/Top Down monster pack 1/Monster 1/34x15 Monster 1 without shadows.png" id="2_7h0td"]
 [ext_resource type="Script" path="res://FSM/EnemyStateMachine.gd" id="3_m0akq"]
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Idle.gd" id="4_w0sk0"]
@@ -427,6 +428,8 @@ script = ExtResource("1_t7j0v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_vy46c")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_0s8b0")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 4)

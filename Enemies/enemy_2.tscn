@@ -1,6 +1,7 @@
-[gd_scene load_steps=42 format=3 uid="uid://df0xf0ygmrmlg"]
+[gd_scene load_steps=43 format=3 uid="uid://df0xf0ygmrmlg"]
 
 [ext_resource type="Script" path="res://Enemies/enemy_2.gd" id="1_3lupw"]
+[ext_resource type="PackedScene" uid="uid://cevscrrvueiwr" path="res://Vida Jugador/hitbox_component.tscn" id="2_iqlxn"]
 [ext_resource type="Texture2D" uid="uid://rwn7cqtqmy5s" path="res://Resources/01 Stranded - Starter Pack/Enemies/Guard/Guard spritesheet without shadow.png" id="2_mhux4"]
 [ext_resource type="Script" path="res://FSM/EnemyStateMachine.gd" id="3_ry8nc"]
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Idle.gd" id="4_k7vd2"]
@@ -375,8 +376,12 @@ y_sort_enabled = true
 position = Vector2(-3, 3)
 shape = SubResource("CapsuleShape2D_v36xc")
 
+[node name="HitboxComponent" parent="." instance=ExtResource("2_iqlxn")]
+position = Vector2(-3, 3)
+damage = 2
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-3, 9)
+position = Vector2(-3, 10)
 sprite_frames = SubResource("SpriteFrames_55uvi")
 animation = &"idle"
 frame = 1
@@ -407,9 +412,9 @@ script = ExtResource("6_bme3y")
 script = ExtResource("7_x4jno")
 
 [node name="BarraVida" parent="." instance=ExtResource("8_3k116")]
-offset_left = -7.0
+offset_left = -8.0
 offset_top = -12.0
-offset_right = 5.0
+offset_right = 4.0
 offset_bottom = -10.0
 
 [connection signal="timeout" from="EnemyStateMachine/Death/Timer" to="EnemyStateMachine/Death" method="_on_timer_timeout"]

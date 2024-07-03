@@ -1,6 +1,7 @@
-[gd_scene load_steps=65 format=3 uid="uid://bg6fpggge1fjy"]
+[gd_scene load_steps=66 format=3 uid="uid://bg6fpggge1fjy"]
 
 [ext_resource type="Texture2D" uid="uid://mtu3l1dgsma1" path="res://Resources/The DARK Series Panda Protector/Panda/Sprite Sheet/Panda 115x43.png" id="1_oxjug"]
+[ext_resource type="PackedScene" uid="uid://vmptj1md2cjq" path="res://HitBoxBosses/hit_box_component_boss1.tscn" id="2_b5kk0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jms14"]
 atlas = ExtResource("1_oxjug")
@@ -584,6 +585,10 @@ sprite_frames = SubResource("SpriteFrames_a8lx4")
 animation = &"idle"
 frame = 1
 offset = Vector2(32, 0)
+
+[node name="hitBox_componentBosses" parent="." instance=ExtResource("2_b5kk0")]
+position = Vector2(3, 1)
+damage = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 2)
