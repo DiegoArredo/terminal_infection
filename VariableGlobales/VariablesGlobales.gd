@@ -4,7 +4,8 @@ extends Node
 var nombre = ""
 
 #variables juego
-var exp=0
+var tiempo_vivo = 0
+var experiencia=0
 var puntaje= 0
 
 #variables personaje
@@ -26,7 +27,7 @@ var magiaNivel = 1
 #variables enemigo 1
 var live_enemy1=25
 var damage_enemy1=3
-var level_enemy=1
+var level_enemy1=1
 
 #variables enemigo 2
 var live_enemy2=50
@@ -54,7 +55,7 @@ func reset():
 	nombre = ""
 
 	#variabales juego
-	exp=0
+	experiencia=0
 	puntaje= 0
 
 	#variables personaje
@@ -76,7 +77,7 @@ func reset():
 	#variables enemigo 1
 	live_enemy1=25
 	damage_enemy1=3
-	level_enemy=1
+	level_enemy1=1
 
 	#variables enemigo 2
 	live_enemy2=50
