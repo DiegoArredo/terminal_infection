@@ -11,7 +11,7 @@ func obtener_puntajes():
 	if error != OK:
 		push_warning("An error occurred in the HTTP request.")
 	
-func _on_request_completed(result, response_code, headers, body):
+func _on_request_completed(_result, _response_code, _headers, body):
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
@@ -31,7 +31,7 @@ func _on_request_completed(result, response_code, headers, body):
 
 	
 func _enviar_puntajes(nombre : String, puntaje : int):
-	var body =  JSON.new().stringify({"playerName": nombre, "score" : puntaje})
+	var body =  JSON.stringify({"playerName": nombre, "score" : puntaje})
 	var headers = [auth_header, "Content-Type: application/json", ]
 	$HTTPRequest.request(url, headers, METHOD_POST, body)
 	

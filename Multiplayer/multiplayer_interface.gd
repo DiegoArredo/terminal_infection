@@ -7,7 +7,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if $CanvasLayer/PanelContainer/VBoxContainer/LineEdit.text == "":
 		$CanvasLayer/PanelContainer/VBoxContainer/Play_button.disabled = true
 	else:
@@ -18,3 +18,7 @@ func _process(delta):
 func _on_play_button_pressed():
 	$"/root/VariablesGlobales".nombre = $CanvasLayer/PanelContainer/VBoxContainer/LineEdit.text
 	get_tree().change_scene_to_file("res://Multiplayer/world_multiplayer.tscn")
+
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file("res://Main.tscn")
