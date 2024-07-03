@@ -284,8 +284,8 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56ltn"]
-radius = 7.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pns8t"]
+radius = 4.0
 height = 14.0
 
 [sub_resource type="Animation" id="Animation_v764p"]
@@ -471,9 +471,9 @@ frame = 1
 offset = Vector2(0, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-rotation = -6.28319
-shape = SubResource("CapsuleShape2D_56ltn")
+position = Vector2(0, 10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pns8t")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_4rffl")]
 position = Vector2(0, 1)
