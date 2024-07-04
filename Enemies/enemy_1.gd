@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
 
-@onready var player= get_node("/root/world_1/TileMap/Player/Player_1")
+@onready var player= $"../../Player/Player_1"
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animation = $AnimationPlayer
 @onready var healthBar = $BarraVida
