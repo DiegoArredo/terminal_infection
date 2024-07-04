@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var sprite=$AnimatedSprite2D
 
 var direction:Vector2
-
+var live=VariablesGlobales.life_boos1
 func _ready():
 	set_physics_process(false)
 
@@ -17,4 +17,8 @@ func _process(_delta):
 func _physics_process(delta):
 	velocity= direction.normalized()*60
 	move_and_collide(velocity*delta)
+	
+func take_damage(damage:int):
+	live-=damage
+	
 	

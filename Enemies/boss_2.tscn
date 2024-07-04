@@ -1,8 +1,13 @@
-[gd_scene load_steps=62 format=3 uid="uid://dnkft131ooe0f"]
+[gd_scene load_steps=74 format=3 uid="uid://dnkft131ooe0f"]
 
 [ext_resource type="Script" path="res://Enemies/boss_2.gd" id="1_b3b2s"]
 [ext_resource type="Texture2D" uid="uid://d0xqclmgh4556" path="res://Resources/DARK - Victorian Enemies/The Dark Warden/The Dark Warden 97x32.png" id="1_eeiq1"]
 [ext_resource type="PackedScene" uid="uid://bp13qvlxy5l3r" path="res://HitBoxBosses/hit_bos_component_boss_2.tscn" id="2_r54nr"]
+[ext_resource type="Script" path="res://Enemies/Boss1_state/FiniteEstateMachine.gd" id="4_sag7b"]
+[ext_resource type="Script" path="res://Enemies/idle.gd" id="5_suj8p"]
+[ext_resource type="Script" path="res://Enemies/walk.gd" id="6_3ks3k"]
+[ext_resource type="Script" path="res://Enemies/attack.gd" id="7_1s7vl"]
+[ext_resource type="Script" path="res://Enemies/death.gd" id="8_ss5de"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jh6hh"]
 atlas = ExtResource("1_eeiq1")
@@ -422,6 +427,97 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_crmv8"]
 radius = 10.0499
 
+[sub_resource type="Animation" id="Animation_41j5g"]
+resource_name = "walk"
+length = 1.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_dv4ll"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_pe2wf"]
+resource_name = "attack"
+length = 1.50001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_7yxpj"]
+resource_name = "idle"
+length = 1.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_fc0ka"]
+resource_name = "death"
+length = 1.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7t86u"]
+_data = {
+"RESET": SubResource("Animation_dv4ll"),
+"attack": SubResource("Animation_pe2wf"),
+"death": SubResource("Animation_fc0ka"),
+"idle": SubResource("Animation_7yxpj"),
+"walk": SubResource("Animation_41j5g")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5mnl0"]
+radius = 400.0
+
 [node name="Boss2" type="Node2D"]
 script = ExtResource("1_b3b2s")
 
@@ -432,9 +528,35 @@ script = ExtResource("1_b3b2s")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(1, -7)
 sprite_frames = SubResource("SpriteFrames_y45he")
-animation = &"walk"
-frame_progress = 0.477011
+animation = &"death"
 offset = Vector2(22, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_crmv8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_7t86u")
+}
+
+[node name="playerDetetction" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/playerDetetction"]
+shape = SubResource("CircleShape2D_5mnl0")
+
+[node name="FiniteStateMachine" type="Node2D" parent="CharacterBody2D"]
+script = ExtResource("4_sag7b")
+
+[node name="idle" type="Node2D" parent="CharacterBody2D/FiniteStateMachine"]
+script = ExtResource("5_suj8p")
+
+[node name="walk" type="Node2D" parent="CharacterBody2D/FiniteStateMachine"]
+script = ExtResource("6_3ks3k")
+
+[node name="attack" type="Node2D" parent="CharacterBody2D/FiniteStateMachine"]
+script = ExtResource("7_1s7vl")
+
+[node name="death" type="Node2D" parent="CharacterBody2D/FiniteStateMachine"]
+script = ExtResource("8_ss5de")
+
+[connection signal="body_entered" from="CharacterBody2D/playerDetetction" to="CharacterBody2D/FiniteStateMachine/idle" method="_on_player_detetction_body_entered"]

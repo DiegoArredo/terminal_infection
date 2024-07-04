@@ -1,23 +1,24 @@
 extends CharacterBody2D
-class_name Boss
 
-@onready var player= get_node("/root/world_1/TileMap/Player/Player_1")
-@onready var animated_sprite = $AnimatedSprite2D
-@onready var animation = $AnimationPlayer
-@onready var healthBar = $BarraVida
+@onready var player =get_node("/root/world_1/TileMap/Player/Player_1")
+@onready var sprite=$AnimatedSprite2D
 
-@export var max_health = 100
-@export var current_health = max_health
-
+var direction:Vector2
+var live=VariablesGlobales.life_boos1
 func _ready():
-	$EnemyStateMachine.init(self, animated_sprite, animation,player)
-	healthBar.init_health(current_health)
-func _physics_process(delta):
-	$EnemyStateMachine._physics_process(delta)
-func _process(delta):
-	$EnemyStateMachine._process(delta)
+	set_physics_process(false)
 
+func _process(_delta):
+	direction= player.position - position
+	if direction.x <0:
+		sprite.flip_h=true
+	else:
+		sprite.flip_h=false
+func _physics_process(delta):
+	velocity= direction.normalized()*60
+	move_and_collide(velocity*delta)
 	
-func take_damage():
-	current_health-=1
-	healthBar.health = current_health
+func take_damage(damage:int):
+	live-=damage
+	
+	
