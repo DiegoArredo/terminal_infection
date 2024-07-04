@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bgg61fl3rm0y5"]
+[gd_scene load_steps=49 format=3 uid="uid://bgg61fl3rm0y5"]
 
 [ext_resource type="Texture2D" uid="uid://e2ulhvk4ijhl" path="res://Resources/01 Stranded - Starter Pack v1.1/Tileset/Tileset.png" id="1_vcuk6"]
 [ext_resource type="Script" path="res://Multiplayer/world_multiplayer.gd" id="1_voxtc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Experience_bar.gd" id="5_efn2p"]
 [ext_resource type="Script" path="res://LabelLevelUp2.gd" id="6_jyn6y"]
 [ext_resource type="PackedScene" uid="uid://d3m4xsna6e4p4" path="res://Multiplayer/WebSocket.tscn" id="9_haxic"]
+[ext_resource type="PackedScene" uid="uid://crt2mnesej8lo" path="res://Habilidades2/Habilidades.tscn" id="10_rjivn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivf3m"]
 texture = ExtResource("1_vcuk6")
@@ -1373,8 +1374,11 @@ autostart = true
 
 [node name="WebSocket" parent="." instance=ExtResource("9_haxic")]
 
+[node name="Habilidades" parent="." instance=ExtResource("10_rjivn")]
+
 [connection signal="levelup" from="TileMap/Player/Player_1" to="." method="_on_player_1_levelup"]
 [connection signal="playerdied" from="TileMap/Player/Player_1" to="." method="_on_player_1_playerdied"]
 [connection signal="timeout" from="TileMap/Enemies/Timer" to="TileMap/Enemies" method="_on_timer_timeout"]
 [connection signal="timeout" from="TileMap/Enemies/agentTimer" to="TileMap/Enemies/agentTimer" method="_on_timeout"]
 [connection signal="timeout" from="In_game_time" to="." method="_on_in_game_time_timeout"]
+[connection signal="requestPositionPlayer" from="Habilidades" to="TileMap/Player/Player_1" method="_request_position"]

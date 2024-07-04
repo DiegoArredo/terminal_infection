@@ -40,9 +40,9 @@ func _on_button_pressed():
 	if habilidad_selected == "Bala Magia":
 		pass
 	if habilidad_selected == "Magia Explosiva":
-		var Magia_e = preload()
+		pass
 	VariablesGlobales.life = int($PanelContainer/MarginContainer/VBoxContainer/Atributos_Container/vida_label.text)
-	VariablesGlobales.daño = VariablesGlobales.daño + 0.5* int($"PanelContainer/MarginContainer/VBoxContainer/Atributos_Container/daño_label".text)
+	VariablesGlobales.damage = VariablesGlobales.damage*0.8 + 0.7* int($"PanelContainer/MarginContainer/VBoxContainer/Atributos_Container/daño_label".text)
 	VariablesGlobales.velocidad = int($PanelContainer/MarginContainer/VBoxContainer/Atributos_Container/velocidad_label.text)
 	VariablesGlobales.rango = int($PanelContainer/MarginContainer/VBoxContainer/Atributos_Container/rango_label.text)
 	get_tree().paused = false
