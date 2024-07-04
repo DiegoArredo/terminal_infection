@@ -12,5 +12,5 @@ func change_state(state):
 	current_state=find_child(state) as State
 	current_state.enter()
 	
-	previous_state.exict()
+	previous_state.exit()
 	previous_state=current_state

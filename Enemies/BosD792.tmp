@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://bg6fpggge1fjy"]
+[gd_scene load_steps=73 format=3 uid="uid://bg6fpggge1fjy"]
 
 [ext_resource type="Texture2D" uid="uid://mtu3l1dgsma1" path="res://Resources/The DARK Series Panda Protector/Panda/Sprite Sheet/Panda 115x43.png" id="1_oxjug"]
 [ext_resource type="Script" path="res://Enemies/Boss_1.gd" id="1_q5xh1"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://Enemies/Idle.gd" id="4_fn7kf"]
 [ext_resource type="Script" path="res://Enemies/attack_1.gd" id="6_8de6l"]
 [ext_resource type="Script" path="res://Enemies/walk.gd" id="7_5j686"]
-[ext_resource type="Script" path="res://Enemies/attack_2.gd" id="7_262jm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jms14"]
 atlas = ExtResource("1_oxjug")
@@ -596,7 +595,7 @@ script = ExtResource("1_q5xh1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a8lx4")
-animation = &"attack_2"
+animation = &"idle"
 frame = 1
 offset = Vector2(32, 0)
 
@@ -628,7 +627,7 @@ script = ExtResource("4_fn7kf")
 script = ExtResource("6_8de6l")
 
 [node name="attack_2" type="Node2D" parent="FiniteEstateMachine"]
-script = ExtResource("7_262jm")
+script = ExtResource("3_1o67q")
 
 [node name="death" type="Node2D" parent="FiniteEstateMachine"]
 script = ExtResource("3_1o67q")
