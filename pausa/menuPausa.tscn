@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dr3vwbbqswgc8"]
+[gd_scene load_steps=8 format=3 uid="uid://dr3vwbbqswgc8"]
 
 [ext_resource type="Script" path="res://pausa/MenuInfo.gd" id="1_guc8s"]
 [ext_resource type="Texture2D" uid="uid://7bha725p8umy" path="res://pausa/button.png" id="2_8nbnt"]
@@ -6,30 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cbjnyg0xlb1gt" path="res://pausa/menu blood.png" id="4_7y7bk"]
 [ext_resource type="Texture2D" uid="uid://mgjeu482xloj" path="res://pausa/skull.png" id="5_ubxc0"]
 [ext_resource type="Texture2D" uid="uid://bb82kysudj0i7" path="res://pausa/garras menu.png" id="6_s5pbj"]
-
-[sub_resource type="SystemFont" id="SystemFont_q5jfb"]
-font_names = PackedStringArray("Impact")
-font_weight = 900
-font_stretch = 150
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_j00u4"]
-font_names = PackedStringArray("Palatino Linotype")
-font_weight = 999
-font_stretch = 150
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_3xt1g"]
-font_names = PackedStringArray("Palatino Linotype")
-font_weight = 999
-font_stretch = 150
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_kqt2l"]
-font_names = PackedStringArray("Palatino Linotype")
-font_weight = 999
-font_stretch = 150
-subpixel_positioning = 0
+[ext_resource type="FontFile" uid="uid://2fsb1cbq2al8" path="res://Fonts/rocabe/ROCABE Trial.ttf" id="7_7m3vf"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
@@ -45,14 +22,14 @@ texture = ExtResource("2_8nbnt")
 
 [node name="Button2" type="Sprite2D" parent="Menu"]
 z_index = -1
-position = Vector2(618, 333)
-scale = Vector2(0.157357, 0.249265)
+position = Vector2(620.5, 333)
+scale = Vector2(0.181199, 0.249265)
 texture = ExtResource("2_8nbnt")
 
 [node name="Button3" type="Sprite2D" parent="Menu"]
 z_index = -1
 position = Vector2(620, 382)
-scale = Vector2(0.100818, 0.198897)
+scale = Vector2(0.119891, 0.198897)
 texture = ExtResource("2_8nbnt")
 
 [node name="MenuFondo" type="Sprite2D" parent="Menu"]
@@ -80,26 +57,18 @@ rotation = -0.380482
 scale = Vector2(0.78486, 0.654766)
 texture = ExtResource("6_s5pbj")
 
-[node name="ColorRect" type="ColorRect" parent="Menu"]
-visible = false
-offset_left = 474.0
-offset_top = 128.0
-offset_right = 745.0
-offset_bottom = 506.0
-color = Color(0.0156863, 0, 0, 0.262745)
-
 [node name="Label" type="Label" parent="Menu"]
-offset_left = 572.0
-offset_top = 166.0
-offset_right = 662.0
-offset_bottom = 210.0
+offset_left = 539.0
+offset_top = 182.0
+offset_right = 694.0
+offset_bottom = 226.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 8
-theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_offset_x = 12
+theme_override_constants/shadow_offset_y = 9
 theme_override_constants/outline_size = 13
-theme_override_fonts/font = SubResource("SystemFont_q5jfb")
+theme_override_fonts/font = ExtResource("7_7m3vf")
 theme_override_font_sizes/font_size = 35
 text = "PAUSA"
 horizontal_alignment = 1
@@ -111,10 +80,10 @@ offset_top = 243.0
 offset_right = 685.0
 offset_bottom = 286.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.368627, 0.368627, 0.368627, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = SubResource("SystemFont_j00u4")
+theme_override_fonts/font = ExtResource("7_7m3vf")
 text = "REANUDAR
 "
 flat = true
@@ -125,10 +94,10 @@ offset_top = 301.0
 offset_right = 673.0
 offset_bottom = 343.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.368627, 0.368627, 0.368627, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = SubResource("SystemFont_3xt1g")
+theme_override_fonts/font = ExtResource("7_7m3vf")
 text = "REINICIAR"
 flat = true
 
@@ -136,12 +105,12 @@ flat = true
 offset_left = 580.0
 offset_top = 357.0
 offset_right = 660.0
-offset_bottom = 391.0
+offset_bottom = 390.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.370364, 0.370364, 0.370364, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = SubResource("SystemFont_kqt2l")
+theme_override_fonts/font = ExtResource("7_7m3vf")
 text = "SALIR
 "
 flat = true

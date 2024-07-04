@@ -64,10 +64,3 @@ func _on_ataque_magia_timeout():
 		else:
 			ataqueMagia.stop()
 		
-
-		
-
-
-func _on_habilidades_request_position_player(node):
-	node.positionPlayer = Vector2(self.position)
-	node.receibedPositionPlayer.emit()
