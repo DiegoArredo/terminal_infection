@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk7r2jwx6mddl"]
+[gd_scene load_steps=7 format=3 uid="uid://bk7r2jwx6mddl"]
 
 [ext_resource type="Script" path="res://Multiplayer/multiplayer_interface.gd" id="1_cv5sd"]
 [ext_resource type="Texture2D" uid="uid://dl166coqj3cky" path="res://Multiplayer/Blur_background.png" id="1_su0dn"]
 [ext_resource type="PackedScene" uid="uid://d3m4xsna6e4p4" path="res://Multiplayer/WebSocket.tscn" id="2_4rfff"]
 [ext_resource type="Script" path="res://Multiplayer/TablaPuntajes.gd" id="4_5lkrx"]
 [ext_resource type="Script" path="res://Multiplayer/LineEdit.gd" id="4_dqlj1"]
+[ext_resource type="Texture2D" uid="uid://br00qrtbmp7iy" path="res://Resources/Termial_Infection_logo_multiplayer.png" id="4_j3u31"]
 
 [node name="MultiplayerInterface" type="Control"]
 layout_mode = 3
@@ -22,6 +23,11 @@ position = Vector2(634, 361)
 texture = ExtResource("1_su0dn")
 metadata/_edit_lock_ = true
 
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(370, 193)
+scale = Vector2(0.339754, 0.404873)
+texture = ExtResource("4_j3u31")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Back" type="Button" parent="CanvasLayer"]
@@ -32,16 +38,16 @@ text = "BACK
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 offset_left = 285.0
-offset_top = 329.0
+offset_top = 380.0
 offset_right = 448.0
-offset_bottom = 395.0
+offset_bottom = 481.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2
 
 [node name="LineEdit" type="LineEdit" parent="CanvasLayer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-placeholder_text = "Nick"
+placeholder_text = "Ingrese Nick"
 alignment = 1
 max_length = 10
 context_menu_enabled = false
