@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://4twk31rv43cx"]
+
+[ext_resource type="Script" path="res://Vida Jugador/vida.gd" id="1_xt0lt"]
+[ext_resource type="Script" path="res://Vida Jugador/daño.gd" id="2_ea061"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6woup"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhcni"]
+bg_color = Color(0.0392157, 0.721569, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t82aq"]
+bg_color = Color(0.00351917, 0.00351917, 0.00351916, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tndve"]
+bg_color = Color(0.92549, 0, 0.172549, 1)
+
+[node name="vida" type="ProgressBar"]
+z_index = 1
+offset_right = 240.0
+offset_bottom = 4.0
+theme_override_styles/background = SubResource("StyleBoxFlat_6woup")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dhcni")
+value = 100.0
+show_percentage = false
+script = ExtResource("1_xt0lt")
+
+[node name="daño" type="ProgressBar" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_t82aq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tndve")
+value = 100.0
+show_percentage = false
+script = ExtResource("2_ea061")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

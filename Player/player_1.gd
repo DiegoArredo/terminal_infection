@@ -17,10 +17,12 @@ var speed = 100
 @onready var tiempomagia = get_node("%TiempoAtaque")
 @onready var ataqueMagia= get_node("%AtaqueMagia")
 
-var magiaCantidad=0
+
+var magiaCantidad=VariablesGlobales.magiaCantidad
 var magiaBase=1
 var magiaVelocidad=1.5
 var magiaNivel = 1
+
 
 func _ready():
 	$CharacterStateMachine.init(self, animated_sprite, animation)
@@ -34,6 +36,7 @@ func _process(delta):
 		max_experience = max_experience *2
 		current_experience = 0
 		experience_changed.emit()
+
 func collect(item):
 	inv.insert(item)
 	
@@ -60,5 +63,4 @@ func _on_ataque_magia_timeout():
 			ataqueMagia.start()
 		else:
 			ataqueMagia.stop()
-		
 		

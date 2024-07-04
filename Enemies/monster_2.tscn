@@ -1,9 +1,10 @@
-[gd_scene load_steps=48 format=3 uid="uid://dij2sbe07klpo"]
+[gd_scene load_steps=49 format=3 uid="uid://dij2sbe07klpo"]
 
 [ext_resource type="Script" path="res://Enemies/monster_2.gd" id="1_6p5lm"]
 [ext_resource type="Texture2D" uid="uid://dm2i66ojs3d1b" path="res://Resources/Top Down monster pack 1/Monster 2/50x31 Monster 2 spritesheet without shadows.png" id="2_7hma4"]
 [ext_resource type="PackedScene" uid="uid://6gn8se34ekcv" path="res://BarraVida/BarraVida.tscn" id="2_wl6qm"]
 [ext_resource type="Script" path="res://FSM/EnemyStateMachine.gd" id="3_fj7jh"]
+[ext_resource type="PackedScene" uid="uid://cevscrrvueiwr" path="res://Vida Jugador/hitbox_component.tscn" id="3_t0now"]
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Idle.gd" id="4_dukhl"]
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Chasing.gd" id="5_0kmy1"]
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Death.gd" id="6_wp071"]
@@ -419,6 +420,9 @@ offset_bottom = -9.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_thj5n")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_t0now")]
+damage = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 9)

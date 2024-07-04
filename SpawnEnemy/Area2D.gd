@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 
 func spawn():
 	var level=player1.level
-	
 	if bool_spawn:
 		$Timer.start()
 		bool_spawn=false

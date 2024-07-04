@@ -1,8 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://disl5jvqlkq88"]
+[gd_scene load_steps=40 format=3 uid="uid://disl5jvqlkq88"]
 
 [ext_resource type="Script" path="res://Enemies/enemy_1.gd" id="1_q4mxm"]
 [ext_resource type="Texture2D" uid="uid://dgdinn8prqcf5" path="res://Resources/01 Stranded - Starter Pack/Enemies/Warrior/Warrior spritesheet without shadow.png" id="2_pk2f4"]
 [ext_resource type="Script" path="res://FSM/EnemyStateMachine.gd" id="3_brnjg"]
+[ext_resource type="PackedScene" uid="uid://cevscrrvueiwr" path="res://Vida Jugador/hitbox_component.tscn" id="3_eiewh"]
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Idle.gd" id="4_7vu16"]
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Chasing.gd" id="5_v54oi"]
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Death.gd" id="6_8s4bs"]
@@ -353,6 +354,11 @@ sprite_frames = SubResource("SpriteFrames_alf3b")
 animation = &"idle"
 frame = 1
 offset = Vector2(0, -8)
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_eiewh")]
+collision_layer = 0
+collision_mask = 2
+damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

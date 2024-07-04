@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3m4xsna6e4p4"]
+
+[ext_resource type="Script" path="res://Multiplayer/WebSocket.gd" id="1_o6c51"]
+
+[node name="WebSocket" type="Node"]
+script = ExtResource("1_o6c51")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_request_completed"]

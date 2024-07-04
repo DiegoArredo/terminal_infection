@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp13qvlxy5l3r"]
+
+[ext_resource type="Script" path="res://HitBoxBosses/hit_bos_component_boss_2.gd" id="1_v6klx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nb5j4"]
+radius = 11.0
+
+[node name="hitBos_componentBoss2" type="Area2D"]
+script = ExtResource("1_v6klx")
+damage = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nb5j4")

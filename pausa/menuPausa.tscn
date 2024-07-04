@@ -1,13 +1,84 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr3vwbbqswgc8"]
+[gd_scene load_steps=11 format=3 uid="uid://dr3vwbbqswgc8"]
 
 [ext_resource type="Script" path="res://pausa/MenuInfo.gd" id="1_guc8s"]
-[ext_resource type="Texture2D" uid="uid://c2nfoxrf8t5na" path="res://Resources/tableropng.png" id="5_8vj30"]
+[ext_resource type="Texture2D" uid="uid://7bha725p8umy" path="res://pausa/button.png" id="2_8nbnt"]
+[ext_resource type="Texture2D" uid="uid://b3wicsuckt13q" path="res://pausa/menu fondo.png" id="3_4x8c2"]
+[ext_resource type="Texture2D" uid="uid://cbjnyg0xlb1gt" path="res://pausa/menu blood.png" id="4_7y7bk"]
+[ext_resource type="Texture2D" uid="uid://mgjeu482xloj" path="res://pausa/skull.png" id="5_ubxc0"]
+[ext_resource type="Texture2D" uid="uid://bb82kysudj0i7" path="res://pausa/garras menu.png" id="6_s5pbj"]
+
+[sub_resource type="SystemFont" id="SystemFont_q5jfb"]
+font_names = PackedStringArray("Impact")
+font_weight = 900
+font_stretch = 150
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_j00u4"]
+font_names = PackedStringArray("Palatino Linotype")
+font_weight = 999
+font_stretch = 150
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_3xt1g"]
+font_names = PackedStringArray("Palatino Linotype")
+font_weight = 999
+font_stretch = 150
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_kqt2l"]
+font_names = PackedStringArray("Palatino Linotype")
+font_weight = 999
+font_stretch = 150
+subpixel_positioning = 0
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_guc8s")
 
 [node name="Menu" type="Node2D" parent="."]
+
+[node name="Button" type="Sprite2D" parent="Menu"]
+z_index = -1
+position = Vector2(617, 277)
+scale = Vector2(0.207085, 0.260294)
+texture = ExtResource("2_8nbnt")
+
+[node name="Button2" type="Sprite2D" parent="Menu"]
+z_index = -1
+position = Vector2(618, 333)
+scale = Vector2(0.157357, 0.249265)
+texture = ExtResource("2_8nbnt")
+
+[node name="Button3" type="Sprite2D" parent="Menu"]
+z_index = -1
+position = Vector2(620, 382)
+scale = Vector2(0.100818, 0.198897)
+texture = ExtResource("2_8nbnt")
+
+[node name="MenuFondo" type="Sprite2D" parent="Menu"]
+z_index = -2
+position = Vector2(617, 291)
+scale = Vector2(0.881579, 0.654663)
+texture = ExtResource("3_4x8c2")
+
+[node name="MenuBlood" type="Sprite2D" parent="Menu"]
+z_index = -1
+position = Vector2(619.25, 189)
+scale = Vector2(0.31054, 0.478834)
+texture = ExtResource("4_7y7bk")
+
+[node name="Skull" type="Sprite2D" parent="Menu"]
+position = Vector2(523, 136)
+rotation = -0.253073
+scale = Vector2(0.239402, 0.264428)
+texture = ExtResource("5_ubxc0")
+
+[node name="GarrasMenu" type="Sprite2D" parent="Menu"]
+z_index = -2
+position = Vector2(623, 292)
+rotation = -0.380482
+scale = Vector2(0.78486, 0.654766)
+texture = ExtResource("6_s5pbj")
 
 [node name="ColorRect" type="ColorRect" parent="Menu"]
 visible = false
@@ -18,41 +89,63 @@ offset_bottom = 506.0
 color = Color(0.0156863, 0, 0, 0.262745)
 
 [node name="Label" type="Label" parent="Menu"]
-offset_left = 592.0
-offset_top = 153.0
-offset_right = 649.0
-offset_bottom = 176.0
+offset_left = 572.0
+offset_top = 166.0
+offset_right = 662.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = SubResource("SystemFont_q5jfb")
+theme_override_font_sizes/font_size = 35
 text = "PAUSA"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Reanudar" type="Button" parent="Menu"]
 offset_left = 554.0
 offset_top = 243.0
 offset_right = 685.0
 offset_bottom = 286.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("SystemFont_j00u4")
 text = "REANUDAR
 "
-
-[node name="Salir" type="Button" parent="Menu"]
-offset_left = 580.0
-offset_top = 357.0
-offset_right = 660.0
-offset_bottom = 391.0
-text = "SALIR
-"
+flat = true
 
 [node name="Reiniciar" type="Button" parent="Menu"]
 offset_left = 567.0
 offset_top = 301.0
 offset_right = 673.0
 offset_bottom = 343.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("SystemFont_3xt1g")
 text = "REINICIAR"
+flat = true
 
-[node name="tablero" type="Sprite2D" parent="Menu"]
-z_index = -1
-position = Vector2(616, 313)
-scale = Vector2(1.56637, 1.8385)
-texture = ExtResource("5_8vj30")
+[node name="Salir" type="Button" parent="Menu"]
+offset_left = 580.0
+offset_top = 357.0
+offset_right = 660.0
+offset_bottom = 391.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("SystemFont_kqt2l")
+text = "SALIR
+"
+flat = true
 
 [connection signal="pressed" from="Menu/Reanudar" to="." method="_on_reanudar_pressed"]
-[connection signal="pressed" from="Menu/Salir" to="." method="_on_salir_pressed"]
 [connection signal="pressed" from="Menu/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="Menu/Salir" to="." method="_on_salir_pressed"]
