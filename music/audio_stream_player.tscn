@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1xidqq5waqoi"]
+
+[ext_resource type="AudioStream" uid="uid://d10507jqylx14" path="res://music/March through the wind.mp3" id="1_42vnf"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_42vnf")

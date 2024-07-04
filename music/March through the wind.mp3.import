@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d10507jqylx14"
+path="res://.godot/imported/March through the wind.mp3-f154ce7429fea0967916fc2edd77f7e6.mp3str"
+
+[deps]
+
+source_file="res://music/March through the wind.mp3"
+dest_files=["res://.godot/imported/March through the wind.mp3-f154ce7429fea0967916fc2edd77f7e6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
