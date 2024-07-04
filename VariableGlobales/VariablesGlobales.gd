@@ -11,8 +11,9 @@ var puntaje= 0
 #variables personaje
 var multiplicador=1
 var level=0
-var live=100
+var life=100
 var daño=1*multiplicador
+var velocidad = 100
 
 #variables arma 1
 var speed=200
@@ -25,27 +26,27 @@ var magiaVelocidad=1.5
 var magiaNivel = 1
 
 #variables enemigo 1
-var live_enemy1=25
+var life_enemy1=25
 var damage_enemy1=3
 var level_enemy1=1
 
 #variables enemigo 2
-var live_enemy2=50
+var life_enemy2=50
 var damage_enemy2=3
 var level_enemy2=1
 
 #variables enemigo 3
-var live_enemy3=75
+var life_enemy3=75
 var damage_enemy3=3
 var level_enemy3=1
 
 #variables enemigo 4
-var live_enemy4=100
+var life_enemy4=100
 var damage_enemy4=3
 var level_enemy4=1
 
 #variables boos 1
-var live_boos1=500
+var life_boos1=500
 var damage_boos1=3
 var level_boos1=1
 
@@ -61,7 +62,7 @@ func reset():
 	#variables personaje
 	multiplicador=1
 	level=0
-	live=100
+	life=100
 	daño=1*multiplicador
 
 	#variables arma 1
@@ -75,27 +76,27 @@ func reset():
 	magiaNivel = 1
 
 	#variables enemigo 1
-	live_enemy1=25
+	life_enemy1=25
 	damage_enemy1=3
 	level_enemy1=1
 
 	#variables enemigo 2
-	live_enemy2=50
+	life_enemy2=50
 	damage_enemy2=3
 	level_enemy2=1
 
 	#variables enemigo 3
-	live_enemy3=75
+	life_enemy3=75
 	damage_enemy3=3
 	level_enemy3=1
 
 	#variables enemigo 4
-	live_enemy4=100
+	life_enemy4=100
 	damage_enemy4=3
 	level_enemy4=1
 
 	#variables boos 1
-	live_boos1=500
+	life_boos1=500
 	damage_boos1=3
 	level_boos1=1
 
