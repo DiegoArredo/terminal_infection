@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bwk4lkx20owd2"]
+[gd_scene load_steps=42 format=3 uid="uid://bwk4lkx20owd2"]
 
 [ext_resource type="Texture2D" uid="uid://cfpr2kias35l5" path="res://Resources/Blood ForestDesert/Blood Desert Tileset.png" id="1_fmjd3"]
 [ext_resource type="Texture2D" uid="uid://b1wefbwjerenv" path="res://Resources/Ancient Caves Tileset (3)/Ancient Caves Tileset/Tileset and SpriteSheets/Tileset Add on3.png" id="1_lgp7e"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://LabelLevelUp2.gd" id="15_dx8th"]
 [ext_resource type="PackedScene" uid="uid://dr3vwbbqswgc8" path="res://pausa/menuPausa.tscn" id="19_slkc2"]
 [ext_resource type="PackedScene" uid="uid://bdki7ga6erwcs" path="res://Objetos/tarjeta.tscn" id="20_31x06"]
+[ext_resource type="PackedScene" uid="uid://crt2mnesej8lo" path="res://Habilidades2/Habilidades.tscn" id="20_lv1q2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnvmi"]
 texture = ExtResource("1_lgp7e")
@@ -604,6 +605,9 @@ position = Vector2(54, 182)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("19_slkc2")]
 
+[node name="Habilidades" parent="." instance=ExtResource("20_lv1q2")]
+
 [connection signal="playerdied" from="TileMap/Player/Player_1" to="." method="_on_player_1_playerdied"]
 [connection signal="timeout" from="TileMap/Enemies/Timer" to="TileMap/Enemies" method="_on_timer_timeout"]
 [connection signal="timeout" from="TileMap/Enemies/agentTimer" to="TileMap/Enemies/agentTimer" method="_on_timeout"]
+[connection signal="requestPositionPlayer" from="Habilidades" to="TileMap/Player/Player_1" method="_request_position"]
