@@ -22,3 +22,9 @@ func _on_play_button_pressed():
 
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://Main.tscn")
+
+
+func _on_button_pressed():
+	var chat = preload("res://Multiplayer/Chat/scenes/chat-window.tscn")
+	chat = chat.instantiate()
+	add_child(chat)

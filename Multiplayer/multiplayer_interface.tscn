@@ -116,4 +116,5 @@ script = ExtResource("4_5lkrx")
 [connection signal="pressed" from="CanvasLayer/Back" to="." method="_on_back_pressed"]
 [connection signal="text_changed" from="CanvasLayer/PanelContainer/VBoxContainer/LineEdit" to="CanvasLayer/PanelContainer/VBoxContainer/LineEdit" method="_on_text_changed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/Play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer/refresh" to="WebSocket" method="_on_refresh_pressed"]
