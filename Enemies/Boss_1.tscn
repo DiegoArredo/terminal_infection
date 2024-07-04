@@ -1,7 +1,9 @@
-[gd_scene load_steps=66 format=3 uid="uid://bg6fpggge1fjy"]
+[gd_scene load_steps=69 format=3 uid="uid://bg6fpggge1fjy"]
 
 [ext_resource type="Texture2D" uid="uid://mtu3l1dgsma1" path="res://Resources/The DARK Series Panda Protector/Panda/Sprite Sheet/Panda 115x43.png" id="1_oxjug"]
 [ext_resource type="PackedScene" uid="uid://vmptj1md2cjq" path="res://HitBoxBosses/hit_box_component_boss1.tscn" id="2_b5kk0"]
+[ext_resource type="Script" path="res://Enemies/Boss1_state/state.gd" id="3_1o67q"]
+[ext_resource type="Script" path="res://Enemies/Boss1_state/FiniteEstateMachine.gd" id="3_056v7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jms14"]
 atlas = ExtResource("1_oxjug")
@@ -578,6 +580,10 @@ _data = {
 "walk": SubResource("Animation_0efbv")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k6mjh"]
+custom_solver_bias = 1.0
+radius = 200.0
+
 [node name="Boss1" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -598,3 +604,26 @@ shape = SubResource("CapsuleShape2D_7f48i")
 libraries = {
 "": SubResource("AnimationLibrary_4xa1a")
 }
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_k6mjh")
+
+[node name="FiniteEstateMachine" type="Node2D" parent="."]
+script = ExtResource("3_056v7")
+
+[node name="Idle" type="Node2D" parent="FiniteEstateMachine"]
+script = ExtResource("3_1o67q")
+
+[node name="attack_1" type="Node2D" parent="FiniteEstateMachine"]
+script = ExtResource("3_1o67q")
+
+[node name="attack_2" type="Node2D" parent="FiniteEstateMachine"]
+script = ExtResource("3_1o67q")
+
+[node name="death" type="Node2D" parent="FiniteEstateMachine"]
+script = ExtResource("3_1o67q")
+
+[node name="walk" type="Node2D" parent="FiniteEstateMachine"]
+script = ExtResource("3_1o67q")

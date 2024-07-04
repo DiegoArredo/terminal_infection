@@ -94,7 +94,7 @@ text = "TABLA DE PUNTAJES"
 
 [node name="refresh" type="Button" parent="CanvasLayer/PanelContainer2/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "R"
+text = "Refresh"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PanelContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
