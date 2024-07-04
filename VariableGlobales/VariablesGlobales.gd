@@ -12,9 +12,9 @@ var puntaje= 0
 var experiencia_total=0
 var max_experience = 2
 var current_experience = 0
-var multiplicador=1
+var multiplicador=2
 var level=1
-var life=100
+var life=10
 var damage= 1*multiplicador
 var velocidad = 100
 

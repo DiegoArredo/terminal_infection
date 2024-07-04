@@ -5,6 +5,7 @@ extends CharacterState
 
 func Enter():
 	animation.play("death")
+	parent.playerdied.emit()
 
 func Update(_delta):
 	pass

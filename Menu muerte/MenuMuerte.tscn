@@ -14,10 +14,10 @@ script = ExtResource("1_jjq8h")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 464.0
-offset_top = 129.0
-offset_right = 943.0
-offset_bottom = 292.0
+offset_left = 460.0
+offset_top = 84.0
+offset_right = 939.0
+offset_bottom = 247.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.190762, 0.190762, 0.190762, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
@@ -28,26 +28,40 @@ theme_override_fonts/font = ExtResource("2_pq3wj")
 theme_override_font_sizes/font_size = 60
 text = "YOU DIED!"
 
-[node name="Jugar de nuevo" type="Button" parent="."]
+[node name="Jugar" type="Button" parent="."]
 layout_mode = 0
-offset_left = 549.0
-offset_top = 275.0
-offset_right = 844.0
-offset_bottom = 332.0
+offset_left = 547.0
+offset_top = 242.0
+offset_right = 842.0
+offset_bottom = 299.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.792157, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_i5q0e")
 theme_override_font_sizes/font_size = 18
-text = "Jugar otra vez"
+text = "Jugar Offline"
+
+[node name="Jugar2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 315.0
+offset_right = 843.0
+offset_bottom = 372.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.792157, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_i5q0e")
+theme_override_font_sizes/font_size = 18
+text = "Online"
 
 [node name="Salir" type="Button" parent="."]
 layout_mode = 0
-offset_left = 591.0
-offset_top = 360.0
-offset_right = 809.0
-offset_bottom = 417.0
+offset_left = 587.0
+offset_top = 390.0
+offset_right = 805.0
+offset_bottom = 447.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.72549, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -57,6 +71,7 @@ theme_override_font_sizes/font_size = 18
 text = "Salir al menu"
 
 [node name="Bg1" type="Sprite2D" parent="."]
+visible = false
 z_index = -3
 position = Vector2(712, 365)
 scale = Vector2(4.30952, 3.90314)
@@ -78,5 +93,30 @@ position = Vector2(283, 558)
 scale = Vector2(0.764, 0.704)
 texture = ExtResource("6_ssqvo")
 
-[connection signal="pressed" from="Jugar de nuevo" to="." method="_on_jugar_de_nuevo_pressed"]
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 461.0
+offset_top = 467.0
+offset_right = 943.0
+offset_bottom = 630.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.190762, 0.190762, 0.190762, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_pq3wj")
+theme_override_font_sizes/font_size = 30
+text = "Puntaje: "
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Jugar" to="." method="_on_jugar_de_nuevo_pressed"]
+[connection signal="pressed" from="Jugar2" to="." method="_on_jugar_2_pressed"]
 [connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]

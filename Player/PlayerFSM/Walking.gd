@@ -8,7 +8,8 @@ func Enter():
 	pass
 
 func Update(_delta): 	
-	pass
+	if parent.current_health  <= 0:
+		state_transition.emit(self,"Death")
 
 func Update_physics(_delta):	
 	var direction = Input.get_vector("left", "right", "up", "down")

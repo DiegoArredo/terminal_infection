@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://bwk4lkx20owd2"]
+[gd_scene load_steps=41 format=3 uid="uid://bwk4lkx20owd2"]
 
 [ext_resource type="Texture2D" uid="uid://cfpr2kias35l5" path="res://Resources/Blood ForestDesert/Blood Desert Tileset.png" id="1_fmjd3"]
 [ext_resource type="Texture2D" uid="uid://b1wefbwjerenv" path="res://Resources/Ancient Caves Tileset (3)/Ancient Caves Tileset/Tileset and SpriteSheets/Tileset Add on3.png" id="1_lgp7e"]
+[ext_resource type="Script" path="res://world_1.gd" id="1_mgdks"]
 [ext_resource type="PackedScene" uid="uid://7mp71bjng6bp" path="res://Player/player_1.tscn" id="2_2y51y"]
 [ext_resource type="Texture2D" uid="uid://bg1s6fkn6nj6j" path="res://Resources/01 Stranded - Starter Pack/Tileset/Tileset.png" id="2_a73oe"]
 [ext_resource type="Texture2D" uid="uid://dld06wmfccuf0" path="res://Resources/31 DARK Camp hideout/Tileset.png" id="3_av1ae"]
@@ -520,6 +521,7 @@ func _process(delta):
 "
 
 [node name="world_1" type="Node2D"]
+script = ExtResource("1_mgdks")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true

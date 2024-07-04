@@ -12,7 +12,7 @@ func Update(_delta):
 		state_transition.emit(self,"Idle")
 		
 	
-	if parent.current_health == 0:
+	if parent.current_health <= 0:
 		state_transition.emit(self,"Death")
 	
 	if sqrt((parent.global_position.x-player.global_position.x)**2+ (parent.global_position.y-player.global_position.y)**2) < 20:

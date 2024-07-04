@@ -9,6 +9,7 @@ var METHOD_DELETE = 4
 func obtener_puntajes():
 	var error = $HTTPRequest.request(url, [auth_header], METHOD_GET)
 	if error != OK:
+		print(error)
 		push_warning("An error occurred in the HTTP request.")
 	
 func _on_request_completed(_result, _response_code, _headers, body):
@@ -16,10 +17,18 @@ func _on_request_completed(_result, _response_code, _headers, body):
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	#print(response)
-	
+
 	#OBTENER PUNTAJES DEL RESPONSE
 	if response["message"] == "Score List Received":
 		#print(response)
+		#func reverse_dictionary(original_dict):
+			#var reversed_dict = {}
+			#
+			#for key in original_dict.keys():
+				#var value = original_dict[key]
+				#reversed_dict[value] = key
+			#return reversed_dict
+			
 		for i in response["data"]:
 			var nombre = Label.new()
 			nombre.text = i["playerName"]

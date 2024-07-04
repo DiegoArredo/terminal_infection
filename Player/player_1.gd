@@ -5,14 +5,12 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animation = $AnimationPlayer
 
-
-
 var magia=preload("res://Habilidades/magia.tscn")
 var speed = 100
 
 @onready var tiempomagia = get_node("%TiempoAtaque")
 @onready var ataqueMagia= get_node("%AtaqueMagia")
-
+var current_health = VariablesGlobales.life
 
 var magiaCantidad=VariablesGlobales.magiaCantidad
 var magiaBase=1
@@ -21,6 +19,7 @@ var magiaNivel = 1
 
 signal experience_changed
 signal levelup
+signal playerdied
 
 func _ready():
 	$CharacterStateMachine.init(self, animated_sprite, animation)
@@ -64,3 +63,7 @@ func _on_ataque_magia_timeout():
 		else:
 			ataqueMagia.stop()
 		
+
+
+func _on_health_component_damage_took():
+	current_health = $HealthComponent.currentHealt

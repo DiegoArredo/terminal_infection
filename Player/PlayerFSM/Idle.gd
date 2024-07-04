@@ -7,6 +7,9 @@ func Enter():
 	pass
 
 func Update(_delta):
+	if parent.current_health  <= 0:
+		state_transition.emit(self,"Death")
+	
 	if (Input.get_vector("left","right","up","down")):
 		state_transition.emit(self,"Walking")
 

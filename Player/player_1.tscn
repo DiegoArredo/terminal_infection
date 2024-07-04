@@ -479,7 +479,6 @@ shape = SubResource("CapsuleShape2D_pns8t")
 position = Vector2(0, 1)
 collision_layer = 2
 collision_mask = 0
-maxHealth = 20
 
 [node name="vida" parent="HealthComponent" instance=ExtResource("2_8gxje")]
 offset_left = -11.0
@@ -532,5 +531,6 @@ unique_name_in_owner = true
 wait_time = 3.0
 autostart = true
 
+[connection signal="damageTook" from="HealthComponent" to="." method="_on_health_component_damage_took"]
 [connection signal="timeout" from="TiempoAtaque" to="." method="_on_tiempo_ataque_timeout"]
 [connection signal="timeout" from="TiempoAtaque/AtaqueMagia" to="." method="_on_ataque_magia_timeout"]

@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://dk30kw7fsce7r"]
+
+[ext_resource type="FontFile" uid="uid://5bh8mgs847vl" path="res://Fonts/blood/Poxast-Regular.ttf" id="1_51jsj"]
+[ext_resource type="FontFile" uid="uid://ptsdsm2b2pev" path="res://Fonts/Poxast Font - Personal Use Only/Poxast-Regular.ttf" id="2_wpg2u"]
+[ext_resource type="Texture2D" uid="uid://d162ifh1c5m8i" path="res://Resources/56 -Mountain Pass Parallax Backgrounds/Mountain City Parallax/Color 1/BG1.png" id="3_ygipa"]
+[ext_resource type="Texture2D" uid="uid://yne4rw3egd2h" path="res://Resources/56 -Mountain Pass Parallax Backgrounds/Mountain City Parallax/Color 1/Mid Homes1.png" id="4_kj2ac"]
+[ext_resource type="Texture2D" uid="uid://62hu3gg8m66n" path="res://Menu muerte/esquel.png" id="5_u4l5j"]
+[ext_resource type="PackedScene" uid="uid://d3m4xsna6e4p4" path="res://Multiplayer/WebSocket.tscn" id="6_31hy2"]
+
+[sub_resource type="GDScript" id="GDScript_05kwv"]
+script/source = "extends Control
+
+func _ready():
+	$Label2.text = \"Puntaje: \" + str(VariablesGlobales.puntaje + VariablesGlobales.tiempo_vivo)
+	$WebSocket._enviar_puntajes(VariablesGlobales.nombre, (VariablesGlobales.puntaje + VariablesGlobales.tiempo_vivo))
+	
+
+func _on_jugar_3_pressed():
+	VariablesGlobales.reset()
+	get_tree().change_scene_to_file(\"res://Multiplayer/multiplayer_interface.tscn\")
+
+
+func _on_salir_1_pressed():
+	VariablesGlobales.reset()
+	get_tree().change_scene_to_file(\"res://main.tscn\")
+"
+
+[node name="MenuMuerteOnline" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_05kwv")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 84.0
+offset_right = 939.0
+offset_bottom = 247.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.190762, 0.190762, 0.190762, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_51jsj")
+theme_override_font_sizes/font_size = 60
+text = "YOU DIED!"
+
+[node name="Jugar3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 315.0
+offset_right = 843.0
+offset_bottom = 372.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.792157, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_wpg2u")
+theme_override_font_sizes/font_size = 18
+text = "Online"
+
+[node name="Salir1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 390.0
+offset_right = 805.0
+offset_bottom = 447.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.72549, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_wpg2u")
+theme_override_font_sizes/font_size = 18
+text = "Salir al menu"
+
+[node name="Bg1" type="Sprite2D" parent="."]
+visible = false
+z_index = -3
+position = Vector2(712, 365)
+scale = Vector2(4.30952, 3.90314)
+texture = ExtResource("3_ygipa")
+
+[node name="MidHomes2" type="Sprite2D" parent="."]
+position = Vector2(1040, 642.25)
+scale = Vector2(2.36309, 1.00262)
+texture = ExtResource("4_kj2ac")
+
+[node name="MidHomes3" type="Sprite2D" parent="."]
+position = Vector2(315.5, 642.75)
+scale = Vector2(1.9494, 0.997382)
+texture = ExtResource("4_kj2ac")
+flip_h = true
+
+[node name="Esquel1" type="Sprite2D" parent="."]
+position = Vector2(283, 558)
+scale = Vector2(0.764, 0.704)
+texture = ExtResource("5_u4l5j")
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 461.0
+offset_top = 467.0
+offset_right = 943.0
+offset_bottom = 630.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.190762, 0.190762, 0.190762, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_51jsj")
+theme_override_font_sizes/font_size = 30
+text = "Puntaje: "
+horizontal_alignment = 1
+
+[node name="WebSocket" parent="." instance=ExtResource("6_31hy2")]
+
+[connection signal="pressed" from="Jugar3" to="." method="_on_jugar_3_pressed"]
+[connection signal="pressed" from="Salir1" to="." method="_on_salir_1_pressed"]

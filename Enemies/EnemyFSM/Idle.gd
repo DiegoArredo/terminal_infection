@@ -12,7 +12,7 @@ func Update(_delta):
 	if parent.velocity != Vector2.ZERO:
 		state_transition.emit(self,"Chasing")
 		
-	if parent.current_health == 0:
+	if parent.current_health <= 0:
 		state_transition.emit(self,"Death")
 	
 func Update_physics(_delta):

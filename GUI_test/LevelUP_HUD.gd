@@ -19,12 +19,10 @@ var variables
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	
-	var vg = $"/root/VariablesGlobales"
-	vida = vg.life
-	daño = vg.daño
-	velocidad = vg.velocidad
-	rango = vg.rango
+	vida = VariablesGlobales.life
+	daño = VariablesGlobales.damage
+	velocidad = VariablesGlobales.velocidad
+	rango = VariablesGlobales.rango
 	
 	variables = [vida, daño, velocidad, rango]
 	
@@ -39,4 +37,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
+	get_tree().paused = false
 	queue_free()
