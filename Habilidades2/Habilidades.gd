@@ -11,7 +11,7 @@ signal overwriteHabilidad(new: HabilidadAdapterOverwriting, old: HabilidadAdapte
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	_from_level_up()
 	
 func test():
 	_from_level_up()

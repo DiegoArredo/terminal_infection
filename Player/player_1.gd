@@ -67,3 +67,7 @@ func _on_ataque_magia_timeout():
 
 func _on_health_component_damage_took():
 	current_health = $HealthComponent.currentHealt
+
+func _request_position(nodeHabilidades):
+	nodeHabilidades.positionPlayer = self.position
+	nodeHabilidades.receibedPositionPlayer.emit()

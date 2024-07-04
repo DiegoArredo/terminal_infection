@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Enemies/EnemyFSM/Attacking.gd" id="7_caf3a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_thj5n"]
-radius = 7.0
+radius = 6.0
 height = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17egc"]
@@ -419,12 +419,16 @@ offset_right = 6.0
 offset_bottom = -9.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 6)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_thj5n")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_t0now")]
+visible = false
 damage = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(-2, 9)
 sprite_frames = SubResource("SpriteFrames_dpoyq")
 animation = &"idle"

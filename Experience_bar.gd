@@ -10,5 +10,5 @@ func _ready():
 func update():
 	max_value = VariablesGlobales.max_experience
 	value = VariablesGlobales.current_experience
-	
+
 	
