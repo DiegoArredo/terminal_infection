@@ -24,9 +24,5 @@ func set_health(value : int):
 	currentHealt = clamp(currentHealt,0,maxHealth)
 	
 	if currentHealt <=0:
-		dead()
+		get_tree().change_scene_to_file("res://Menu muerte/MenuMuerte.tscn")
 
-func dead():
-	print("moriste")
-	get_tree().reload_current_scene()
-	get_parent().queue_free()

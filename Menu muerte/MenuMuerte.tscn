@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://ixov3jdjw8no"]
+
+[ext_resource type="Script" path="res://Menu muerte/MenuMuerte.gd" id="1_jjq8h"]
+[ext_resource type="FontFile" uid="uid://5bh8mgs847vl" path="res://Fonts/blood/Poxast-Regular.ttf" id="2_pq3wj"]
+[ext_resource type="FontFile" uid="uid://ptsdsm2b2pev" path="res://Fonts/Poxast Font - Personal Use Only/Poxast-Regular.ttf" id="3_i5q0e"]
+[ext_resource type="Texture2D" uid="uid://d162ifh1c5m8i" path="res://Resources/56 -Mountain Pass Parallax Backgrounds/Mountain City Parallax/Color 1/BG1.png" id="4_tfy2e"]
+[ext_resource type="Texture2D" uid="uid://yne4rw3egd2h" path="res://Resources/56 -Mountain Pass Parallax Backgrounds/Mountain City Parallax/Color 1/Mid Homes1.png" id="5_13jme"]
+[ext_resource type="Texture2D" uid="uid://62hu3gg8m66n" path="res://Menu muerte/esquel.png" id="6_ssqvo"]
+
+[node name="MenuMuerte" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jjq8h")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 129.0
+offset_right = 943.0
+offset_bottom = 292.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.190762, 0.190762, 0.190762, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_pq3wj")
+theme_override_font_sizes/font_size = 60
+text = "YOU DIED!"
+
+[node name="Jugar de nuevo" type="Button" parent="."]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 275.0
+offset_right = 844.0
+offset_bottom = 332.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.792157, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_i5q0e")
+theme_override_font_sizes/font_size = 18
+text = "Jugar otra vez"
+
+[node name="Salir" type="Button" parent="."]
+layout_mode = 0
+offset_left = 591.0
+offset_top = 360.0
+offset_right = 809.0
+offset_bottom = 417.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.72549, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_i5q0e")
+theme_override_font_sizes/font_size = 18
+text = "Salir al menu"
+
+[node name="Bg1" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(712, 365)
+scale = Vector2(4.30952, 3.90314)
+texture = ExtResource("4_tfy2e")
+
+[node name="MidHomes1" type="Sprite2D" parent="."]
+position = Vector2(1040, 642.25)
+scale = Vector2(2.36309, 1.00262)
+texture = ExtResource("5_13jme")
+
+[node name="MidHomes2" type="Sprite2D" parent="."]
+position = Vector2(315.5, 642.75)
+scale = Vector2(1.9494, 0.997382)
+texture = ExtResource("5_13jme")
+flip_h = true
+
+[node name="Esquel" type="Sprite2D" parent="."]
+position = Vector2(283, 558)
+scale = Vector2(0.764, 0.704)
+texture = ExtResource("6_ssqvo")
+
+[connection signal="pressed" from="Jugar de nuevo" to="." method="_on_jugar_de_nuevo_pressed"]
+[connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]
