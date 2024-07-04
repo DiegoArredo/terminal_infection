@@ -9,6 +9,7 @@ extends Node2D
 @onready var Enemies3=[load("res://Enemies/monster_1.tscn")]
 @onready var Enemies4=[load("res://Enemies/monster_2.tscn")]
 @onready var Boos=[load("res://Enemies/Boss_1.tscn")]
+@onready var Boos2=[load("res://Enemies/boss_2.tscn")]
 var bool_spawn = true
 var random = RandomNumberGenerator.new()
 
@@ -29,6 +30,10 @@ func spawn():
 			var enemy_instance=Enemies1[0].instantiate()
 			enemy_instance.position = $Path2D/PathFollow2D.global_position
 			add_child(enemy_instance)
+		#if level==5:
+			#var boos2_instance=Boos2[0].instantiate()
+			#boos2_instance.position=$Path2D/PathFollow2D.global_position
+			#add_child(boos2_instance)
 		if level>=3 && level<8:
 			var enemy_instance1=Enemies1[0].instantiate()
 			var enemy_instance2=Enemies2[0].instantiate()

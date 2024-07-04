@@ -26,6 +26,7 @@ func makepath():
 	
 func take_damage(damage):
 	current_health-=damage
-	healthBar.health = current_health
+	if current_health>=0:
+		healthBar.health = current_health
 	
 
