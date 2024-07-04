@@ -1,0 +1,313 @@
+[gd_scene load_steps=18 format=3 uid="uid://h4rl0h7bsdt0"]
+
+[ext_resource type="Script" path="res://GUI_test/LevelUP_HUD.gd" id="1_ismev"]
+[ext_resource type="Texture2D" uid="uid://c7085y74pwiwi" path="res://Resources/1_Edinnu_UI_asset_pack/Dialogue_plates/Plate (43).png" id="1_iw3p6"]
+[ext_resource type="Texture2D" uid="uid://cfmi7sa2o0em7" path="res://Resources/1_Edinnu_UI_asset_pack/Menu_buttons/Menu_button (13).png" id="2_dy4je"]
+[ext_resource type="Texture2D" uid="uid://dbxqvk86d3nkq" path="res://Resources/1_Cryo's Mini GUI/GUI/Sliced/GUI_4x_sliced.png" id="2_eat2e"]
+[ext_resource type="Texture2D" uid="uid://xusej7d8vk6f" path="res://Resources/1_Edinnu_UI_asset_pack/Menu_buttons/Menu_button (14).png" id="3_enegq"]
+[ext_resource type="Texture2D" uid="uid://djy01iqprayfh" path="res://Resources/1_Edinnu_UI_asset_pack/Menu_buttons/Menu_button (31).png" id="4_dyk2u"]
+[ext_resource type="Texture2D" uid="uid://cfja6ip7vot08" path="res://Resources/1_Edinnu_UI_asset_pack/Menu_buttons/Menu_button (30).png" id="4_i4hmu"]
+[ext_resource type="Script" path="res://GUI_test/Habilidades_Container.gd" id="7_318qp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_76loy"]
+texture = ExtResource("1_iw3p6")
+
+[sub_resource type="Theme" id="Theme_o78sm"]
+default_font_size = 90
+
+[sub_resource type="Animation" id="Animation_yev2c"]
+resource_name = "LevelUpAnimation"
+length = 3.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(440.5, 298), Vector2(440.5, 298), Vector2(440, 70)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 0, 1), Color(0, 1, 1, 1), Color(1, 1, 0, 1), Color(0, 1, 1, 1), Color(1, 1, 0, 1), Color(0, 1, 1, 1), Color(1, 1, 0, 1), Color(0, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.2, 3.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [90, 30]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:vertical_alignment")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:horizontal_alignment")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_tgurj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:vertical_alignment")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:horizontal_alignment")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [30]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(440.5, 128)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_32fa8"]
+_data = {
+"LevelUpAnimation": SubResource("Animation_yev2c"),
+"RESET": SubResource("Animation_tgurj")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vk3b"]
+atlas = ExtResource("2_eat2e")
+region = Rect2(0, 544, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1wpb"]
+atlas = ExtResource("2_eat2e")
+region = Rect2(72, 544, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6k3f"]
+atlas = ExtResource("2_eat2e")
+region = Rect2(40, 544, 28, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6u78"]
+atlas = ExtResource("2_eat2e")
+region = Rect2(144, 580, 32, 32)
+
+[node name="LevelUpHud" type="CanvasLayer"]
+script = ExtResource("1_ismev")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -479.0
+offset_top = -300.5
+offset_right = 479.0
+offset_bottom = 300.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_76loy")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="LevelupText_container" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Animation_LevelUP_Canvas" type="CanvasLayer" parent="PanelContainer/MarginContainer/VBoxContainer/LevelupText_container"]
+layer = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/LevelupText_container/Animation_LevelUP_Canvas"]
+modulate = Color(0, 1, 1, 1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 440.5
+offset_top = 128.0
+offset_right = 839.511
+offset_bottom = 252.0
+grow_horizontal = 2
+theme = SubResource("Theme_o78sm")
+theme_override_font_sizes/font_size = 30
+text = "LEVEL UP"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelUp_animation" type="AnimationPlayer" parent="PanelContainer/MarginContainer/VBoxContainer/LevelupText_container/Animation_LevelUP_Canvas"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_32fa8")
+}
+
+[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Atributos_Container" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 4
+
+[node name="vida_icon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2vk3b")
+
+[node name="vida_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+text = "Vida"
+
+[node name="menosVida_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+texture_normal = ExtResource("2_dy4je")
+texture_pressed = ExtResource("4_i4hmu")
+
+[node name="masVida_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+texture_normal = ExtResource("3_enegq")
+texture_pressed = ExtResource("4_dyk2u")
+
+[node name="daño_icon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_n1wpb")
+
+[node name="daño_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+text = "Daño"
+
+[node name="menosDaño_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+texture_normal = ExtResource("2_dy4je")
+texture_pressed = ExtResource("4_i4hmu")
+
+[node name="masDaño_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+texture_normal = ExtResource("3_enegq")
+texture_pressed = ExtResource("4_dyk2u")
+
+[node name="velocidad_icon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_n6k3f")
+
+[node name="velocidad_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+text = "Velocidad"
+
+[node name="menosVelocidad_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+texture_normal = ExtResource("2_dy4je")
+texture_pressed = ExtResource("4_i4hmu")
+
+[node name="masVelocidad_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+texture_normal = ExtResource("3_enegq")
+texture_pressed = ExtResource("4_dyk2u")
+
+[node name="rango_icon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_f6u78")
+
+[node name="rango_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+text = "Rango Arma"
+
+[node name="menosRango_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+texture_normal = ExtResource("2_dy4je")
+texture_pressed = ExtResource("4_i4hmu")
+
+[node name="masRango_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+texture_normal = ExtResource("3_enegq")
+texture_pressed = ExtResource("4_dyk2u")
+
+[node name="Habilidades_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("7_318qp")
+
+[node name="Ok_button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "OK"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Ok_button" to="." method="_on_button_pressed"]

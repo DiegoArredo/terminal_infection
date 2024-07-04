@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqvhghp15q34u"]
+
+[ext_resource type="Texture2D" uid="uid://d2n7i7qocv76k" path="res://Resources/1_Edinnu_UI_asset_pack/Ability_icons/Ability_icon (31).png" id="1_c3tbo"]
+
+[sub_resource type="GDScript" id="GDScript_64bww"]
+script/source = "extends CardHabilidad
+
+
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_gui_input(event):
+	if event is InputEventMouseButton and event.get_button_index() == MOUSE_BUTTON_LEFT:
+		seleccionada.emit(self)
+"
+
+[node name="Card_Habildiad_1" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("GDScript_64bww")
+
+[node name="Card_habilidad" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Card_habilidad"]
+layout_mode = 2
+text = "Habilidad 1"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Card_habilidad"]
+layout_mode = 2
+texture = ExtResource("1_c3tbo")
+expand_mode = 4
+
+[node name="Label2" type="Label" parent="Card_habilidad"]
+layout_mode = 2
+text = "Lanza balas de magia"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Card_habilidad"]
+layout_mode = 2
+text = "¡ +1 NIVEL ! "
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

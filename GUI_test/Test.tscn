@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw3hukqe6ufj0"]
+
+[ext_resource type="Texture2D" uid="uid://dl166coqj3cky" path="res://Multiplayer/Blur_background.png" id="1_opykv"]
+[ext_resource type="PackedScene" uid="uid://h4rl0h7bsdt0" path="res://GUI_test/LevelUP_HUD.tscn" id="2_yb58g"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(648, 356)
+scale = Vector2(0.728385, 0.727545)
+texture = ExtResource("1_opykv")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+zoom = Vector2(2.5, 2.5)
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 720
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="LevelUpHud" parent="." instance=ExtResource("2_yb58g")]
