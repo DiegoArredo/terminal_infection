@@ -8,8 +8,8 @@ class_name Enemy2
 @onready var nav_agent = $NavigationAgent2D
 @onready var agent_timer = $"../agentTimer"
 
-@export var max_health = 10
-@export var current_health = max_health
+@onready var max_health = VariablesGlobales.life_enemy2
+@onready var current_health = max_health
 
 func _ready():
 	$EnemyStateMachine.init(self, animated_sprite, animation,player)

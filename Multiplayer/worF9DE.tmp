@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bgg61fl3rm0y5"]
+[gd_scene load_steps=45 format=3 uid="uid://bgg61fl3rm0y5"]
 
 [ext_resource type="Texture2D" uid="uid://e2ulhvk4ijhl" path="res://Resources/01 Stranded - Starter Pack v1.1/Tileset/Tileset.png" id="1_vcuk6"]
 [ext_resource type="Texture2D" uid="uid://5wrlrsoiau5b" path="res://Resources/Stranded 08 - Swamps/Swamp Tileset.png" id="2_bhnad"]
@@ -1282,21 +1282,6 @@ func _process(delta):
 
 "
 
-[sub_resource type="GDScript" id="GDScript_y5yqn"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	print(VariablesGlobales.puntaje)
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
-
 [node name="WorldMultiplayer" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1355,15 +1340,12 @@ curve = SubResource("Curve2D_gyb6c")
 position = Vector2(-15, -13)
 
 [node name="Timer" type="Timer" parent="TileMap/Enemies"]
-wait_time = 7.0
+wait_time = 4.0
 
 [node name="agentTimer" type="Timer" parent="TileMap/Enemies"]
 wait_time = 0.5
 autostart = true
 script = SubResource("GDScript_2k4pc")
-
-[node name="Test" type="Node2D" parent="."]
-script = SubResource("GDScript_y5yqn")
 
 [connection signal="timeout" from="TileMap/Enemies/Timer" to="TileMap/Enemies" method="_on_timer_timeout"]
 [connection signal="timeout" from="TileMap/Enemies/agentTimer" to="TileMap/Enemies/agentTimer" method="_on_timeout"]

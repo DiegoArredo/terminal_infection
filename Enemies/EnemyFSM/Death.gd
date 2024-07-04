@@ -2,9 +2,10 @@ extends EnemyState
 
 
 func Enter():
-	animation.play("death")
-	player.current_experience += 1
+	VariablesGlobales.puntaje += parent.max_health
+	VariablesGlobales.current_experience += 1
 	player.experience_changed.emit()
+	animation.play("death")
 	$Timer.wait_time = 0.6
 	$Timer.start()
 	

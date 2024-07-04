@@ -2,7 +2,6 @@ extends ProgressBar
 
 @onready var timer = $Timer
 @onready var BarraDaño = $"BarraDaño"
-
 var health = 0 : set = _set_health
 
 func _set_health(new_health):
@@ -18,8 +17,7 @@ func _set_health(new_health):
 	else:
 		BarraDaño.value = health
 	
-func init_health(_healt):
-	health = _healt
+func init_health(health):
 	max_value = health
 	value = health
 	BarraDaño.max_value = health

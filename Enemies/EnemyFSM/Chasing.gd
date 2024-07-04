@@ -22,7 +22,6 @@ func Update_physics(_delta):
 	
 	if parent.velocity != Vector2.ZERO:
 		animation.play("walk")
-
 	#var direction=parent.global_position.direction_to(player.global_position)
 	#parent.velocity =direction* 30
 	#parent.move_and_slide()

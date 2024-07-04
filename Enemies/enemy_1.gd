@@ -8,13 +8,12 @@ class_name Enemy
 @onready var nav_agent = $NavigationAgent2D
 @onready var agent_timer = $"../agentTimer"
 
-
-@export var max_health = 10
-@export var current_health = max_health
+@onready var max_health = VariablesGlobales.life_enemy1
+@onready var current_health = max_health
 
 func _ready():
 	$EnemyStateMachine.init(self, animated_sprite, animation, player)
-	healthBar.init_health(current_health)
+	healthBar.init_health(max_health)
 	agent_timer.timeout.connect(makepath)
 func _physics_process(delta):
 	$EnemyStateMachine._physics_process(delta)

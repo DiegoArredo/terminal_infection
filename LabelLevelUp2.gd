@@ -3,11 +3,10 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(player.max_experience)
-	player.experience_changed.connect(update)
-	update()
+	player.experience_changed.connect(update_label)
+	update_label()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func update():
-	text = "LEVEL "+ str(player.level)
+
+func update_label():
+	text = "LEVEL "+ str(VariablesGlobales.level)
 	

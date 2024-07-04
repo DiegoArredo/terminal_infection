@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	spawn()
 
 func spawn():
-	var level=player1.level
+	var level=$"/root/VariablesGlobales".level
 	if bool_spawn:
 		$Timer.start()
 		bool_spawn=false
@@ -50,6 +50,7 @@ func spawn():
 			add_child(enemy_instance1)
 			add_child(enemy_instance2)
 			add_child(enemy_instance3)
+			
 func _on_timer_timeout():
 	bool_spawn = true
 

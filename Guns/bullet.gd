@@ -1,5 +1,5 @@
 extends Area2D
-var damage=2
+@onready var damage= VariablesGlobales.damage
 var traveller_distance = 0
 func _physics_process(delta):
 	const SPEED = 200
