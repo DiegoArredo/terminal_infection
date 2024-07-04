@@ -1,17 +1,16 @@
-extends "res://Habilidades2/habilidadComand.gd"
+extends TextureButton
 
-class_name  HabilidadComandNull
-
-var tecla = ""
+@export var suma = 1
+@export var label: Label 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pressed.connect(_on_press)
+
+func _on_press():
+	label.setSuma(suma)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
-func wait():
 	pass

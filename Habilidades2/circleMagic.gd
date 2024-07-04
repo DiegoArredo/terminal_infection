@@ -2,15 +2,18 @@ extends Control
 
 var pocition_circle
 var radio_circle
-var tween
+var tween: Tween
 var redraw
 var color_original
-var color_actual
+var color_actual 
 
-signal animationOn
-signal animationOff
+signal first_part_end
+signal second_part_end
 # Called when the node enters the scene tree for the first time.
+
+
 func _ready():
+	
 	redraw = true
 	self_modulate.a = 0
 	color_original = get("self_modulate")
@@ -18,16 +21,27 @@ func _ready():
 	
 	
 
-	
 
 func animation():
+	animation_pre_hurtbox()
+	await tween.finished
+	first_part_end.emit()
+	
+	animation_post_hurtbox()
+	await tween.finished
+	second_part_end.emit()
+	
+func animation_pre_hurtbox():
 	tween = create_tween()
 	animation_easein()
 	animation_espera(5)
 	animacion_rojo()
+	
+
+func animation_post_hurtbox():
+	tween = create_tween()
 	animation_espera(1.5)
 	animation_easeout()
-	
 
 func animation_easein():
 	animation_change_opacity(255)

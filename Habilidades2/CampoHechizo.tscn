@@ -2,18 +2,17 @@
 
 [ext_resource type="Script" path="res://Habilidades2/CampoHechizo.gd" id="1_5vptq"]
 [ext_resource type="Script" path="res://Habilidades2/circleMagic.gd" id="2_pcxe6"]
+[ext_resource type="Script" path="res://Habilidades2/CollisionShape2D.gd" id="3_wbtwe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iejes"]
 radius = 50.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_iy2hl"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(637, 375)
 script = ExtResource("1_5vptq")
 
 [node name="circleMagic" type="Control" parent="."]
-self_modulate = Color(0.0235294, 1, 1, 1)
+self_modulate = Color(0.364706, 0.0431373, 0.0313726, 0.67451)
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
 anchors_preset = 15
@@ -27,6 +26,7 @@ size_flags_vertical = 4
 script = ExtResource("2_pcxe6")
 
 [node name="ColorRect" type="ColorRect" parent="circleMagic"]
+visible = false
 self_modulate = Color(0.00446851, 0.00639986, 0.00376003, 1)
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
@@ -38,15 +38,15 @@ grow_vertical = 2
 color = Color(0, 1, 1, 0.278431)
 
 [node name="Area2D" type="Area2D" parent="circleMagic"]
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="circleMagic/Area2D"]
 position = Vector2(50, 50)
 shape = SubResource("CircleShape2D_iejes")
+disabled = true
+script = ExtResource("3_wbtwe")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["enemigos"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CircleShape2D_iy2hl")
-debug_color = Color(0.852898, 0.239525, 0.705028, 0.42)
-
+[connection signal="first_part_end" from="circleMagic" to="circleMagic/Area2D/CollisionShape2D" method="_when_first_part_end"]
+[connection signal="second_part_end" from="circleMagic" to="circleMagic/Area2D/CollisionShape2D" method="_when_secund_part_end"]
 [connection signal="body_entered" from="circleMagic/Area2D" to="." method="_on_area_2d_body_entered"]

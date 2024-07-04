@@ -4,14 +4,12 @@ class_name HabilidadComand
 var tecla_designada
 var dps
 
+signal executeEnd
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
-func wait():
-	if (Input.is_action_just_pressed(tecla_designada)):
-		execute()
 		
 func execute():
 	pass

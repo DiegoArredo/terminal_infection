@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bwk4lkx20owd2"]
+[gd_scene load_steps=66 format=3 uid="uid://bwk4lkx20owd2"]
 
 [ext_resource type="Texture2D" uid="uid://cfpr2kias35l5" path="res://Resources/Blood ForestDesert/Blood Desert Tileset.png" id="1_fmjd3"]
 [ext_resource type="Texture2D" uid="uid://b1wefbwjerenv" path="res://Resources/Ancient Caves Tileset (3)/Ancient Caves Tileset/Tileset and SpriteSheets/Tileset Add on3.png" id="1_lgp7e"]
@@ -13,12 +13,30 @@
 [ext_resource type="Texture2D" uid="uid://db3iqvtnu2vv6" path="res://Resources/Stranded Pack 2/png's/bones 5.png" id="7_ouwig"]
 [ext_resource type="Texture2D" uid="uid://dep5hwopl50t6" path="res://Resources/Stranded Pack 2/png's/bones 4.png" id="8_2oee0"]
 [ext_resource type="Texture2D" uid="uid://du07wfbx8yc3e" path="res://Resources/Blood ForestDesert/Separate Sprites/Skull.png" id="10_fkhcx"]
+[ext_resource type="PackedScene" uid="uid://crt2mnesej8lo" path="res://Habilidades2/Habilidades.tscn" id="13_7ytjr"]
 [ext_resource type="Script" path="res://Experience_bar.gd" id="13_liuyl"]
 [ext_resource type="Script" path="res://SpawnEnemy/Area2D.gd" id="14_gcw1i"]
 [ext_resource type="Script" path="res://LabelLevelUp2.gd" id="15_dx8th"]
-[ext_resource type="PackedScene" uid="uid://cto6cevkt1kwo" path="res://SistemaSubidaNivel (copia)/HUD.tscn" id="16_dkwuf"]
+[ext_resource type="Script" path="res://SistemaSubidaNivel (copia)/HUD.gd" id="17_82w3w"]
+[ext_resource type="Script" path="res://SistemaSubidaNivel (copia)/BarraDeExperiencia.gd" id="18_0apjv"]
+[ext_resource type="Script" path="res://SistemaSubidaNivel (copia)/VisibleControl.gd" id="19_hdm43"]
 [ext_resource type="PackedScene" uid="uid://dr3vwbbqswgc8" path="res://pausa/menuPausa.tscn" id="19_slkc2"]
 [ext_resource type="PackedScene" uid="uid://bdki7ga6erwcs" path="res://Objetos/tarjeta.tscn" id="20_31x06"]
+[ext_resource type="Script" path="res://GuiLevelUp/Preview/previewBoton.gd" id="20_tnjpp"]
+[ext_resource type="Script" path="res://GuiLevelUp/Preview/Panel.gd" id="21_3ggl3"]
+[ext_resource type="Script" path="res://GuiLevelUp/Preview/row_for_preview.gd" id="22_uk7pi"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiCanvasLayer.gd" id="23_u0yi2"]
+[ext_resource type="Script" path="res://GuiLevelUp/Preview/OptionButton.gd" id="24_c1iah"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiLevelUpWithAnimations.gd" id="25_f2d45"]
+[ext_resource type="Script" path="res://GuiLevelUp/Animaciones/animacionContent.gd" id="26_seilk"]
+[ext_resource type="Script" path="res://GuiLevelUp/LevelUpLabel.gd" id="27_wl35h"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiLabel1.gd" id="28_n0vou"]
+[ext_resource type="Script" path="res://GuiLevelUp/Animaciones/AnimationPlayer.gd" id="29_6l18r"]
+[ext_resource type="Theme" uid="uid://b8hdf54yi56i7" path="res://new_theme.tres" id="30_klyvj"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiLevelUp.gd" id="31_l4432"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiButtonCerrado.gd" id="32_7rwix"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiLabel.gd" id="33_5cdhd"]
+[ext_resource type="Script" path="res://GuiLevelUp/guiBoton.gd" id="34_uckqa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnvmi"]
 texture = ExtResource("1_lgp7e")
@@ -448,6 +466,184 @@ sources/9 = SubResource("TileSetAtlasSource_n0ryl")
 sources/10 = SubResource("TileSetAtlasSource_nqwl6")
 sources/11 = SubResource("TileSetAtlasSource_wf0cx")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt2sa"]
+size = Vector2(1378, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmj5l"]
+size = Vector2(480, 930.434)
+
+[sub_resource type="Animation" id="Animation_w7wsp"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_wne7w"]
+resource_name = "new_animation"
+length = 6.1
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/levelUpAnimacion/CanvasLayer/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("LevelUpAnimation"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_81mk5"]
+_data = {
+"RESET": SubResource("Animation_w7wsp"),
+"new_animation": SubResource("Animation_wne7w")
+}
+
+[sub_resource type="Theme" id="Theme_xcmw7"]
+default_font_size = 90
+
+[sub_resource type="Animation" id="Animation_yev2c"]
+resource_name = "LevelUpAnimation"
+length = 3.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(437, 321), Vector2(437, 321), Vector2(437, 121)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 0, 1), Color(0, 1, 1, 1), Color(1, 1, 0, 1), Color(0, 1, 1, 1), Color(1, 1, 0, 1), Color(0, 1, 1, 1), Color(1, 1, 0, 1), Color(0, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.2, 3.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [90, 30]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:vertical_alignment")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:horizontal_alignment")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_tgurj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:vertical_alignment")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:horizontal_alignment")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [30]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(440.5, 128)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_32fa8"]
+_data = {
+"LevelUpAnimation": SubResource("Animation_yev2c"),
+"RESET": SubResource("Animation_tgurj")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vv5l5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_444uv"]
+bg_color = Color(0.358988, 3.00817e-07, 9.62615e-08, 1)
+
+[sub_resource type="Theme" id="Theme_iu1fg"]
+Button/styles/normal = SubResource("StyleBoxFlat_444uv")
+
+[sub_resource type="Theme" id="Theme_hl304"]
+Label/styles/normal = null
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lxhtb"]
+
 [sub_resource type="Curve2D" id="Curve2D_fx3a2"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -12, -10, 0, 0, 0, 0, 1301, -13, 0, 0, 0, 0, 1306, 746, 0, 0, 0, 0, -10, 752, 0, 0, 0, 0, -12, -10)
@@ -470,6 +666,9 @@ layer_1/tile_data = PackedInt32Array(655401, 327682, 6, 786483, 327682, 6, 19665
 
 [node name="Player" type="Node2D" parent="TileMap"]
 y_sort_enabled = true
+
+[node name="Habilidades" parent="TileMap/Player" instance=ExtResource("13_7ytjr")]
+position = Vector2(1, 0)
 
 [node name="Player_1" parent="TileMap/Player" instance=ExtResource("2_2y51y")]
 position = Vector2(236, 172)
@@ -500,7 +699,622 @@ offset_right = 42.4
 offset_bottom = 37.12
 script = ExtResource("15_dx8th")
 
-[node name="HUD" parent="TileMap/Player" instance=ExtResource("16_dkwuf")]
+[node name="HUD" type="Control" parent="TileMap/Player"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("17_82w3w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="TileMap/Player/HUD"]
+
+[node name="BarraDeExperiencia" type="Control" parent="TileMap/Player/HUD/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 112.0
+offset_top = 16.0
+offset_right = 464.0
+offset_bottom = 44.0
+tooltip_text = "Experiencia
+"
+script = ExtResource("18_0apjv")
+
+[node name="VisibleControl" type="Control" parent="TileMap/Player/HUD"]
+anchors_preset = 0
+script = ExtResource("19_hdm43")
+
+[node name="Control2" type="CanvasLayer" parent="TileMap/Player/HUD/VisibleControl"]
+layer = 0
+script = ExtResource("20_tnjpp")
+
+[node name="Panel" type="Panel" parent="TileMap/Player/HUD/VisibleControl/Control2"]
+offset_left = 425.0
+offset_top = 505.0
+offset_right = 873.0
+offset_bottom = 633.0
+script = ExtResource("21_3ggl3")
+
+[node name="GridContainer" type="VBoxContainer" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 1.125
+anchor_right = 0.504
+anchor_bottom = 1.125
+offset_left = -185.792
+offset_top = -1439.0
+offset_right = 190.208
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.2, 1.08)
+pivot_offset = Vector2(186.273, 607.97)
+alignment = 2
+metadata/_edit_group_ = true
+
+[node name="Control" type="Control" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+script = ExtResource("22_uk7pi")
+
+[node name="limite_superior" type="Area2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/limite_superior"]
+position = Vector2(679, -5)
+shape = SubResource("RectangleShape2D_lt2sa")
+
+[node name="GridContainer" type="HBoxContainer" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/GridContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+color = Color(0.219501, 0.219501, 0.219501, 1)
+
+[node name="Image21" type="Sprite2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/GridContainer/ColorRect"]
+position = Vector2(82.6665, 89.7778)
+scale = Vector2(0.359929, 0.540308)
+
+[node name="ColorRect2" type="ColorRect" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/GridContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/GridContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/GridContainer/ColorRect2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "AAAAAAAAAA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/GridContainer/ColorRect2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "BBBBBBB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/GridContainer/ColorRect2/VBoxContainer"]
+modulate = Color(0.147672, 0.147672, 0.147672, 1)
+layout_mode = 2
+size_flags_vertical = 6
+text = "CCCCCCCC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Downgrade" type="Sprite2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/GridContainer/ColorRect2"]
+visible = false
+modulate = Color(0.449852, 0.0691233, 0.178753, 1)
+position = Vector2(161.535, 98.5012)
+rotation = 3.14159
+scale = Vector2(0.036128, 0.0358241)
+
+[node name="upgrade" type="Sprite2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/GridContainer/ColorRect2"]
+visible = false
+modulate = Color(0.0350589, 0.301435, 0, 1)
+position = Vector2(161.535, 98.5012)
+scale = Vector2(0.0360466, 0.0360466)
+
+[node name="limite_inferior" type="Area2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control"]
+position = Vector2(8, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/limite_inferior"]
+position = Vector2(679, -5)
+shape = SubResource("RectangleShape2D_lt2sa")
+
+[node name="Control2" type="Control" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+script = ExtResource("22_uk7pi")
+
+[node name="limite_superior" type="Area2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/limite_superior"]
+position = Vector2(679, -5)
+shape = SubResource("RectangleShape2D_lt2sa")
+
+[node name="GridContainer" type="HBoxContainer" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/GridContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+color = Color(0.219501, 0.219501, 0.219501, 1)
+
+[node name="Image21" type="Sprite2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/GridContainer/ColorRect"]
+position = Vector2(82.6665, 89.7778)
+scale = Vector2(0.359929, 0.540308)
+
+[node name="ColorRect2" type="ColorRect" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/GridContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/GridContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/GridContainer/ColorRect2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "AAAAAAAAAA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/GridContainer/ColorRect2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "BBBBBBB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/GridContainer/ColorRect2/VBoxContainer"]
+modulate = Color(0.147672, 0.147672, 0.147672, 1)
+layout_mode = 2
+size_flags_vertical = 6
+text = "CCCCCCCC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Downgrade" type="Sprite2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/GridContainer/ColorRect2"]
+visible = false
+modulate = Color(0.449852, 0.0691233, 0.178753, 1)
+position = Vector2(161.535, 98.5012)
+rotation = 3.14159
+scale = Vector2(0.036128, 0.0358241)
+
+[node name="upgrade" type="Sprite2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/GridContainer/ColorRect2"]
+visible = false
+modulate = Color(0.0350589, 0.301435, 0, 1)
+position = Vector2(161.535, 98.5012)
+scale = Vector2(0.0360466, 0.0360466)
+
+[node name="limite_inferior" type="Area2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2"]
+position = Vector2(8, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/limite_inferior"]
+position = Vector2(679, -5)
+shape = SubResource("RectangleShape2D_lt2sa")
+
+[node name="Control4" type="Control" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+script = ExtResource("22_uk7pi")
+
+[node name="limite_superior" type="Area2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/limite_superior"]
+position = Vector2(679, -5)
+shape = SubResource("RectangleShape2D_lt2sa")
+
+[node name="GridContainer" type="HBoxContainer" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/GridContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+color = Color(0.219501, 0.219501, 0.219501, 1)
+
+[node name="Image21" type="Sprite2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/GridContainer/ColorRect"]
+position = Vector2(82.6665, 89.7778)
+scale = Vector2(0.359929, 0.540308)
+
+[node name="ColorRect2" type="ColorRect" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/GridContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/GridContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/GridContainer/ColorRect2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "AAAAAAAAAA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/GridContainer/ColorRect2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "BBBBBBB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/GridContainer/ColorRect2/VBoxContainer"]
+modulate = Color(0.147672, 0.147672, 0.147672, 1)
+layout_mode = 2
+size_flags_vertical = 6
+text = "CCCCCCCC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Downgrade" type="Sprite2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/GridContainer/ColorRect2"]
+visible = false
+modulate = Color(0.449852, 0.0691233, 0.178753, 1)
+position = Vector2(161.535, 98.5012)
+rotation = 3.14159
+scale = Vector2(0.036128, 0.0358241)
+
+[node name="upgrade" type="Sprite2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/GridContainer/ColorRect2"]
+visible = false
+modulate = Color(0.0350589, 0.301435, 0, 1)
+position = Vector2(161.535, 98.5012)
+scale = Vector2(0.0360466, 0.0360466)
+
+[node name="limite_inferior" type="Area2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4"]
+position = Vector2(8, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/limite_inferior"]
+position = Vector2(679, -5)
+shape = SubResource("RectangleShape2D_lt2sa")
+
+[node name="Area2D" type="Area2D" parent="TileMap/Player/HUD/VisibleControl/Control2"]
+position = Vector2(710, 629)
+scale = Vector2(1, 0.920001)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Player/HUD/VisibleControl/Control2/Area2D"]
+position = Vector2(-56, 204.347)
+shape = SubResource("RectangleShape2D_hmj5l")
+debug_color = Color(0.930431, 0.0682671, 0.625804, 0.42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="TileMap/Player/HUD/VisibleControl/Control2"]
+layer = 3
+script = ExtResource("23_u0yi2")
+
+[node name="OptionButton" type="Button" parent="TileMap/Player/HUD/VisibleControl/Control2/CanvasLayer"]
+offset_left = 622.0
+offset_top = 650.0
+offset_right = 702.0
+offset_bottom = 670.0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("24_c1iah")
+y_for_limit = 600
+
+[node name="guiLevelUpWithAnimations" type="Control" parent="TileMap/Player/HUD/VisibleControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 116.0
+offset_top = 59.0
+offset_right = 116.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("25_f2d45")
+
+[node name="animacionContent" type="AnimationPlayer" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations"]
+libraries = {
+"": SubResource("AnimationLibrary_81mk5")
+}
+script = ExtResource("26_seilk")
+
+[node name="gridContainerAnimacion" type="Control" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 280.0
+offset_top = 16.0
+offset_right = 320.0
+offset_bottom = 56.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations"]
+script = ExtResource("23_u0yi2")
+
+[node name="levelUpAnimacion" type="Node2D" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer"]
+visibility_layer = 2
+position = Vector2(350, 161)
+scale = Vector2(0.9, 0.9)
+script = ExtResource("27_wl35h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/levelUpAnimacion"]
+layer = 2
+script = ExtResource("23_u0yi2")
+
+[node name="Label" type="Label" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/levelUpAnimacion/CanvasLayer"]
+modulate = Color(0, 1, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 440.5
+offset_top = 128.0
+offset_right = 839.5
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_xcmw7")
+theme_override_font_sizes/font_size = 30
+text = "LEVEL UP"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("28_n0vou")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/levelUpAnimacion/CanvasLayer"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_32fa8")
+}
+script = ExtResource("29_6l18r")
+
+[node name="GuiLevelUp" type="Control" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer"]
+layout_mode = 3
+anchor_right = 1.056
+anchor_bottom = 1.089
+offset_left = -3.0
+offset_top = 13.0
+offset_right = 67.3201
+offset_bottom = 28.9199
+scale = Vector2(0.9, 0.9)
+size_flags_horizontal = 8
+size_flags_vertical = 3
+theme = ExtResource("30_klyvj")
+script = ExtResource("31_l4432")
+
+[node name="ColorRect" type="ColorRect" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 71.0
+offset_right = 1291.0
+offset_bottom = 720.0
+color = Color(0.237539, 0.237539, 0.237539, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp"]
+modulate = Color(0.501961, 0.6, 1, 1)
+layout_mode = 0
+offset_left = 142.222
+offset_top = 71.1111
+offset_right = 1422.22
+offset_bottom = 791.111
+scale = Vector2(0.9, 0.9)
+
+[node name="MarginContainer" type="MarginContainer" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="Button" type="Button" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer/MarginContainer"]
+material = SubResource("CanvasItemMaterial_vv5l5")
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = SubResource("Theme_iu1fg")
+script = ExtResource("32_7rwix")
+
+[node name="PanelContainer4" type="PanelContainer" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp"]
+layout_mode = 2
+offset_left = 195.556
+offset_top = 133.333
+offset_right = 1371.56
+offset_bottom = 285.333
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+size_flags_vertical = 3
+metadata/_edit_group_ = true
+
+[node name="PanelContainer3" type="PanelContainer" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp"]
+layout_mode = 2
+offset_left = 270.0
+offset_top = 311.111
+offset_right = 1294.0
+offset_bottom = 506.111
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+metadata/_edit_group_ = true
+
+[node name="GridContainer" type="GridContainer" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3"]
+layout_mode = 2
+theme = SubResource("Theme_hl304")
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Label" type="Label" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("33_5cdhd")
+
+[node name="Button2" type="Button" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("34_uckqa")
+
+[node name="Button" type="Button" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("34_uckqa")
+
+[node name="Label2" type="Label" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("33_5cdhd")
+
+[node name="Button3" type="Button" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("34_uckqa")
+
+[node name="Button4" type="Button" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("34_uckqa")
+
+[node name="Label3" type="Label" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("33_5cdhd")
+
+[node name="Button5" type="Button" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("34_uckqa")
+
+[node name="Button6" type="Button" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("34_uckqa")
+
+[node name="Label4" type="Label" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("33_5cdhd")
+
+[node name="Button7" type="Button" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("34_uckqa")
+
+[node name="Button8" type="Button" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("34_uckqa")
+
+[node name="Label5" type="Label" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "a1
+"
+script = ExtResource("33_5cdhd")
+
+[node name="Button9" type="Button" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+material = SubResource("CanvasItemMaterial_lxhtb")
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "+"
+script = ExtResource("34_uckqa")
+
+[node name="Button10" type="Button" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "-
+"
+script = ExtResource("34_uckqa")
+
+[node name="PanelContainer2" type="PanelContainer" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp"]
+layout_mode = 2
+offset_left = 188.889
+offset_top = 530.0
+offset_right = 1364.89
+offset_bottom = 682.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+size_flags_vertical = 3
+metadata/_edit_group_ = true
+
+[node name="VSplitContainer" type="VSplitContainer" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer2"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer2"]
 
 [node name="Enemies" type="Node2D" parent="TileMap"]
 y_sort_enabled = true
@@ -534,5 +1348,49 @@ position = Vector2(54, 182)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("19_slkc2")]
 
+[connection signal="requestPositionPlayer" from="TileMap/Player/Habilidades" to="TileMap/Player/Player_1" method="_on_habilidades_request_position_player"]
+[connection signal="levelUp" from="TileMap/Player/CanvasLayer2/ProgressBar" to="TileMap/Player/Habilidades" method="_from_level_up"]
 [connection signal="levelUp" from="TileMap/Player/CanvasLayer2/ProgressBar" to="TileMap/Player/HUD" method="from_level_up"]
+[connection signal="level_up" from="TileMap/Player/HUD" to="TileMap/Player/HUD/CanvasLayer/BarraDeExperiencia" method="_fron_level_up"]
+[connection signal="level_up" from="TileMap/Player/HUD/CanvasLayer/BarraDeExperiencia" to="TileMap/Player/HUD/VisibleControl" method="visible_on"]
+[connection signal="level_up" from="TileMap/Player/HUD/CanvasLayer/BarraDeExperiencia" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations" method="from_level_up"]
+[connection signal="area_entered" from="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/limite_superior" to="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control" method="_on_limite_superior_area_entered"]
+[connection signal="area_exited" from="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/limite_superior" to="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control" method="_on_limite_superior_area_exited"]
+[connection signal="area_entered" from="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/limite_inferior" to="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control" method="_on_limite_inferior_area_entered"]
+[connection signal="area_exited" from="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control/limite_inferior" to="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control" method="_on_limite_inferior_area_exited"]
+[connection signal="area_entered" from="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/limite_superior" to="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2" method="_on_limite_superior_area_entered"]
+[connection signal="area_exited" from="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/limite_superior" to="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2" method="_on_limite_superior_area_exited"]
+[connection signal="area_entered" from="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/limite_inferior" to="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2" method="_on_limite_inferior_area_entered"]
+[connection signal="area_exited" from="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2/limite_inferior" to="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control2" method="_on_limite_inferior_area_exited"]
+[connection signal="area_entered" from="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/limite_superior" to="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4" method="_on_limite_superior_area_entered"]
+[connection signal="area_exited" from="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/limite_superior" to="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4" method="_on_limite_superior_area_exited"]
+[connection signal="area_entered" from="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/limite_inferior" to="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4" method="_on_limite_inferior_area_entered"]
+[connection signal="area_exited" from="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4/limite_inferior" to="TileMap/Player/HUD/VisibleControl/Control2/Panel/GridContainer/Control4" method="_on_limite_inferior_area_exited"]
+[connection signal="button_down" from="TileMap/Player/HUD/VisibleControl/Control2/CanvasLayer/OptionButton" to="TileMap/Player/HUD/VisibleControl/Control2/CanvasLayer/OptionButton" method="_on_button_down"]
+[connection signal="button_up" from="TileMap/Player/HUD/VisibleControl/Control2/CanvasLayer/OptionButton" to="TileMap/Player/HUD/VisibleControl/Control2/CanvasLayer/OptionButton" method="_on_button_up"]
+[connection signal="moved" from="TileMap/Player/HUD/VisibleControl/Control2/CanvasLayer/OptionButton" to="TileMap/Player/HUD/VisibleControl/Control2/Panel" method="_on_option_button_moved"]
+[connection signal="animations_on" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/animacionContent" method="animationContent_on_from_control"]
+[connection signal="animations_on" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/levelUpAnimacion/CanvasLayer/AnimationPlayer" method="from_root_play"]
+[connection signal="pressed" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer/MarginContainer/Button" to="TileMap/Player/HUD/VisibleControl" method="visible_off"]
+[connection signal="pressed" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer/MarginContainer/Button" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp" method="_on_button_pressed"]
+[connection signal="preseedWithValue" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button2" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button2" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button2" method="_on_pressed"]
+[connection signal="preseedWithValue" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button" method="_on_pressed"]
+[connection signal="preseedWithValue" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button3" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label2" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button3" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button3" method="_on_pressed"]
+[connection signal="preseedWithValue" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button4" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label2" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button4" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button4" method="_on_pressed"]
+[connection signal="preseedWithValue" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button5" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label3" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button5" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button5" method="_on_pressed"]
+[connection signal="preseedWithValue" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button6" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label3" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button6" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button6" method="_on_pressed"]
+[connection signal="preseedWithValue" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button7" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label4" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button7" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button7" method="_on_pressed"]
+[connection signal="preseedWithValue" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button8" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label4" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button8" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button8" method="_on_pressed"]
+[connection signal="preseedWithValue" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button9" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label5" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button9" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button9" method="_on_pressed"]
+[connection signal="preseedWithValue" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button10" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Label5" method="_on_button_preseed_with_value"]
+[connection signal="pressed" from="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button10" to="TileMap/Player/HUD/VisibleControl/guiLevelUpWithAnimations/CanvasLayer/GuiLevelUp/PanelContainer3/GridContainer/Button10" method="_on_pressed"]
 [connection signal="timeout" from="TileMap/Enemies/Timer" to="TileMap/Enemies" method="_on_timer_timeout"]

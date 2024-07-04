@@ -1,12 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://h4rl0h7bsdt0"]
+[gd_scene load_steps=20 format=3 uid="uid://h4rl0h7bsdt0"]
 
 [ext_resource type="Script" path="res://GUI_test/LevelUP_HUD.gd" id="1_ismev"]
 [ext_resource type="Texture2D" uid="uid://c7085y74pwiwi" path="res://Resources/1_Edinnu_UI_asset_pack/Dialogue_plates/Plate (43).png" id="1_iw3p6"]
 [ext_resource type="Texture2D" uid="uid://cfmi7sa2o0em7" path="res://Resources/1_Edinnu_UI_asset_pack/Menu_buttons/Menu_button (13).png" id="2_dy4je"]
 [ext_resource type="Texture2D" uid="uid://dbxqvk86d3nkq" path="res://Resources/1_Cryo's Mini GUI/GUI/Sliced/GUI_4x_sliced.png" id="2_eat2e"]
 [ext_resource type="Texture2D" uid="uid://xusej7d8vk6f" path="res://Resources/1_Edinnu_UI_asset_pack/Menu_buttons/Menu_button (14).png" id="3_enegq"]
+[ext_resource type="Script" path="res://GUI_test/labelGui2.gd" id="4_8hjtv"]
 [ext_resource type="Texture2D" uid="uid://djy01iqprayfh" path="res://Resources/1_Edinnu_UI_asset_pack/Menu_buttons/Menu_button (31).png" id="4_dyk2u"]
 [ext_resource type="Texture2D" uid="uid://cfja6ip7vot08" path="res://Resources/1_Edinnu_UI_asset_pack/Menu_buttons/Menu_button (30).png" id="4_i4hmu"]
+[ext_resource type="Script" path="res://GUI_test/menosVida_button.gd" id="6_lt26l"]
 [ext_resource type="Script" path="res://GUI_test/Habilidades_Container.gd" id="7_318qp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_76loy"]
@@ -202,9 +204,9 @@ modulate = Color(0, 1, 1, 1)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 440.5
+offset_left = -199.5
 offset_top = 128.0
-offset_right = 839.511
+offset_right = 199.511
 offset_bottom = 252.0
 grow_horizontal = 2
 theme = SubResource("Theme_o78sm")
@@ -236,16 +238,22 @@ texture = SubResource("AtlasTexture_2vk3b")
 [node name="vida_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
 layout_mode = 2
 text = "Vida"
+script = ExtResource("4_8hjtv")
 
-[node name="menosVida_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+[node name="menosVida_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container" node_paths=PackedStringArray("label")]
 layout_mode = 2
 texture_normal = ExtResource("2_dy4je")
 texture_pressed = ExtResource("4_i4hmu")
+script = ExtResource("6_lt26l")
+suma = -1
+label = NodePath("../vida_label")
 
-[node name="masVida_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+[node name="masVida_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container" node_paths=PackedStringArray("label")]
 layout_mode = 2
 texture_normal = ExtResource("3_enegq")
 texture_pressed = ExtResource("4_dyk2u")
+script = ExtResource("6_lt26l")
+label = NodePath("../vida_label")
 
 [node name="daño_icon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
 layout_mode = 2
@@ -254,16 +262,22 @@ texture = SubResource("AtlasTexture_n1wpb")
 [node name="daño_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
 layout_mode = 2
 text = "Daño"
+script = ExtResource("4_8hjtv")
 
-[node name="menosDaño_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+[node name="menosDaño_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container" node_paths=PackedStringArray("label")]
 layout_mode = 2
 texture_normal = ExtResource("2_dy4je")
 texture_pressed = ExtResource("4_i4hmu")
+script = ExtResource("6_lt26l")
+suma = -1
+label = NodePath("../daño_label")
 
-[node name="masDaño_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+[node name="masDaño_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container" node_paths=PackedStringArray("label")]
 layout_mode = 2
 texture_normal = ExtResource("3_enegq")
 texture_pressed = ExtResource("4_dyk2u")
+script = ExtResource("6_lt26l")
+label = NodePath("../daño_label")
 
 [node name="velocidad_icon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
 layout_mode = 2
@@ -272,16 +286,22 @@ texture = SubResource("AtlasTexture_n6k3f")
 [node name="velocidad_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
 layout_mode = 2
 text = "Velocidad"
+script = ExtResource("4_8hjtv")
 
-[node name="menosVelocidad_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+[node name="menosVelocidad_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container" node_paths=PackedStringArray("label")]
 layout_mode = 2
 texture_normal = ExtResource("2_dy4je")
 texture_pressed = ExtResource("4_i4hmu")
+script = ExtResource("6_lt26l")
+suma = -1
+label = NodePath("../velocidad_label")
 
-[node name="masVelocidad_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+[node name="masVelocidad_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container" node_paths=PackedStringArray("label")]
 layout_mode = 2
 texture_normal = ExtResource("3_enegq")
 texture_pressed = ExtResource("4_dyk2u")
+script = ExtResource("6_lt26l")
+label = NodePath("../velocidad_label")
 
 [node name="rango_icon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
 layout_mode = 2
@@ -290,16 +310,22 @@ texture = SubResource("AtlasTexture_f6u78")
 [node name="rango_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
 layout_mode = 2
 text = "Rango Arma"
+script = ExtResource("4_8hjtv")
 
-[node name="menosRango_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+[node name="menosRango_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container" node_paths=PackedStringArray("label")]
 layout_mode = 2
 texture_normal = ExtResource("2_dy4je")
 texture_pressed = ExtResource("4_i4hmu")
+script = ExtResource("6_lt26l")
+suma = -1
+label = NodePath("../rango_label")
 
-[node name="masRango_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+[node name="masRango_button" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container" node_paths=PackedStringArray("label")]
 layout_mode = 2
 texture_normal = ExtResource("3_enegq")
 texture_pressed = ExtResource("4_dyk2u")
+script = ExtResource("6_lt26l")
+label = NodePath("../rango_label")
 
 [node name="Habilidades_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
