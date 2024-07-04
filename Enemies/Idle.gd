@@ -10,5 +10,5 @@ func transition():
 	if player_entered:
 			get_parent().change_state("walk")
 
-func _on_player_detection_body_entered(body):
+func _on_player_detetction_body_entered(body):
 	player_entered=true	
