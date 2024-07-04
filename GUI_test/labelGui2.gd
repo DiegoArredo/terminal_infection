@@ -39,7 +39,7 @@ func labelSetDefault():
 	text_default = text 
 
 func labelTextSet(variable):
-	text = text + " (" + str(variable) + ")" 
+	text = str(variable)
 
 func labelValorSet(variable):
 	valor = variable

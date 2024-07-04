@@ -4,7 +4,7 @@
 
 [sub_resource type="GDScript" id="GDScript_64bww"]
 script/source = "extends CardHabilidad
-
+var nameH = \"Bala Magia\"
 
 func _ready():
 	pass # Replace with function body.
@@ -30,7 +30,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Card_habilidad"]
 layout_mode = 2
-text = "Habilidad 1"
+text = "Balas Magia"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Card_habilidad"]

@@ -8,7 +8,7 @@ extends CanvasLayer
 
 @onready var labels = [vida_label, daño_label, velocidad_label, rango_label]
 
-
+var habilidad_selected
 var vida
 var daño
 var velocidad
@@ -37,5 +37,17 @@ func _process(delta):
 
 
 func _on_button_pressed():
+	if habilidad_selected == "Bala Magia":
+		pass
+	if habilidad_selected == "Magia Explosiva":
+		var Magia_e = preload()
+	VariablesGlobales.life = int($PanelContainer/MarginContainer/VBoxContainer/Atributos_Container/vida_label.text)
+	VariablesGlobales.daño = VariablesGlobales.daño + 0.5* int($"PanelContainer/MarginContainer/VBoxContainer/Atributos_Container/daño_label".text)
+	VariablesGlobales.velocidad = int($PanelContainer/MarginContainer/VBoxContainer/Atributos_Container/velocidad_label.text)
+	VariablesGlobales.rango = int($PanelContainer/MarginContainer/VBoxContainer/Atributos_Container/rango_label.text)
 	get_tree().paused = false
 	queue_free()
+
+
+func _on_habilidades_container_emit_name_habilidad(nombre):
+	habilidad_selected = nombre

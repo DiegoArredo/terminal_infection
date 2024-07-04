@@ -26,7 +26,7 @@ func Update_physics(_delta):
 	#parent.velocity =direction* 30
 	#parent.move_and_slide()
 	var direction = parent.to_local(parent.nav_agent.get_next_path_position()).normalized()
-	parent.velocity =direction* 30
+	parent.velocity =direction* VariablesGlobales.speed_enemy
 	parent.move_and_slide()
 	
 	if parent.velocity.x != 0:

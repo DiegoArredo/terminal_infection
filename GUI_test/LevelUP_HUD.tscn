@@ -30,7 +30,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2, 3.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(440.5, 298), Vector2(440.5, 298), Vector2(440, 70)]
+"values": [Vector2(440.5, 298), Vector2(440.5, 298), Vector2(438, 38)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -204,9 +204,9 @@ modulate = Color(0, 1, 1, 1)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 440.5
+offset_left = -199.5
 offset_top = 128.0
-offset_right = 839.511
+offset_right = 199.511
 offset_bottom = 252.0
 grow_horizontal = 2
 theme = SubResource("Theme_o78sm")
@@ -226,14 +226,19 @@ libraries = {
 layout_mode = 2
 
 [node name="Atributos_Container" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 4
-columns = 4
+columns = 5
 
 [node name="vida_icon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_2vk3b")
+
+[node name="vida_label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+text = "Vida"
 
 [node name="vida_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
 layout_mode = 2
@@ -259,6 +264,10 @@ label = NodePath("../vida_label")
 layout_mode = 2
 texture = SubResource("AtlasTexture_n1wpb")
 
+[node name="daño_label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+text = "Daño"
+
 [node name="daño_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
 layout_mode = 2
 text = "Daño"
@@ -283,6 +292,10 @@ label = NodePath("../daño_label")
 layout_mode = 2
 texture = SubResource("AtlasTexture_n6k3f")
 
+[node name="velocidad_label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+text = "Velocidad"
+
 [node name="velocidad_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
 layout_mode = 2
 text = "Velocidad"
@@ -306,6 +319,10 @@ label = NodePath("../velocidad_label")
 [node name="rango_icon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_f6u78")
+
+[node name="rango_label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
+layout_mode = 2
+text = "Rango Arma"
 
 [node name="rango_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Atributos_Container"]
 layout_mode = 2
@@ -336,4 +353,5 @@ script = ExtResource("7_318qp")
 layout_mode = 2
 text = "OK"
 
+[connection signal="emitNameHabilidad" from="PanelContainer/MarginContainer/VBoxContainer/Habilidades_Container" to="." method="_on_habilidades_container_emit_name_habilidad"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Ok_button" to="." method="_on_button_pressed"]

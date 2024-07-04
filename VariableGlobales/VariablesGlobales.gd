@@ -32,21 +32,25 @@ var magiaNivel = 1
 var life_enemy1=25
 var damage_enemy1=3
 var level_enemy1=1
+var speed_enemy = 30
 
 #variables enemigo 2
 var life_enemy2=50
 var damage_enemy2=3
 var level_enemy2=1
+var speed_enemy2 = 30
 
 #variables enemigo 3
 var life_monster1=75
 var damage_monster1=3
 var level_monster1=1
+var speed_monster1 = 30
 
 #variables enemigo 4
 var life_monster2=100
 var damage_monster2=3
 var level_monster2=1
+var speed_monster2 = 30
 
 #variables boos 1
 var life_boos1=500
