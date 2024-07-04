@@ -605,5 +605,6 @@ position = Vector2(54, 182)
 [node name="CanvasLayer" parent="." instance=ExtResource("19_slkc2")]
 visible = false
 
+[connection signal="playerdied" from="TileMap/Player/Player_1" to="." method="_on_player_1_playerdied"]
 [connection signal="timeout" from="TileMap/Enemies/Timer" to="TileMap/Enemies" method="_on_timer_timeout"]
 [connection signal="timeout" from="TileMap/Enemies/agentTimer" to="TileMap/Enemies/agentTimer" method="_on_timeout"]

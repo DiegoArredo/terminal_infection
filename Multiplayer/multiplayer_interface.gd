@@ -16,7 +16,7 @@ func _process(_delta):
 
 
 func _on_play_button_pressed():
-	$"/root/VariablesGlobales".nombre = $CanvasLayer/PanelContainer/VBoxContainer/LineEdit.text
+	VariablesGlobales.nombre = $CanvasLayer/PanelContainer/VBoxContainer/LineEdit.text
 	get_tree().change_scene_to_file("res://Multiplayer/world_multiplayer.tscn")
 
 

@@ -24,7 +24,7 @@ func _process(delta):
 func makepath():
 	nav_agent.target_position = player.global_position
 	
-func take_damage(damage:int):
+func take_damage(damage):
 	current_health-=damage
 	healthBar.health = current_health
 	
