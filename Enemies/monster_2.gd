@@ -4,6 +4,8 @@ class_name Monster2
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animation = $AnimationPlayer
 @onready var healthBar = $BarraVida
+@onready var nav_agent = $NavigationAgent2D
+@onready var agent_timer = $"../agentTimer"
 
 @export var max_health = 10
 @export var current_health = max_health
@@ -11,12 +13,15 @@ class_name Monster2
 func _ready():
 	$EnemyStateMachine.init(self, animated_sprite, animation,player)
 	healthBar.init_health(current_health)
+	agent_timer.timeout.connect(makepath)
 func _physics_process(delta):
 	$EnemyStateMachine._physics_process(delta)
 func _process(delta):
 	$EnemyStateMachine._process(delta)
 
-	
+func makepath():
+	nav_agent.target_position = player.global_position
+		
 func take_damage(damage:int):
 	current_health-=damage
 	healthBar.health = current_health

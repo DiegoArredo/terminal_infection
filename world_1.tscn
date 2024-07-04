@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bwk4lkx20owd2"]
+[gd_scene load_steps=40 format=3 uid="uid://bwk4lkx20owd2"]
 
 [ext_resource type="Texture2D" uid="uid://cfpr2kias35l5" path="res://Resources/Blood ForestDesert/Blood Desert Tileset.png" id="1_fmjd3"]
 [ext_resource type="Texture2D" uid="uid://b1wefbwjerenv" path="res://Resources/Ancient Caves Tileset (3)/Ancient Caves Tileset/Tileset and SpriteSheets/Tileset Add on3.png" id="1_lgp7e"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" path="res://Experience_bar.gd" id="13_liuyl"]
 [ext_resource type="Script" path="res://SpawnEnemy/Area2D.gd" id="14_gcw1i"]
 [ext_resource type="Script" path="res://LabelLevelUp2.gd" id="15_dx8th"]
-[ext_resource type="PackedScene" uid="uid://cto6cevkt1kwo" path="res://SistemaSubidaNivel (copia)/HUD.tscn" id="16_dkwuf"]
 [ext_resource type="PackedScene" uid="uid://dr3vwbbqswgc8" path="res://pausa/menuPausa.tscn" id="19_slkc2"]
 [ext_resource type="PackedScene" uid="uid://bdki7ga6erwcs" path="res://Objetos/tarjeta.tscn" id="20_31x06"]
 
@@ -173,26 +172,73 @@ texture = ExtResource("4_bs5sc")
 6:14/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:14/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ugweb"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_wpwwc"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7txkl"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_h0gjv"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_1ch33"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8vkkm"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nqkdi"]
 texture = ExtResource("1_fmjd3")
 0:5/0 = 0
 0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:5/0/physics_layer_0/angular_velocity = 0.0
+0:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ugweb")
 1:5/0 = 0
 1:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:5/0/physics_layer_0/angular_velocity = 0.0
 1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7txkl")
 2:5/0 = 0
 2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:5/0/physics_layer_0/angular_velocity = 0.0
+2:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_1ch33")
 3:5/0 = 0
 3:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:5/0/physics_layer_0/angular_velocity = 0.0
+3:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_8vkkm")
 0:6/size_in_atlas = Vector2i(5, 5)
 0:6/0 = 0
 0:6/0/z_index = -1
 0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:6/0/physics_layer_0/angular_velocity = 0.0
+0:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_wpwwc")
 5:4/size_in_atlas = Vector2i(1, 2)
 5:4/0 = 0
 5:4/0/z_index = -1
@@ -334,6 +380,7 @@ texture = ExtResource("1_fmjd3")
 2:2/0 = 0
 2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_h0gjv")
 2:3/0 = 0
 2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:3/0/physics_layer_0/angular_velocity = 0.0
@@ -435,6 +482,7 @@ texture = ExtResource("10_fkhcx")
 [sub_resource type="TileSet" id="TileSet_kwjnr"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 14
+navigation_layer_0/layers = 1
 sources/2 = SubResource("TileSetAtlasSource_nqkdi")
 sources/0 = SubResource("TileSetAtlasSource_lnvmi")
 sources/1 = SubResource("TileSetAtlasSource_d8g6u")
@@ -453,6 +501,23 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -12, -10, 0, 0, 0, 0, 1301, -13, 0, 0, 0, 0, 1306, 746, 0, 0, 0, 0, -10, 752, 0, 0, 0, 0, -12, -10)
 }
 point_count = 5
+
+[sub_resource type="GDScript" id="GDScript_tibh3"]
+script/source = "extends Timer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+
+"
 
 [node name="world_1" type="Node2D"]
 
@@ -500,8 +565,6 @@ offset_right = 42.4
 offset_bottom = 37.12
 script = ExtResource("15_dx8th")
 
-[node name="HUD" parent="TileMap/Player" instance=ExtResource("16_dkwuf")]
-
 [node name="Enemies" type="Node2D" parent="TileMap"]
 y_sort_enabled = true
 position = Vector2(1, 0)
@@ -520,6 +583,11 @@ rotation = -0.00228484
 [node name="Timer" type="Timer" parent="TileMap/Enemies"]
 wait_time = 4.01
 
+[node name="agentTimer" type="Timer" parent="TileMap/Enemies"]
+wait_time = 0.5
+autostart = true
+script = SubResource("GDScript_tibh3")
+
 [node name="Items" type="Node2D" parent="TileMap"]
 visible = false
 
@@ -533,6 +601,7 @@ position = Vector2(380, 186)
 position = Vector2(54, 182)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("19_slkc2")]
+visible = false
 
-[connection signal="levelUp" from="TileMap/Player/CanvasLayer2/ProgressBar" to="TileMap/Player/HUD" method="from_level_up"]
 [connection signal="timeout" from="TileMap/Enemies/Timer" to="TileMap/Enemies" method="_on_timer_timeout"]
+[connection signal="timeout" from="TileMap/Enemies/agentTimer" to="TileMap/Enemies/agentTimer" method="_on_timeout"]

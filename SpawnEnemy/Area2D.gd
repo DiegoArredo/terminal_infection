@@ -52,3 +52,5 @@ func spawn():
 			add_child(enemy_instance3)
 func _on_timer_timeout():
 	bool_spawn = true
+
+

@@ -2,8 +2,9 @@ extends EnemyState
 
 
 func Enter():
-	pass
+	parent.makepath()
 
+	
 func Update(_delta):
 
 	
@@ -18,10 +19,14 @@ func Update(_delta):
 		state_transition.emit(self,"Attacking")
 		
 func Update_physics(_delta):
+	
 	if parent.velocity != Vector2.ZERO:
 		animation.play("walk")
 
-	var direction=parent.global_position.direction_to(player.global_position)
+	#var direction=parent.global_position.direction_to(player.global_position)
+	#parent.velocity =direction* 30
+	#parent.move_and_slide()
+	var direction = parent.to_local(parent.nav_agent.get_next_path_position()).normalized()
 	parent.velocity =direction* 30
 	parent.move_and_slide()
 	
@@ -29,6 +34,10 @@ func Update_physics(_delta):
 		animated_sprite.flip_v = false
 		animated_sprite.flip_h = parent.velocity.x < 0
 		
+
+
+
+
 func Exit():
 	pass
 
